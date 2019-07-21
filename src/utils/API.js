@@ -1,9 +1,9 @@
 import axios from "axios";
 
-// The getRecipes method retrieves recipes from the server
-// It accepts a "query" or term to search the recipe api for
+// Export an object containing methods we'll use for accessing the API
+
 export default {
-  getRecipes: function(query) {
-    return axios.get("/api/recipes", { params: { q: query } });
-  }
-};
+  findShops: function(location) {
+    return axios.get("api/google", { params: { location: lat + "," + long } });
+    },
+}
