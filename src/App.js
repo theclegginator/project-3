@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Drinks from './components/Drinks';
-import Container from './components/Container';
+import DrinkList from './components/DrinkList';
+import Wrapper from './components/Wrapper';
 import images from './images.json';
 
 
@@ -21,9 +21,9 @@ class App extends Component {
         <header className="header">
           Espresso Drinks
         </header>
-        <Container
+        <Wrapper
           pictures={this.state.images.map(picture => (
-            <Drinks
+            <DrinkList
               allDrinks={this.allDrinks}
               id={picture.id}
               image={picture.image}

@@ -1,12 +1,12 @@
 import React from "react";
 import "./style.css";
 
-const Drinks = props => (
+const DrinkList = props => (
     <div className="drinksList">
       <div className="espressoList">
         <img className=" img-responsive img-thumbnail" alt={props.name} src={props.image} onClick={() => props.allDrinks(props.id)}/>
       </div>
     </div>
   );
-  export default Drinks;
+  export default DrinkList;
   
