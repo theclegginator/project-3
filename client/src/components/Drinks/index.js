@@ -5,7 +5,7 @@ const Drinks = props => (
     <div className="drinksList">
       <div className="espressoList">
         <img className=" img-responsive img-thumbnail" alt={props.name} src={props.image} onClick={() => props.allDrinks(props.id)}/>
-        <h3 className="img-thumbnail">{props.name}</h3>
+        <h3 className="drinkName img-thumbnail">{props.name}</h3>
       </div>
     </div>
   );
