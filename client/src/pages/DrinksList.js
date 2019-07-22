@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import Drinks from '../client/src/components/drinks';
-import Container from '../client/src/components/container';
+import Drinks from '../client/src/components/Drinks';
+import Container from '../client/src/components/Container';
 import images from './images.json';
 
 
-class Drinks extends Component {
+class DrinksList extends Component {
 
   state = {
     images
@@ -39,4 +39,4 @@ render () {
 };
 
 }
-export default Drinks;
+export default DrinksList;
