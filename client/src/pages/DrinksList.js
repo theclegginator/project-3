@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Drinks from '../client/src/components/Drinks';
-import Container from '../client/src/components/Container';
+import DrinkIconPics from '../client/src/components/DrinkIconPics';
 import images from './images.json';
-
+// import { Col, Row, Container } from '../client/src/components/Grid';
 
 class DrinksList extends Component {
 
@@ -11,6 +11,8 @@ class DrinksList extends Component {
     images
 
   };
+
+  //\\//\\CLICK EVENT ON EACH DRINK IMAGE //\\//\\
 
   allDrinks = id => {
 
@@ -23,7 +25,7 @@ class DrinksList extends Component {
         <header className="header">
           Espresso Drinks
         </header>
-        <Container
+        <DrinkIconPics
           pictures={this.state.images.map(picture => (
             <Drinks
               allDrinks={this.allDrinks}
