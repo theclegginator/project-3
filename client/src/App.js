@@ -3,7 +3,7 @@ import './App.css';
 import Drinks from './components/Drinks';
 import Container from './components/Container';
 import images from './images.json';
-
+// import { Link } from "./../../routes";
 
 class App extends Component {
 
@@ -45,6 +45,10 @@ class App extends Component {
         </header>
         <Container
           pictures={this.state.images.map(picture => (
+          // <Link to={{
+          //   pathname: `/recipe/${picture.picture_id}`,
+          //   state: { recipe: picture.name }
+          // }}>
             <Drinks
               allDrinks={this.allDrinks}
               id={picture.id}
@@ -52,6 +56,7 @@ class App extends Component {
               name={picture.name}
               image={picture.image}
             />
+            // </Link>
           ))}
         />
       </div>
