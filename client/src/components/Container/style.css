@@ -1,9 +1,7 @@
 .picContainer {
-         padding: 85px;   
-      display: inline-flex;
-      flex-flow: row wrap;
-      padding-top: 50px;
- justify-content: center;
-    }
-  
-  
+  padding: 85px;
+  display: inline-flex;
+  flex-flow: row wrap;
+  padding-top: 50px;
+  justify-content: center;
+}

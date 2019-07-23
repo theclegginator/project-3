@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import './App.css';
 import Drinks from '../client/src/components/Drinks';
 import Container from '../client/src/components/Container';
@@ -18,25 +17,28 @@ class DrinksList extends Component {
   };
 
 
-render () {
-  return (
-<div className="Drinks">
-     <header className = "header">
-      Espresso Drinks
-     </header>
-      <Container
-      pictures=
-        {this.state.images.map(picture => (
-      <Drinks 
-      allDrinks={this.allDrinks}
-      id={picture.id}
-      image={picture.image}
-      />
-        ))}
+  render() {
+    return (
+      <div className="App">
+        <header className="header">
+          Espresso Drinks
+        </header>
+        <Container
+          pictures={this.state.images.map(picture => (
+            <Drinks
+              allDrinks={this.allDrinks}
+              id={picture.id}
+              key={picture.id}
+              name={picture.name}
+              image={picture.image}
+            />
+          ))}
         />
-    </div>
-  );
-};
+      </div>
+    );
+  };
 
 }
+
+
 export default DrinksList;
