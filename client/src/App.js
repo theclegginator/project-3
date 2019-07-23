@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Drinks from './components/Drinks';
-import Container from './components/Container';
+import DrinkIconPics from './components/DrinkIconPics';
 import images from './images.json';
 // import { Link } from "./../../routes";
 
@@ -43,7 +43,7 @@ class App extends Component {
         <header className="header">
           Espresso Drinks
         </header>
-        <Container
+        <DrinkIconPics
           pictures={this.state.images.map(picture => (
           // <Link to={{
           //   pathname: `/recipe/${picture.picture_id}`,

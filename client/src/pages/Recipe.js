@@ -1,10 +1,10 @@
 import React, { Component } from "react";
+// import Drinks from '../client/src/components/Drinks';
+// import DrinkIconPics from '../client/src/components/DrinkIconPics';
+import images from './images.json';
+import { Col, Row, Container } from '../client/src/components/Grid';
+import Nav from '../client/src/components/Nav';
 
-import { Col, Row, Container } from "../components/Grid";
-import Nav from "../components/Nav";
-import images from '../images.json';
-// import Drinks from './components/Drinks';
-// import Container from './components/Container';
 
 class Recipe extends Component {
   state = {
