@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-
 import { Col, Row, Container } from "../components/Grid";
-import Nav from "../components/Nav";
+// import Nav from "../components/Nav";
 import images from '../images.json';
-// import Drinks from './components/Drinks';
-// import Container from './components/Container';
+// import Drinks from '../components/Drinks';
+
 
 class Recipe extends Component {
   state = {
@@ -19,9 +18,8 @@ class Recipe extends Component {
 
   render() {
     return (
+      <div>     
       <Container fluid>
-        <Nav>        
-        </Nav>>
         <div className="selectedRecipe">
         <Row>
         <h3 className="selectedRecipeTitle">{this.state.recipe.name }</h3>
@@ -38,7 +36,9 @@ class Recipe extends Component {
           </Col>
         </Row>
         </div>
+        <h1>RECIPES SHOULD BE SHOWING UP HERE!</h1>
       </Container>
+      </div>
     );
   }
 }
