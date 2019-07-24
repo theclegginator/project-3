@@ -7,7 +7,7 @@ function Drinks (props) {
   return(
     <div className="drinksList">
       <div className="espressoList">
-        <Link to="/recipe">
+        <Link to="/recipe" className="linkRecipe">
           <img className="img-responsive img-thumbnail" onClick={() => props.selectedCoffeeRecipe(props.id)} alt={props.name} src={props.image}/>
         </Link>
         <h3 className="drinkName img-thumbnail">{props.name}</h3>

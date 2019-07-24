@@ -5,6 +5,7 @@
 
 .navbar-brand {
 text-align: center;  
+text-decoration: none;
 font: 1em sans-serif;  
 }
 
@@ -13,3 +14,10 @@ font: 1em sans-serif;
  color: white;
 }
  */
+.navbar-nav{
+  display: flex;
+}
+.nav-link{
+  text-decoration: none;
+  color: white;
+}
