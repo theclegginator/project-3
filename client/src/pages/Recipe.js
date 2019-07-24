@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { Col, Row, Container } from "../components/Grid";
 import images from '../images.json';
-import { Col, Row, Container } from '../client/src/components/Grid';
+
 
 
 
