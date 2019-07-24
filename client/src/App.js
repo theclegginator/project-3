@@ -5,8 +5,9 @@ import DrinksList from './pages/DrinksList';
 import Shops from './pages/Shops';
 import Recipe from './pages/Recipe';
 import Nav from "./components/Nav"
-// import Drinks from './components/Drinks';
 import Container from './components/Container';
+import Drinks from './components/Drinks';
+import DrinkIconPics from './components/DrinkIconPics';
 import images from './images.json';
 // import { Link } from "./../../routes";
 

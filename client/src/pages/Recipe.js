@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+
 import { Col, Row, Container } from "../components/Grid";
-// import Nav from "../components/Nav";
 import images from '../images.json';
-// import Drinks from '../components/Drinks';
+import { Col, Row, Container } from '../client/src/components/Grid';
+
 
 
 class Recipe extends Component {
