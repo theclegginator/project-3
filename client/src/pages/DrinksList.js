@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+
+import Drinks from '../components/Drinks';
+import Container from '../components/Container';
+import images from '../images.json';
 import './App.css';
-import Drinks from '../client/src/components/Drinks';
+
 import DrinkIconPics from '../client/src/components/DrinkIconPics';
-import images from './images.json';
-// import { Col, Row, Container } from '../client/src/components/Grid';
+
 
 class DrinksList extends Component {
 
@@ -25,6 +28,8 @@ class DrinksList extends Component {
         <header className="header">
           Espresso Drinks
         </header>
+        <Container>
+
         <DrinkIconPics
           pictures={this.state.images.map(picture => (
             <Drinks
@@ -35,8 +40,8 @@ class DrinksList extends Component {
               image={picture.image}
             />
           ))}
-        />
-      </div>
+        </Container>
+        </div>
     );
   };
 

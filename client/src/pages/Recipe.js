@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-// import Drinks from '../client/src/components/Drinks';
-// import DrinkIconPics from '../client/src/components/DrinkIconPics';
-import images from './images.json';
+
+import { Col, Row, Container } from "../components/Grid";
+import images from '../images.json';
 import { Col, Row, Container } from '../client/src/components/Grid';
-import Nav from '../client/src/components/Nav';
+
 
 
 class Recipe extends Component {
@@ -19,9 +19,8 @@ class Recipe extends Component {
 
   render() {
     return (
+      <div>     
       <Container fluid>
-        <Nav>        
-        </Nav>>
         <div className="selectedRecipe">
         <Row>
         <h3 className="selectedRecipeTitle">{this.state.recipe.name }</h3>
@@ -38,7 +37,9 @@ class Recipe extends Component {
           </Col>
         </Row>
         </div>
+        <h1>RECIPES SHOULD BE SHOWING UP HERE!</h1>
       </Container>
+      </div>
     );
   }
 }

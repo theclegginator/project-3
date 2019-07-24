@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
+import DrinksList from './pages/DrinksList';
+import Shops from './pages/Shops';
+import Recipe from './pages/Recipe';
+import Nav from "./components/Nav"
+import Container from './components/Container';
 import Drinks from './components/Drinks';
 import DrinkIconPics from './components/DrinkIconPics';
 import images from './images.json';
@@ -12,17 +18,17 @@ class App extends Component {
   };
 
   allDrinks = id => {
-    let drinkSelection = images[id-1];
+    let drinkSelection = images[id - 1];
     let ingredients = drinkSelection.ingredients;
     let keys = []; // array for ingredient key values
     let ounces = []; // array for measurements of each ingredient
     let ingredientHeights = []; // array for the height in rem of each CSS component in the coffee cup
 
     for (let k in ingredients) keys.push(k);
-    for(let q in ingredients) {
-      if(ingredients.hasOwnProperty(q)) {
-          let measurement = ingredients[q];
-          ounces.push(measurement);
+    for (let q in ingredients) {
+      if (ingredients.hasOwnProperty(q)) {
+        let measurement = ingredients[q];
+        ounces.push(measurement);
       }
     }
     console.log(keys)
@@ -32,7 +38,7 @@ class App extends Component {
 
     for (let i = 0; i < ounces.length; i++) {
       // Note: total rem height for coffee cup is 20 rem, hence the calculation below (total height / ingredient ratio)
-      ingredientHeights.push(20*(ounces[i]/totalOunces));
+      ingredientHeights.push(20 * (ounces[i] / totalOunces));
     }
     console.log(ingredientHeights)
   };
@@ -40,30 +46,26 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="header">
-          Espresso Drinks
-        </header>
-        <DrinkIconPics
-          pictures={this.state.images.map(picture => (
-          // <Link to={{
-          //   pathname: `/recipe/${picture.picture_id}`,
-          //   state: { recipe: picture.name }
-          // }}>
-            <Drinks
-              allDrinks={this.allDrinks}
-              id={picture.id}
-              key={picture.id}
-              name={picture.name}
-              image={picture.image}
-            />
-            // </Link>
-          ))}
-        />
-      </div>
-    );
-  };
+        <Router>
+          <div>
+            <Nav />
+            <Switch>
+              <Route exact path="/" component={DrinksList} />
+              <Route exact path="/shops" component={Shops} />
+              <Route exact path="/recipe" component={Recipe} />
+            </Switch>
+          </div>
+        </Router>
+        <div>
+          <Container>
+            <h1> Mack Daddy Landing Page</h1>
 
-}
-
-
-export default App;
+          </Container>
+        </div>
+        </div>
+        );
+      };
+    }
+    
+    
+    export default App;
