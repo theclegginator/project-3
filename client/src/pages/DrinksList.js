@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
 import Drinks from '../components/Drinks';
-import Container from '../components/Container';
+import { Container } from "../components/Grid";
 import images from '../images.json';
-import './App.css';
+import '../App.css';
 
-import DrinkIconPics from '../client/src/components/DrinkIconPics';
+import DrinkIconPics from '../components/DrinkIconPics';
 
 
 class DrinksList extends Component {
@@ -40,6 +40,7 @@ class DrinksList extends Component {
               image={picture.image}
             />
           ))}
+          />
         </Container>
         </div>
     );
