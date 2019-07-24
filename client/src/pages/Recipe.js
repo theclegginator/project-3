@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import { Col, Row, Container } from "../components/Grid";
 import images from '../images.json';
+import Mug from '../components/Mug'
+import Drinks from '../components/Drinks'
 
 
 
@@ -13,8 +15,9 @@ class Recipe extends Component {
 
   };
 
-  selectedCoffeeRecipe() {
-
+  selectedCoffeeRecipe = id => {
+    console.log("this is working")
+    console.log(id)
   }
 
   render() {
@@ -26,6 +29,7 @@ class Recipe extends Component {
         <h3 className="selectedRecipeTitle">{this.state.recipe.name }</h3>
           <Col size="md-8 xs-12 md-offset-1">
               <img className="selectedRecipeImg" src={this.state.recipe.image} alt={this.state.recipe.name}/>
+              <Drinks selectedCoffeeRecipe={this.selectedCoffeeRecipe}/>
           </Col>
         </Row>
         <Row>
@@ -37,7 +41,6 @@ class Recipe extends Component {
           </Col>
         </Row>
         </div>
-        <h1>RECIPES SHOULD BE SHOWING UP HERE!</h1>
       </Container>
       </div>
     );
