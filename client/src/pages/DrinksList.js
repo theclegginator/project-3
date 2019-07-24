@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Link } from "react-router-dom";
 import Drinks from '../components/Drinks';
 import { Container } from "../components/Grid";
 import images from '../images.json';
@@ -20,7 +20,10 @@ class DrinksList extends Component {
   allDrinks = id => {
 
   };
-
+  selectedCoffeeRecipe = id => {
+    console.log("this is working")
+    console.log(id)
+  }
 
   render() {
     return (
@@ -32,13 +35,16 @@ class DrinksList extends Component {
 
         <DrinkIconPics
           pictures={this.state.images.map(picture => (
+            <Link to="/recipe">
             <Drinks
+              selectedCoffeeRecipe={this.selectedCoffeeRecipe}
               allDrinks={this.allDrinks}
               id={picture.id}
               key={picture.id}
               name={picture.name}
               image={picture.image}
             />
+            </Link>
           ))}
           />
         </Container>
