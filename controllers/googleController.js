@@ -1,16 +1,28 @@
 const axios = require("axios");
 const db = require("../models");
+require('dotenv').config();
+
+
+
+
+
 
 // Defining methods for the googleController
 
 // findAll searches the Google Books API and returns only the entries we haven't already saved
 
+
+
 // It also makes sure that the books returned from the API all contain a title, author, link, description, and image
 module.exports = {
   findShops: function (req, res) {
-    const { query: params } = req;
+    const apiKEY = process.env.REACT_APP_SHOP_API_KEY;
+    console.log("QString:" + "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + req + "&radius=500&types=cafe&keyword=coffee&key=" + apiKEY)
+    
+
+    // const { query: params } = req;
     axios
-      .get("https://www.googleapis.com/books/v1/volumes" + params + "&radius=500&types=cafe&keyword=coffee&key=AIzaSyCxeEckegkJGYHdtjZkrWJANCGAiVi5NRk")
+      .get("https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + req + "&radius=500&types=cafe&keyword=coffee&key=" + apiKEY)
       
       .then(results =>
         console.log(results)

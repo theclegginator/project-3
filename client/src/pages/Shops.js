@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import { Container } from "../components/Grid";
+import ShopListContainer from "../components/ShopListContainer";
 
 class Shops extends Component {
+
 
     render() {
         return (
             <div>
                 <div>
-                    <Container>
-                        <h1> Map </h1>
-                    </Container>
-
+                    <ShopListContainer />
                 </div>
             </div>
         );
