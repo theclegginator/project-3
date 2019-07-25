@@ -7,6 +7,10 @@ import Drinks from '../components/Drinks'
 import IngredientEspresso from "../components/IngredientEspresso";
 import IngredientMilk from "../components/IngredientMilk"
 import IngredientWater from "../components/IngredientWater"
+import IngredientCoffee from "../components/IngredientCoffee"
+import IngredientHotChoc from "../components/IngredientHotchoc"
+import IngredientFoamedMilk from "../components/IngredientFoamedMilk"
+import IngredientSteamedMilk from "../components/IngredientSteamedMilk"
 
 
 class Recipe extends Component {
@@ -51,13 +55,13 @@ class Recipe extends Component {
         case "Decaf Drip Brew":
         case "Drip Brew":
         case "French Press":
-          headTitles.unshift('IngredientCoffee')
+          headTitles.unshift(IngredientCoffee)
           break;
         case "Foamed Milk":
-          headTitles.unshift("IngredientFoamedMilk")
+          headTitles.unshift(IngredientFoamedMilk)
           break;
         case "Steamed Milk":
-          headTitles.unshift("IngredientSteamedMilk")
+          headTitles.unshift(IngredientSteamedMilk)
           break;
         case "Warm Milk":
         case "Condensed Milk":
@@ -69,7 +73,7 @@ class Recipe extends Component {
           headTitles.unshift(IngredientEspresso)
           break;
         case "Hot Chocolate":
-          headTitles.unshift("IngredientHotChoc")
+          headTitles.unshift(IngredientHotChoc)
           break;
         case "Whipped Cream":
           headTitles.unshift("IngredientWhippedCream")
