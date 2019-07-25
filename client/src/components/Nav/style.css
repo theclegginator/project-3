@@ -1,6 +1,7 @@
 .navbar {
   color: transparent;
-
+align-content: left;
+text-align: left; 
 }
 
 .navbar-brand {
@@ -20,4 +21,8 @@ font: 1em sans-serif;
 .nav-link{
   text-decoration: none;
   color: white;
+  padding-left: 40px;
+  align-content: center;
+  display: flex;
+
 }
