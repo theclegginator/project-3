@@ -1,0 +1,16 @@
+.hotchoc {
+    background-color: rgb(98, 49, 21);
+    text-align: center;
+    vertical-align: middle;
+    margin: 0;
+    color: white;
+    height: 5rem;
+    line-height: 5rem;
+    width: 20rem;
+    position: relative !important;
+    z-index: 5 !important;
+    vertical-align: bottom;
+    /* border-radius: 0 0 3rem 3rem; */
+	-webkit-animation: ingredient 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: ingredient 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
