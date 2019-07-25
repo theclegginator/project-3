@@ -4,6 +4,7 @@ import './App.css';
 import DrinksList from './pages/DrinksList';
 import Shops from './pages/Shops';
 import Recipe from './pages/Recipe';
+import Home from './pages/Home'
 import Nav from "./components/Nav"
 import { Container } from "./components/Grid";
 
@@ -21,6 +22,7 @@ class App extends Component {
               <Route exact path="/" component={DrinksList} />
               <Route exact path="/shops" component={Shops} />
               <Route exact path="/recipe" component={Recipe} />
+              <Route exact path="/home" component={Home} />
               {/* <Route exact path="/recipe/:id" component={Recipe} /> */}
             </Switch>
           </div>

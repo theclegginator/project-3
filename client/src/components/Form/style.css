@@ -1,0 +1,33 @@
+.username {
+    font: 250px;
+    display: center;
+    color: white;
+padding: 15px;
+
+
+}
+.password {
+    font: 25px;
+    display: center;
+    color: white;
+    padding: 15px;
+}
+.loginbtn{
+    display: center;
+    size: 50px;
+    width: 100px;
+
+}
+
+form{
+    background-image: url(https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80) ; 
+  
+background-repeat: no-repeat;
+
+    background-size: contain;
+  
+padding: 100px;
+margin: 150px;
+
+
+}

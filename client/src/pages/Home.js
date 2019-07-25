@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
-import { Container } from "../components/Grid";
+import Form from "../components/Form"
+
 
 class Home extends Component {
 
-    render() {
-        return (
-            <div>
-                <div>
-                    <Container>
-                        <h1></h1>
-                    </Container>
 
-                </div>
-            </div>
+render() {
+    return (
+     
+             <Form />
+         
+          
         );
     }
 };
