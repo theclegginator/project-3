@@ -39,9 +39,8 @@ class Nav extends Component {
     return (
       <div id="wrapper" className="wrapper">
       <div className="nav">
-        <div className="navicon" type="menu-fold" onClick={() => this.navClick()} />
-        <div className="navlink">
-
+        <i className="fa fa-bars" type="menu-fold" onClick={() => this.navClick()} />
+        {/* <div className="navlink"> */}
         <Link className="header-nav__item" to="/">Drinks</Link>
             <Link className="header-nav__item" to="/Shops/">Search</Link>
             <Link className="header-nav__item" to="/Home/">Login</Link>
@@ -90,9 +89,9 @@ class Nav extends Component {
             </li>
            */}
         </div>
-        
+
       </div>
-    </div>
+    // </div>
 
 
 

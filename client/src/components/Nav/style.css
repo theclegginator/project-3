@@ -21,11 +21,13 @@ font: 1em sans-serif;
 .nav-link{
   text-decoration: none;
   color: white;
-  /* padding-left: 40px; */
+  padding-left: 40px;
   align-content: center;
   display: flex;
   font-family: "josefin sans";
 font-weight: 600i;
+-webkit-animation: text-pop-up-top 2s cubic-bezier(0.550, 0.055, 0.675, 0.190) 2s both;
+	        animation: text-pop-up-top 1s cubic-bezier(0.550, 0.055, 0.675, 0.190) 1s both;
 }
 .wrapper {
   display: flex;
@@ -44,10 +46,10 @@ font-weight: 600i;
   width: 250px;
   height: 100%;
   /* padding: 20px; */
-  border-right: 1px solid #ccc;
+  /* border-right: 1px solid #ccc; */
 }
 
-.navicon {
+/* .navicon {
   position: absolute;
   top: 0;
   right: -60px;
@@ -56,11 +58,7 @@ font-weight: 600i;
   cursor: pointer;
   transition: color .3s;
   color: white;
-}
-
-.navicon:hover {
-  color: #5eb2ff;
-}
+} */
 
 .header-nav__item {
   padding: 20px;
@@ -82,8 +80,12 @@ a.header__link:hover {
 }
 
 .header__link {
-  /* padding: 20px; */
+  padding: 20px;
 }
+
+/* i{
+  color: white;
+} */
 
 @media screen and (max-width: 768px) {
   .header {
@@ -99,4 +101,39 @@ a.header__link:hover {
   .header-nav__item, .header__link {
       padding: 10px;
   }
+}
+@-webkit-keyframes text-pop-up-top {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+    text-shadow: none;
+  }
+  100% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+    text-shadow: 0 1px 0 #cccccc, 0 2px 0 #cccccc, 0 3px 0 #cccccc, 0 4px 0 #cccccc, 0 5px 0 #cccccc, 0 6px 0 #cccccc, 0 7px 0 #cccccc, 0 8px 0 #cccccc, 0 9px 0 #cccccc, 0 50px 30px rgba(0, 0, 0, 0.3);
+  }
+}
+@keyframes text-pop-up-top {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+    text-shadow: none;
+  }
+  100% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+    text-shadow: 0 1px 0 #cccccc, 0 2px 0 #cccccc, 0 3px 0 #cccccc, 0 4px 0 #cccccc, 0 5px 0 #cccccc, 0 6px 0 #cccccc, 0 7px 0 #cccccc, 0 8px 0 #cccccc, 0 9px 0 #cccccc, 0 50px 30px rgba(0, 0, 0, 0.3);
+  }
+}
+*{
+  background: transparent;
 }
