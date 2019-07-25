@@ -6,7 +6,7 @@
         width: 100%;    
 }
 
-.wrapper {
+.mug-wrapper {
     padding: 85px;
     display: inline-flex;
     flex-flow: row wrap;
