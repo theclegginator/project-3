@@ -50,7 +50,7 @@ class Nav extends Component {
             </li>
             <div className="navbar-dropdown">
               <li className="navbar-item">
-                <Link
+                 <Link
                   onClick={this.toggleNav}
                   className={window.location.pathname === "/shops" ? "nav-link active" : "nav-link"}
                   to="/shops"
