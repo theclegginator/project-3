@@ -137,7 +137,7 @@ class Recipe extends Component {
               <Drinks selectedCoffeeRecipe={this.selectedCoffeeRecipe}/>
               
               {/* COFFEE MUG */}
-              <div className="container wrapper">
+              <div className="container mug-wrapper">
                 <div className="columns">
                     <div className="column"></div>
                     <div className="column">
