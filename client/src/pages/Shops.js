@@ -8,10 +8,7 @@ class Shops extends Component {
             <div>
                 <div>
                     <Container>
-
-
-                        <h1>FIND A PLACE TO GET SOME BEANS!</h1>
-
+                        <h1> Map </h1>
                     </Container>
 
                 </div>
