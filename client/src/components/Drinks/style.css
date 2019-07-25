@@ -6,19 +6,36 @@
   display: flex;
   flex-flow: row wrap;
   align-content: flex-start;
+  text-decoration: none;
 }
+link{
+  text-decoration: none;
+}
+a{
+  text-decoration: none;
 
+}
+.linkRecipe{
+  text-decoration: none;
+
+}
 .espressoList {
   height: 100%;
+  text-decoration: none;
+
 }
 
 .drinkName {
   color: white;
   font-family: 'Courier New', Courier, monospace;
   font-weight: 400;
+  text-decoration: none;
+
 }
 
 .img-thumbnail {
+  text-decoration: none;
+
   width: 100%;
   height: 100%;
   border-radius: 50px;
