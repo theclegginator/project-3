@@ -7,12 +7,10 @@ import '../App.css';
 
 import DrinkIconPics from '../components/DrinkIconPics';
 
-
 class DrinksList extends Component {
 
   state = {
-    images
-
+    images,
   };
 
   //\\//\\CLICK EVENT ON EACH DRINK IMAGE //\\//\\
@@ -20,10 +18,10 @@ class DrinksList extends Component {
   allDrinks = id => {
 
   };
-  selectedCoffeeRecipe = id => {
-    console.log("this is working")
-    console.log(id)
-  }
+  // selectedCoffeeRecipe = id => {
+  //   console.log("this is working")
+  //   console.log(id)
+  // }
 
   render() {
     return (
@@ -35,15 +33,18 @@ class DrinksList extends Component {
 
         <DrinkIconPics
           pictures={this.state.images.map(picture => (
-            <Link to="/recipe">
-            <Drinks
-              selectedCoffeeRecipe={this.selectedCoffeeRecipe}
-              allDrinks={this.allDrinks}
-              id={picture.id}
-              key={picture.id}
-              name={picture.name}
-              image={picture.image}
-            />
+            <Link to={{
+                pathname: "/recipe",
+                data: picture.id // your data array of objects
+               }}>
+              <Drinks
+                // selectedCoffeeRecipe={this.selectedCoffeeRecipe}
+                allDrinks={this.allDrinks}
+                id={picture.id}
+                key={picture.id}
+                name={picture.name}
+                image={picture.image}
+              />
             </Link>
           ))}
           />
