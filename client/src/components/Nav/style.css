@@ -1,7 +1,7 @@
 .navbar {
   color: transparent;
-align-content: left;
-text-align: left; 
+/* align-content: left; */
+/* text-align: left;  */
 }
 /* 
 .navbar-brand {
@@ -23,18 +23,17 @@ font: 1em sans-serif;
   color: white;
   padding-left: 40px;
   align-content: center;
-  display: flex;
+  /* display: flex; */
   font-family: "josefin sans";
 font-weight: 600i;
 -webkit-animation: text-pop-up-top 2s cubic-bezier(0.550, 0.055, 0.675, 0.190) 2s both;
 	        animation: text-pop-up-top 1s cubic-bezier(0.550, 0.055, 0.675, 0.190) 1s both;
 }
 .wrapper {
-  display: flex;
+padding:20px;
   width: 100%;
   height: 100%;
   transition: margin .5s;
-  margin: 0 0 0 -250px;
 }
 
 .wrapper.is-nav-open {
@@ -42,11 +41,10 @@ font-weight: 600i;
 }
 
 .nav {
-  position: relative;
+  /* position: relative; */
   width: 250px;
   height: 100%;
-  /* padding: 20px; */
-  /* border-right: 1px solid #ccc; */
+  padding: 20px;
 }
 
 /* .navicon {
