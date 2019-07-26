@@ -1,8 +1,5 @@
-.foamed-milk {
-    background-image: url("../../images/foamed-coffee.png");
-    background-color: rgb(243, 243, 243, 0.5);
-    background-size: 100% 100%;
-    background-blend-mode: lighten;
+.condensed-milk {
+    background-color: rgb(240, 233, 196);
     text-align: center;
     vertical-align: middle;
     margin: 0;
@@ -15,5 +12,5 @@
     vertical-align: bottom;
     /* border-radius: 0 0 3rem 3rem; */
 	-webkit-animation: ingredient 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        animation: ingredient 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: ingredient 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
