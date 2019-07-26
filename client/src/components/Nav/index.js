@@ -39,12 +39,11 @@ class Nav extends Component {
     return (
       <div id="wrapper" className="wrapper">
       <div className="nav">
-        {/* <i className="fa fa-coffee" type="menu-fold" onClick={() => this.navClick()} /> */}
-        {/* <div className="navlink"> */}
+        <i className="fa fa-coffee" type="menu-fold" onClick={() => this.navClick()} />
+        <div className="navlink">
         <Link className="header-nav__item" to="/">Drinks</Link>
             <Link className="header-nav__item" to="/Shops/">Search</Link>
             <Link className="header-nav__item" to="/Home/">Login</Link>
-            {/* <Link className="header-nav__item" to="/Recipe/">Recipe</Link> */}
         
 {/*  
             <li className="navbar-link">
@@ -91,7 +90,7 @@ class Nav extends Component {
         </div>
 
       </div>
-    // </div>
+   </div>
 
 
 
