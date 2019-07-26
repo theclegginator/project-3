@@ -144,8 +144,6 @@ class Recipe extends Component {
         <Row>
         <h1 className="selectedRecipeTitle">{this.state.recipe.name}</h1>
           <Col size="md-8 xs-12 md-offset-1">
-              {/* <img className="selectedRecipeImg" src={this.state.recipe.image} alt={this.state.recipe.name}/> */}
-              <Drinks selectedCoffeeRecipe={this.selectedCoffeeRecipe}/>
               
               {/* COFFEE MUG */}
               <div className="container mug-wrapper">
