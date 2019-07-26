@@ -4,13 +4,16 @@ import { Col, Row, Container } from "../components/Grid";
 import images from '../images.json';
 import Mug from '../components/Mug'
 import Drinks from '../components/Drinks'
-import IngredientEspresso from "../components/IngredientEspresso";
 import IngredientMilk from "../components/IngredientMilk"
 import IngredientWater from "../components/IngredientWater"
 import IngredientCoffee from "../components/IngredientCoffee"
+import IngredientIceCream from "../components/IngredientIceCream"
 import IngredientHotChoc from "../components/IngredientHotchoc"
+import IngredientEspresso from "../components/IngredientEspresso";
 import IngredientFoamedMilk from "../components/IngredientFoamedMilk"
 import IngredientSteamedMilk from "../components/IngredientSteamedMilk"
+import IngredientWhippedCream from "../components/IngredientWhippedCream"
+import IngredientCondensedMilk from "../components/IngredientCondensedMilk"
 
 
 class Recipe extends Component {
@@ -21,25 +24,31 @@ class Recipe extends Component {
     ounces : [],
     firstIngredient: [],
     divHeights : [],
-    headFirst : []
+    headFirst : [],
+    animationDelays: []
   };
 
   selectedCoffeeRecipe = id => {
     console.log("id = " + id)
     let drinkSelection = images[id-1];
     let ingredients = drinkSelection.ingredients;
-    let keys = []; // array for ingredient key values
-    let ounces = []; // array for measurements of each ingredient
-    let ingredientHeights = []; // array for the height in rem of each CSS component in the coffee cup
+    const keys = []; // array for ingredient key values
+    const ounces = []; // array for measurements of each ingredient
+    const ingredientHeights = []; // array for the height in rem of each CSS component in the coffee cup
     const firstIngredient = [];
     const headTitles = [];
+    const animationDelays = [];
 
     for (let k in ingredients) keys.push(k);
     let ingredientKeys = [];
     for (let i = 0; i < keys.length; i++) {
       ingredientKeys.unshift(keys[i]);
+      animationDelays.unshift(i*0.6);
     }
-    this.setState({ingredientList : ingredientKeys})
+    this.setState(
+      {ingredientList : ingredientKeys,
+      animationDelays : animationDelays}
+    )
     
     // This switch case sorts through the possible ingredients and assigns a component name to it
       for (let i = 0; i < keys.length; i++) { 
@@ -64,8 +73,10 @@ class Recipe extends Component {
           headTitles.unshift(IngredientSteamedMilk)
           break;
         case "Warm Milk":
-        case "Condensed Milk":
           headTitles.unshift(IngredientMilk)
+          break;
+        case "Condensed Milk":
+          headTitles.unshift(IngredientCondensedMilk)
           break;
         case "Espresso":
         case "Long Pull Espresso":
@@ -76,13 +87,13 @@ class Recipe extends Component {
           headTitles.unshift(IngredientHotChoc)
           break;
         case "Whipped Cream":
-          headTitles.unshift("IngredientWhippedCream")
+          headTitles.unshift(IngredientWhippedCream)
           break;
         case "Hot Water":
           headTitles.unshift(IngredientWater)
           break;
         case "Ice Cream":
-          headTitles.unshift("IngredientIceCream")
+          headTitles.unshift(IngredientIceCream)
           break;
 
         default:
@@ -131,7 +142,7 @@ class Recipe extends Component {
       <Container fluid>
         <div className="selectedRecipe">
         <Row>
-        <h3 className="selectedRecipeTitle">{this.state.recipe.name}</h3>
+        <h1 className="selectedRecipeTitle">{this.state.recipe.name}</h1>
           <Col size="md-8 xs-12 md-offset-1">
               {/* <img className="selectedRecipeImg" src={this.state.recipe.image} alt={this.state.recipe.name}/> */}
               <Drinks selectedCoffeeRecipe={this.selectedCoffeeRecipe}/>
@@ -155,10 +166,12 @@ class Recipe extends Component {
                                 {/* MAP THE COMPONENT ARRAY FOR EACH INGREDIENT */}
                                 <div>{this.state.headFirst.map((Component, i) => (
                                       <Component 
+                                        key={i}
                                         height={this.state.divHeights[i] + 'rem'}
                                         firstIngredient={this.state.firstIngredient[i]}
                                         name={this.state.ingredientList[i]}
                                         ounces={this.state.ounces[i]}
+                                        animationDelays={this.state.animationDelays[i]}
                                       />
                                   ))
                                 }</div>

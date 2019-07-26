@@ -17,6 +17,7 @@
 #mug {
     /* margin-left: 100px;
     margin-top: 100px; */
+    /* box-shadow: 10px 10px 15px 1px rgba(0, 0, 0, 0.41); */
     height: 21rem;
     width: 20rem;
     border-left: solid rgb(209, 208, 208) 2rem;
@@ -28,6 +29,7 @@
     margin-right: 0rem;
 }
 .mug-handle {
+        /* box-shadow: 10px 10px 15px 1px rgba(0, 0, 0, 0.41); */
     border-top: solid rgb(209, 208, 208) 2rem;
     border-right: solid rgb(209, 208, 208) 2rem;
     border-bottom: solid rgb(209, 208, 208) 2rem;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './style.css';
 
-export class IngredientHotChoc extends Component {
+export class IngredientIceCream extends Component {
     render() {
         let delay = `${this.props.animationDelays}s`
         let style = {};
@@ -23,7 +23,7 @@ export class IngredientHotChoc extends Component {
 
         return (
             <div>
-                <div className="hotchoc" style={style}>
+                <div className="ice-cream" style={style}>
                     <span className="ingredient-text-animation">{this.props.name} ({this.props.ounces}oz)</span>
                 </div>
             </div>
@@ -31,4 +31,4 @@ export class IngredientHotChoc extends Component {
     }
 }
 
-export default IngredientHotChoc
+export default IngredientIceCream
