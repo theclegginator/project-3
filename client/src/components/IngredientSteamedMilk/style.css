@@ -1,6 +1,6 @@
 .steamed-milk {
     background-image: url("../../images/steamed-milk.png");
-    background-color: rgb(243, 243, 243, 0.3);
+    background-color: rgb(243, 243, 243, 0.1);
     background-size: 100% 100%;
     background-blend-mode: lighten;
     text-align: center;

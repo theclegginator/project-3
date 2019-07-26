@@ -2,7 +2,29 @@ body{
   background: black;
   font-family: 'josefin sans';
   font-weight: 400;
+  background: linear-gradient(137deg, #946131, #CD9461);
+  /* background-size: cover; */
+  /* background-repeat: none; */
+
+  -webkit-animation: bgAnimation 20s ease infinite;
+  -moz-animation: bgAnimation 20s ease infinite;
+  animation: bgAnimation 20s ease infinite;
 }
+  @-webkit-keyframes bgAnimation {
+      0%{background-position:22% 0%}
+      50%{background-position:79% 100%}
+      100%{background-position:22% 0%}
+  }
+  @-moz-keyframes bgAnimation {
+      0%{background-position:22% 0%}
+      50%{background-position:79% 100%}
+      100%{background-position:22% 0%}
+  }
+  @keyframes bgAnimation { 
+      0%{background-position:22% 0%}
+      50%{background-position:79% 100%}
+      100%{background-position:22% 0%}
+  }
 
 .App {
   text-align: center;

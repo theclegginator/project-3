@@ -1,6 +1,6 @@
-.foamed-milk {
-    background-image: url("../../images/foamed-coffee.png");
-    background-color: rgb(243, 243, 243, 0.5);
+.whipped-cream {
+    background-image: url("../../images/whipped-cream.png");
+    background-color: rgb(243, 243, 243, 0.65);
     background-size: 100% 100%;
     background-blend-mode: lighten;
     text-align: center;
@@ -13,7 +13,6 @@
     position: relative !important;
     z-index: 5 !important;
     vertical-align: bottom;
-    /* border-radius: 0 0 3rem 3rem; */
 	-webkit-animation: ingredient 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        animation: ingredient 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: ingredient 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
