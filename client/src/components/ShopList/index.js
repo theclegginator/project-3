@@ -6,7 +6,9 @@ function ShopList(props) {
     <ul className="list-group">
       {props.results.map(result => (
         <li className="list-group-item" key={result.id}>
-          <img alt={result.title} className="img-fluid" src={result.images.original.url} />
+          <h1>{result.name}</h1>
+          <h2>{result.vicinity}</h2>
+          <h3>{result.opening_hours.open_now}</h3>
         </li>
       ))}
     </ul>
