@@ -6,7 +6,7 @@ import axios from "axios";
 
 export default {
   findShops: function (location) {
-    return axios.get("api/google/", { params: { location } });
+    return axios.get("/api/google/", { params: { location } });
   },
 
 

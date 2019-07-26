@@ -17,18 +17,24 @@ require('dotenv').config();
 module.exports = {
   findShops: function (req, res) {
     const apiKEY = process.env.REACT_APP_SHOP_API_KEY;
-    console.log("QString:" + "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + req + "&radius=500&types=cafe&keyword=coffee&key=" + apiKEY)
-    
+    console.log("QString:" + "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + "Atlanta" + "&radius=500&types=cafe&keyword=coffee&key=" + apiKEY)
+
 
     // const { query: params } = req;
     axios
-      .get("https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + req + "&radius=500&types=cafe&keyword=coffee&key=" + apiKEY)
-      
-      .then(results =>
-        console.log(results)
-      )
-      .then(coffee => res.json(coffees))
-      
+      .get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + "33.776347,-84.389532" + "&radius=500&types=cafe&keyword=coffee&key=" + apiKEY)
+
+      .then(results => {
+        console.log("SHOW ME!");
+        console.log(results.data)
+        // res.json({
+        //   msg: 'api',
+        //   results: results
+        // })
+        res.json(results.data)
+      })
+    // .then(coffee => res.json(coffees))
+
     // .then(apiBooks =>
     //     db.Book.find().then(dbBooks =>
     //       apiBooks.filter(apiBook =>
@@ -38,5 +44,5 @@ module.exports = {
     //   )
     // .then(books => res.json(books))
     // .catch(err => res.status(422).json(err));
-}
+  }
 };
