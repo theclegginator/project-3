@@ -4,7 +4,7 @@ import ShopList from "../ShopList";
 import API from "../../utils/API";
 import "./style.css";
 
-class SearchResultContainer extends Component {
+class ShopListContainer extends Component {
   state = {
     location: "",
     results: []
@@ -13,12 +13,17 @@ class SearchResultContainer extends Component {
 
 
   searchGoogle = location => {
-    console.log("Q:",location)
+    console.log("Q:", location)
     API.findShops(location)
-      .then(res => this.setState({ results: res.data }))
+      .then(res => {
+        console.log("Results", res);
+        this.setState({ results: res.data.results });
+
+      })
+
       .catch(err => console.log(err));
-      console.log("Results", this.state.results);
-      
+
+    console.log("ResultsBACKUP", this.state.results);
   };
 
   handleInputChange = event => {
@@ -43,10 +48,11 @@ class SearchResultContainer extends Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
         />
-        <ShopList results={this.state.results} />
+        { this.state.results.length>0 ? 
+        <ShopList results={this.state.results}/> : null }
       </div>
     );
   }
 }
 
-export default SearchResultContainer;
+export default ShopListContainer;
