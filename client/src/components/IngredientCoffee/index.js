@@ -7,6 +7,7 @@ export class IngredientCoffee extends Component {
         let style = {};
         // if the ingredient is the first in the cup, it should have rounded edges.
         if (this.props.firstIngredient) {
+            console.log("YES")
             style = {
                 height: this.props.height,
                 lineHeight: this.props.height,
