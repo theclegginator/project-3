@@ -25,7 +25,9 @@ class DrinksList extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App background-gradient">
+        <div className="background-gradient">
+        
         <header className="header">
           Espresso Drinks
         </header>
@@ -49,6 +51,7 @@ class DrinksList extends Component {
           ))}
           />
         </Container>
+        </div>
         </div>
     );
   };
