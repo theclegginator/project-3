@@ -83,11 +83,19 @@ class Recipe extends Component {
         case "Decaf Drip Brew":
         case "Drip Brew":
           headTitles.unshift(IngredientCoffee);
-          grindSize.push({ingredient: keys[i], grind: "Medium"});
+          grindSize.push({ingredient: keys[i],
+            grind: "Medium",
+            weightLow: Math.round((((1/18)*ounces.slice().reverse()[i]))),
+            weightHigh: Math.round((((1/15)*ounces.slice().reverse()[i]))),
+          });
           break;
         case "French Press":
-          headTitles.unshift(IngredientCoffee);
-          grindSize.push({ingredient: keys[i], grind: "Coarse"});
+            headTitles.unshift(IngredientCoffee);
+            grindSize.push({ingredient: keys[i],
+            grind: "Coarse",
+            weightLow: Math.round(((0.0766*ounces.slice().reverse()[i]))), 
+            weightHigh: Math.round(((0.1*ounces.slice().reverse()[i])))
+          });
           break;
         case "Foamed Milk":
           headTitles.unshift(IngredientFoamedMilk);
@@ -202,15 +210,18 @@ class Recipe extends Component {
                     }</h2>
                   ))}
                 </div>
+                <br></br>
                 {/* BEAN WEIGHT MAPPING */}
                 <div>
                   {this.state.ingredientList.reverse().map((dummy, i) => (
                     // map ground weight of beans for coffee ingredients only
                     <h2>{this.state.grindSize[i] !== undefined ? 
-                      `${this.state.grindSize[i].ingredient} Ground Weight: ${this.state.grindSize[i].weightLow} - ${this.state.grindSize[i].weightHigh} grams` : null
+                      `${this.state.grindSize[i].ingredient} Bean Weight: ${this.state.grindSize[i].weightLow} - ${this.state.grindSize[i].weightHigh} grams` : null
                     }</h2>
                   ))}
                 </div>
+                <br></br>
+                <br></br>
               </Col>
             </Row>
           </div>
