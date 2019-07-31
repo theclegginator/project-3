@@ -31,7 +31,9 @@ export default withAuth(class Navigation extends React.Component {
     return (
       <nav>
         <ul>
-          <ul><Link to="/">Home</Link></ul>
+         <Link className="fa fa-coffee" to="/">Home</Link>
+          <Link className="header-nav__item" to="/">Drinks</Link>
+         <Link className="header-nav__item" to="/Shops/">Search</Link>
           {authNav}
         </ul>
       </nav>
