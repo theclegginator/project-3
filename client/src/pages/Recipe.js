@@ -1,36 +1,35 @@
 import React, { Component } from "react";
 
 import { Col, Row, Container } from "../components/Grid";
-import images from '../images.json';
-import Mug from '../components/Mug'
-import Drinks from '../components/Drinks'
-import IngredientMilk from "../components/IngredientMilk"
-import IngredientWater from "../components/IngredientWater"
-import IngredientCoffee from "../components/IngredientCoffee"
-import IngredientIceCream from "../components/IngredientIceCream"
-import IngredientHotChoc from "../components/IngredientHotchoc"
+import images from "../images.json";
+import "../components/Mug/style.css"; //style properties from mug component
+import IngredientMilk from "../components/IngredientMilk";
+import IngredientWater from "../components/IngredientWater";
+import IngredientCoffee from "../components/IngredientCoffee";
+import IngredientIceCream from "../components/IngredientIceCream";
+import IngredientHotChoc from "../components/IngredientHotchoc";
 import IngredientEspresso from "../components/IngredientEspresso";
-import IngredientFoamedMilk from "../components/IngredientFoamedMilk"
-import IngredientSteamedMilk from "../components/IngredientSteamedMilk"
-import IngredientWhippedCream from "../components/IngredientWhippedCream"
-import IngredientCondensedMilk from "../components/IngredientCondensedMilk"
-
+import IngredientFoamedMilk from "../components/IngredientFoamedMilk";
+import IngredientSteamedMilk from "../components/IngredientSteamedMilk";
+import IngredientWhippedCream from "../components/IngredientWhippedCream";
+import IngredientCondensedMilk from "../components/IngredientCondensedMilk";
 
 class Recipe extends Component {
   state = {
     images,
-    recipe : {},
-    ingredientList : [],
-    ounces : [],
+    recipe: {},
+    ingredientList: [],
+    ounces: [],
     firstIngredient: [],
-    divHeights : [],
-    headFirst : [],
-    animationDelays: []
+    divHeights: [],
+    headFirst: [],
+    animationDelays: [],
+    grindSize: []
   };
 
   selectedCoffeeRecipe = id => {
-    console.log("id = " + id)
-    let drinkSelection = images[id-1];
+    console.log("id = " + id);
+    let drinkSelection = images[id - 1];
     let ingredients = drinkSelection.ingredients;
     const keys = []; // array for ingredient key values
     const ounces = []; // array for measurements of each ingredient
@@ -38,90 +37,100 @@ class Recipe extends Component {
     const firstIngredient = [];
     const headTitles = [];
     const animationDelays = [];
+    const grindSize = [];
 
     for (let k in ingredients) keys.push(k);
     let ingredientKeys = [];
     for (let i = 0; i < keys.length; i++) {
       ingredientKeys.unshift(keys[i]);
-      animationDelays.unshift(i*0.6);
+      animationDelays.unshift(i * 0.6);
     }
-    this.setState(
-      {ingredientList : ingredientKeys,
-      animationDelays : animationDelays}
-    )
-    
+    this.setState({
+      ingredientList: ingredientKeys,
+      animationDelays: animationDelays
+    });
+
     // This switch case sorts through the possible ingredients and assigns a component name to it
-      for (let i = 0; i < keys.length; i++) { 
-        if (i === 0) {
-          firstIngredient.push(true)
-        }
-        else {
-          firstIngredient.push(false)
-        }
+    for (let i = 0; i < keys.length; i++) {
+      if (i === 0) {
+        firstIngredient.push(true);
+      } else {
+        firstIngredient.push(false);
       }
-      for (let i = 0; i < keys.length; i++) {
-      switch(keys[i]) {
+    }
+
+    // GET THE OUNCE MEASUREMENTS OF THE DRINKS
+    for (let q in ingredients) {
+      if (ingredients.hasOwnProperty(q)) {
+        let measurement = ingredients[q];
+        ounces.unshift(measurement);
+      }
+      this.setState({ ounces: ounces });
+    }
+
+    // Get the total number of fluid ounces for the drink
+    let totalOunces = ounces.reduce((a, b) => a + b, 0);
+
+    for (let i = 0; i < ounces.length; i++) {
+      // Note: total rem height for coffee cup is 20 rem, hence the calculation below (total height / ingredient ratio). Limiting to 2 decimal places limits screen tear.
+      ingredientHeights.push((20 * (ounces[i] / totalOunces)).toFixed(2));
+    }
+    this.setState({ divHeights: ingredientHeights });
+
+    // CONSTRUCT THE CUP
+    for (let i = 0; i < keys.length; i++) {
+      switch (keys[i]) {
         case "Decaf Drip Brew":
         case "Drip Brew":
+          headTitles.unshift(IngredientCoffee);
+          grindSize.push({ingredient: keys[i], grind: "Medium"});
+          break;
         case "French Press":
-          headTitles.unshift(IngredientCoffee)
+          headTitles.unshift(IngredientCoffee);
+          grindSize.push({ingredient: keys[i], grind: "Coarse"});
           break;
         case "Foamed Milk":
-          headTitles.unshift(IngredientFoamedMilk)
+          headTitles.unshift(IngredientFoamedMilk);
           break;
         case "Steamed Milk":
-          headTitles.unshift(IngredientSteamedMilk)
+          headTitles.unshift(IngredientSteamedMilk);
           break;
         case "Warm Milk":
-          headTitles.unshift(IngredientMilk)
+          headTitles.unshift(IngredientMilk);
           break;
         case "Condensed Milk":
-          headTitles.unshift(IngredientCondensedMilk)
+          headTitles.unshift(IngredientCondensedMilk);
           break;
         case "Espresso":
         case "Long Pull Espresso":
         case "Cubano":
-          headTitles.unshift(IngredientEspresso)
+          headTitles.unshift(IngredientEspresso);
+          grindSize.push({ingredient: keys[i], 
+              grind: "Fine", 
+              weightLow: Math.round(((7*ounces.slice().reverse()[i])/30)), 
+              weightHigh: Math.round(((9*ounces.slice().reverse()[i])/30))
+            });
           break;
         case "Hot Chocolate":
-          headTitles.unshift(IngredientHotChoc)
+          headTitles.unshift(IngredientHotChoc);
           break;
         case "Whipped Cream":
-          headTitles.unshift(IngredientWhippedCream)
+          headTitles.unshift(IngredientWhippedCream);
           break;
         case "Hot Water":
-          headTitles.unshift(IngredientWater)
+          headTitles.unshift(IngredientWater);
           break;
         case "Ice Cream":
-          headTitles.unshift(IngredientIceCream)
+          headTitles.unshift(IngredientIceCream);
           break;
 
         default:
-          console.log("Error! No ingredients found in recipe.")
+          console.log("Error! No ingredients found in recipe.");
       }
     }
     // sets the components in the order in which they should be made
-    this.setState({headFirst : headTitles})
-
-    for(let q in ingredients) {
-      if(ingredients.hasOwnProperty(q)) {
-          let measurement = ingredients[q];
-          ounces.unshift(measurement);
-        }
-        this.setState({ounces: ounces})
-    }
-    // console.log(keys)
-    // console.log(ounces)
-
-    let totalOunces = ounces.reduce((a, b) => a + b, 0);
-
-    for (let i = 0; i < ounces.length; i++) {
-      // Note: total rem height for coffee cup is 20 rem, hence the calculation below (total height / ingredient ratio)
-      ingredientHeights.push(20*(ounces[i]/totalOunces));
-    }
-    // console.log(ingredientHeights)
-    this.setState({divHeights : ingredientHeights})
-  }
+    this.setState({ headFirst: headTitles , grindSize: grindSize});
+  };  
 
   componentDidMount() {
     let { data } = this.props.location;
@@ -130,72 +139,82 @@ class Recipe extends Component {
       data = 1;
     }
     // data is the id of the coffee recipe
-    this.setState({recipe: images[data-1]}) // set the recipe state equal to the id
-    this.selectedCoffeeRecipe(data)
+    this.setState({ recipe: images[data - 1] }); // set the recipe state equal to the id
+    this.selectedCoffeeRecipe(data);
   }
 
   render() {
     // let headFirst = [ IngredientEspresso, IngredientMilk ]
 
     return (
-      <div>     
-      <Container fluid>
-        <div className="selectedRecipe">
-        <Row>
-        <h1 className="selectedRecipeTitle">{this.state.recipe.name}</h1>
-          <Col size="md-8 xs-12 md-offset-1">
-              
-              {/* COFFEE MUG */}
-              <div className="container mug-wrapper">
-                <div className="columns">
-                    <div className="column"></div>
+      <div>
+        <Container fluid>
+          <div className="selectedRecipe background-gradient">
+            <Row>
+              <h1 className="selectedRecipeTitle">{this.state.recipe.name}</h1>
+              <Col size="md-8 xs-12 md-offset-1">
+                {/* COFFEE MUG */}
+                <div className="container mug-wrapper">
+                  <div className="columns">
+                    <div className="column" />
                     <div className="column">
-                        {/* Area for steam directly above the mug */}
-                        <div id="steam-engine">
-                            <div className="steam-right"></div>
-                            <div className="steam-center"></div>
-                            <div className="steam-left"></div>
+                      {/* Area for steam directly above the mug */}
+                      <div id="steam-engine">
+                        <div className="steam-right" />
+                        <div className="steam-center" />
+                        <div className="steam-left" />
+                      </div>
+                      <div id="drink">
+                        {/* Are for the mug, will contain each ingredient */}
+                        <div id="mug">
+                          <div className="mug-handle" />
+                          <div className="air">air</div>
+                          {/* MAP THE COMPONENT ARRAY FOR EACH INGREDIENT */}
+                          <div>
+                            {this.state.headFirst.map((Component, i) => (
+                              <Component
+                                key={i}
+                                height={this.state.divHeights[i] + "rem"}
+                                firstIngredient={this.state.firstIngredient[i]}
+                                name={this.state.ingredientList[i]}
+                                ounces={this.state.ounces[i]}
+                                animationDelays={this.state.animationDelays[i]}
+                              />
+                            ))}
+                          </div>
                         </div>
-                        <div id="drink">
-                            {/* Are for the mug, will contain each ingredient */}
-                            <div id="mug">
-                                <div className="mug-handle"></div>
-                                <div className="air">air</div>
-                                {/* MAP THE COMPONENT ARRAY FOR EACH INGREDIENT */}
-                                <div>{this.state.headFirst.map((Component, i) => (
-                                      <Component 
-                                        key={i}
-                                        height={this.state.divHeights[i] + 'rem'}
-                                        firstIngredient={this.state.firstIngredient[i]}
-                                        name={this.state.ingredientList[i]}
-                                        ounces={this.state.ounces[i]}
-                                        animationDelays={this.state.animationDelays[i]}
-                                      />
-                                  ))
-                                }</div>
-                                {/* <div className="milk"><span className="ingredient-text-animation">Milk (30oz)</span></div>
-                                <div className="coffee"><span className="ingredient-text-animation">Coffee (60oz)</span></div>
-                                <div className="espresso"><span className="ingredient-text-animation">Espresso (30oz)</span></div> */}
-                            </div>
-                        </div>
+                      </div>
                     </div>
-                <div className="column">
+                    <div className="column" />
+                  </div>
                 </div>
+                {/* END COFFEE MUG */}
+              </Col>
+            </Row>
+            <Row>
+              <Col size="xs-6 lg-4">
+                {/* GRIND SIZE MAPPING */}
+                <div>
+                  {this.state.ingredientList.reverse().map((dummy, i) => (
+                  // map grind size for coffee ingredients only
+                    <h2>{this.state.grindSize[i] !== undefined ? 
+                      `${this.state.grindSize[i].ingredient} Grind Size: ${this.state.grindSize[i].grind}` : null
+                    }</h2>
+                  ))}
                 </div>
-              </div>
-              {/* END COFFEE MUG */}
-          </Col>
-        </Row>
-        <Row>
-          <Col size="xs-6 lg-4">
-              <h2 className="selectedRecipeServing">Serving Size: </h2>
-          </Col>
-          {/* <Col size="xs-12 lg-8">
-              <h2 className="selectedRecipeIngredients">Ingredients</h2>
-          </Col> */}
-        </Row>
-        </div>
-      </Container>
+                {/* BEAN WEIGHT MAPPING */}
+                <div>
+                  {this.state.ingredientList.reverse().map((dummy, i) => (
+                    // map ground weight of beans for coffee ingredients only
+                    <h2>{this.state.grindSize[i] !== undefined ? 
+                      `${this.state.grindSize[i].ingredient} Ground Weight: ${this.state.grindSize[i].weightLow} - ${this.state.grindSize[i].weightHigh} grams` : null
+                    }</h2>
+                  ))}
+                </div>
+              </Col>
+            </Row>
+          </div>
+        </Container>
       </div>
     );
   }

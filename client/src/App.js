@@ -4,9 +4,10 @@ import './App.css';
 import DrinksList from './pages/DrinksList';
 import Shops from './pages/Shops';
 import Recipe from './pages/Recipe';
-// import Home from './pages/Home'
-import Nav from "./components/Nav"
-// import { Container } from "./components/Grid";
+
+import Home from './pages/Home'
+import Nav from "./components/Nav";
+
 
 import { SecureRoute, ImplicitCallback } from '@okta/okta-react';
 import Navigation from './components/Shared/Navigation';
@@ -44,7 +45,7 @@ class App extends Component {
             </Switch>
           </div>
         </Router>
-     
+
         </div>
         );
       };
