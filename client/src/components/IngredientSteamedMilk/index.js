@@ -21,7 +21,6 @@ export class IngredientSteamedMilk extends Component {
                 animationDelay: delay,
             }
         }
-        console.log(style)
 
         return (
             <div>
