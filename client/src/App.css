@@ -1,6 +1,7 @@
 body{
   /* background: black; */
   background-image: url(../src/images/beans.jpg); 
+  /* opacity: ; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -42,6 +43,7 @@ body{
   text-align: center;
   /* background-image: url(../src/images/beans.jpg); */
   background-image: url(../src/images/beans.jpg); 
+  
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
