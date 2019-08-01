@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import SearchForm from "../SearchForm";
-import ShopList from "../ShopList";
+import ShopList from "../ShopList"
 import API from "../../utils/API";
 import "./style.css";
+import {geolocated} from 'react-geolocated';
+
+
 
 class ShopListContainer extends Component {
   state = {
     location: "",
-    results: []
+    results: [],
+    checked: false
   };
-
-
 
   searchGoogle = location => {
     console.log("Q:", location)
@@ -40,6 +42,17 @@ class ShopListContainer extends Component {
     this.searchGoogle(this.state.location);
   };
 
+  handleCheck = event => {
+    const {latitude, longitude} = this.props.coords
+    event.preventDefault();
+    this.setState ({
+      checked : event.target.checked
+    })
+    console.log(event.target.checked)
+    this.searchGoogle(`${latitude},${longitude}`)
+  }
+
+
   render() {
     return (
       <div>
@@ -47,12 +60,20 @@ class ShopListContainer extends Component {
           search={this.state.location}
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
+          handleCheck={this.handleCheck}
+          checked={this.state.checked}
         />
-        { this.state.results.length>0 ? 
-        <ShopList results={this.state.results}/> : null }
+        {this.state.results.length > 0 ?
+          <ShopList results={this.state.results} /> : null}
+        />
       </div>
-    );
+    )
   }
 }
 
-export default ShopListContainer;
+export default geolocated({
+  positionOptions: {
+    enableHighAccuracy: false,
+  },
+  userDecisionTimeout: 5000,
+})(ShopListContainer);

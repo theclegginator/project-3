@@ -2,14 +2,14 @@ import React, { Component } from "react";
 
 import { Col, Row, Container } from "../components/Grid";
 import images from '../images.json';
-import Mug from '../components/Mug'
-import Drinks from '../components/Drinks'
+// import Mug from '../components/Mug'
+// import Drinks from '../components/Drinks'
 import IngredientMilk from "../components/IngredientMilk"
 import IngredientWater from "../components/IngredientWater"
 import IngredientCoffee from "../components/IngredientCoffee"
 import IngredientIceCream from "../components/IngredientIceCream"
 import IngredientHotChoc from "../components/IngredientHotchoc"
-import IngredientEspresso from "../components/IngredientEspresso";
+import IngredientEspresso from "../components/IngredientEspresso"
 import IngredientFoamedMilk from "../components/IngredientFoamedMilk"
 import IngredientSteamedMilk from "../components/IngredientSteamedMilk"
 import IngredientWhippedCream from "../components/IngredientWhippedCream"

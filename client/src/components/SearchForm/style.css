@@ -5,3 +5,19 @@ body {
 label {
     color: white;
 }
+
+#search {
+    width: 25rem;
+}
+
+.finder {
+    background-color: white
+}
+
+.form-check-label{
+    margin: .5rem;
+}
+
+.loco-search {
+    margin: .5rem;
+}
