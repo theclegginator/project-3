@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import { Col, Row, Container } from "../components/Grid";
+
 import images from "../images.json";
 import "../components/Mug/style.css"; //style properties from mug component
 import IngredientMilk from "../components/IngredientMilk";
@@ -13,6 +14,7 @@ import IngredientFoamedMilk from "../components/IngredientFoamedMilk";
 import IngredientSteamedMilk from "../components/IngredientSteamedMilk";
 import IngredientWhippedCream from "../components/IngredientWhippedCream";
 import IngredientCondensedMilk from "../components/IngredientCondensedMilk";
+
 
 class Recipe extends Component {
   state = {
