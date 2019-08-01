@@ -5,7 +5,6 @@ import './style.css';
 export class IngredientSteamedMilk extends Component {
     render() {
         let delay = `${this.props.animationDelays}s`
-        console.log(delay)
         let style = {};
         // if the ingredient is the first in the cup, it should have rounded edges.
         if (this.props.firstIngredient) {

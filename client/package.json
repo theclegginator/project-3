@@ -1,10 +1,12 @@
 {
-  "name": "project3",
+  "name": "client",
+  "proxy": "http://localhost:3001",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001/",
   "main": "server.js",
   "dependencies": {
+    "@okta/okta-react": "^1.2.0",
+    "@okta/okta-signin-widget": "^3.0.6",
     "axios": "^0.19.0",
     "dotenv": "^8.0.0",
     "lodash": "^4.17.14",

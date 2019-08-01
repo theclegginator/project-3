@@ -188,18 +188,22 @@
       }
 
       .steam-right {
-              background-color: rgb(221, 221, 221);
-              width: 6rem;
+        background-color: rgb(221, 221, 221);
+        width: 6rem;
         height: 8rem;
         position: relative;
         border-radius: 50%;
-        margin-left: 14rem;
+        margin-left: 16rem;
         bottom: 0;
         animation: steam 4s ease infinite;
         filter: blur(2rem);
         /* float: left; */
         opacity: 0;
         animation-delay: 3.2s;
+      }
+
+      .ending-div {
+        margin-bottom: 5rem;
       }
 
   @keyframes steam {

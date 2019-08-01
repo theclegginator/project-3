@@ -8,9 +8,8 @@
     line-height: 5rem;
     width: 20rem;
     position: relative !important;
-    z-index: 5 !important;
+    z-index: -1 !important;
     vertical-align: bottom;
-    /* border-radius: 0 0 3rem 3rem; */
 	-webkit-animation: ingredient 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        animation: ingredient 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: ingredient 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
