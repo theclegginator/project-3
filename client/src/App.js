@@ -6,7 +6,7 @@ import Shops from './pages/Shops';
 import Recipe from './pages/Recipe';
 
 import Home from './pages/Home'
-import Nav from "./components/Nav";
+import Nav from "./components/Nav"; 
 
 
 import { SecureRoute, ImplicitCallback } from '@okta/okta-react';
@@ -30,7 +30,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <Nav/>
+           
             <Navigation />
             <Switch>
               <Route exact path="/" component={DrinksList} />
