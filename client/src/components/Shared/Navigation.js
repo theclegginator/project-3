@@ -25,14 +25,15 @@ export default withAuth(class Navigation extends React.Component {
         <ul><Link to="/profile">Profile</Link></ul>
       </ul> :
       <ul className="auth-nav">
-        <ul><a href="javascript:void(0)" onClick={this.props.auth.login}>Login</a></ul>
-        <ul><Link to="/register">Register</Link></ul>
+        {/* <ul ><a className="header-nav__item" href="javascript:void(0)" onClick={this.props.auth.login} >Login</a></ul> */}
+        {/* <ul><Link to="/register">Register</Link></ul> */}
       </ul>;
     return (
       <nav>
         <ul>
-         <Link className="fa fa-coffee" to="/">Home</Link>
+         <Link className="fa fa-coffee header-nav__item" to="/">Home</Link>
           <Link className="header-nav__item" to="/">Drinks</Link>
+          <Link className="header-nav__item" to="/Login/">Login</Link>
          <Link className="header-nav__item" to="/Shops/">Search</Link>
           {authNav}
         </ul>

@@ -1,7 +1,7 @@
 body{
   /* background: black; */
   background-image: url(../src/images/beans.jpg); 
-  
+  /* opacity: ; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
