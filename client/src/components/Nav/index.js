@@ -44,10 +44,7 @@ class Nav extends Component {
         <Link className="header-nav__item" to="/">Drinks</Link>
             <Link className="header-nav__item" to="/Shops/">Search</Link>
             <Link className="header-nav__item" to="/Home/">Login</Link>
-            <Link className="header-nav__item" to="/Loco/">Loco</Link>
-            {/* <Link className="header-nav__item" to="/Recipe/">Recipe</Link> */}
-        
-{/*  
+              
             <li className="navbar-link">
               <Link
                 onClick={this.toggleNav}
