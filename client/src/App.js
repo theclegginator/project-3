@@ -27,12 +27,12 @@ class App extends Component {
         <Router>
           <div>
            
-            <Navigation />
+            {/* <Navigation /> */}
             <Switch>
               <Route exact path="/" component={DrinksList} />
               <Route exact path="/shops" component={Shops} />
               <Route exact path="/recipe" component={Recipe} />
-              <Route exact path="/home" component={Homepage} />
+              <Route exact path="/home" component={Home} />
               <Route path="/login" render={() => <LoginPage baseUrl={config.url} />} />
               <Route path="/implicit/callback" component={ImplicitCallback} />
               <Route path="/register" component={RegistrationForm} />
