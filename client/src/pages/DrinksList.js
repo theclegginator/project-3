@@ -25,6 +25,7 @@ class DrinksList extends Component {
   // }
 
   render() {
+    console.log(images)
     return (
       <div className="background2">
         < Navigation />
@@ -43,11 +44,13 @@ class DrinksList extends Component {
                }}>
               <Drinks
                 // selectedCoffeeRecipe={this.selectedCoffeeRecipe}
-                allDrinks={this.allDrinks}
+                // allDrinks={this.allDrinks}
                 id={picture.id}
                 key={picture.id}
                 name={picture.name}
                 image={picture.image}
+                // /Users/theclegginator/bootcamp/Homework/project-3/client/src/pages/DrinksList.js
+                
               />
             </Link>
           ))}

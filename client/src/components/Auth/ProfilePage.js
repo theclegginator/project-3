@@ -9,6 +9,9 @@ export default withAuth(class ProfilePage extends React.Component {
   async getCurrentUser(){
     this.props.auth.getUser()
       .then(user => this.setState({user}));
+      // const accessToken = await this.props.auth.getAccessToken();
+      // const userinfo = await this.props.auth.getUser(accessToken);
+      // console.log(userinfo.sub)
   }
   componentDidMount(){
     this.getCurrentUser();
