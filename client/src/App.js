@@ -29,10 +29,10 @@ class App extends Component {
            
             {/* <Navigation /> */}
             <Switch>
-              <Route exact path="/" component={DrinksList} />
+              <Route exact path="/" component={Home} />
               <Route exact path="/shops" component={Shops} />
               <Route exact path="/recipe" component={Recipe} />
-              <Route exact path="/home" component={Home} />
+              <Route exact path="/drinks" component={DrinksList} />
               <Route path="/login" render={() => <LoginPage baseUrl={config.url} />} />
               <Route path="/implicit/callback" component={ImplicitCallback} />
               <Route path="/register" component={RegistrationForm} />
