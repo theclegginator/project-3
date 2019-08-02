@@ -4,7 +4,8 @@ import Drinks from '../components/Drinks';
 import { Container } from "../components/Grid";
 import images from '../images.json';
 import '../App.css';
-
+import Navigation from '../components/Shared/Navigation';
+import "./style.css";
 import DrinkIconPics from '../components/DrinkIconPics';
 
 class DrinksList extends Component {
@@ -25,7 +26,8 @@ class DrinksList extends Component {
 
   render() {
     return (
-      <div className="App background-gradient">
+      <div className="background2">
+        < Navigation />
         <div className="background-gradient">
         
         <header className="header">

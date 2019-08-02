@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '@okta/okta-react';
+import "./style.css";
+
+
 export default withAuth(class Navigation extends React.Component {
   constructor(props) {
     super(props);
@@ -29,9 +32,9 @@ export default withAuth(class Navigation extends React.Component {
         {/* <ul><Link to="/register">Register</Link></ul> */}
       </ul>;
     return (
-      <nav>
+      <nav className='nav'>
         <ul>
-         <Link className="fa fa-coffee header-nav__item" to="/">Home</Link>
+         <Link className="header-nav__item" to="/">Home</Link>
           <Link className="header-nav__item" to="/">Drinks</Link>
           <Link className="header-nav__item" to="/Login/">Login</Link>
          <Link className="header-nav__item" to="/Shops/">Search</Link>

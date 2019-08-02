@@ -14,6 +14,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Navigation from '../Shared/Navigation.js'
 import "./style.css";
 
 
@@ -61,16 +62,18 @@ export default withAuth(class Loginform extends React.Component {
 <span className="error-message">{this.state.error}</span> : 
 null;
     return (
-  
+  <div className='background1'>
+    < Navigation />
       <Container component="main" maxWidth="xs">
       <CssBaseline />
+
       <div className='paper'>
 {/*   
         <Avatar container justify='center' className='avatar'>
           <LockOutlinedIcon  spacing={2}  className='avatar' />
         </Avatar> */}
         <Typography className='title' component="h1" variant="h5">
-          Sign up
+          Sign In
         </Typography>
         <form  onSubmit={this.handleSubmit}>
         {errorMessage}
@@ -135,7 +138,7 @@ null;
      
     </Container>
 
-
+</div>
 
 
 
@@ -154,20 +157,20 @@ null;
       //   {errorMessage}
       //   <div className="form-element">
       //     <label>Username:</label>
-      //     <input
-      //       id="username" type="text"
+      //     <input */}
+      /* //       id="username" type="text"
       //       value={this.state.username}
       //       onChange={this.handleUsernameChange} />
-      //   </div>
-      //   <div className="form-element">
+      //   </div> */
+      /* //   <div className="form-element">
       //     <label>Password:</label>
-      //     <input
-      //       id="password" type="password"
+      //     <input */
+      /* //       id="password" type="password"
       //       value={this.state.password}
       //       onChange={this.handlePasswordChange} />
-      //   </div>
-      //   <input id="submit" type="submit" value="Submit" />
-      // </form>
+      //   </div> */
+      /* //   <input id="submit" type="submit" value="Submit" />
+      // </form> */
     );
   }
 });

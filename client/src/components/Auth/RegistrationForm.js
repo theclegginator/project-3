@@ -17,6 +17,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 // import IconButton from '@material-ui/core/IconButton';
 // import DeleteIcon from '@material-ui/icons/Delete';
+import Navigation from '../Shared/Navigation'
 import "./style.css";
 export default withAuth(class RegistrationForm extends React.Component{
   constructor(props){
@@ -111,7 +112,10 @@ export default withAuth(class RegistrationForm extends React.Component{
     }
     // const classes = useStyles();
     return(
-      
+      // < Navigation />
+      <div className='background1'>
+        < Navigation  className= 'nav'/>
+        <div> 
       <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className='paper'>
@@ -217,6 +221,8 @@ export default withAuth(class RegistrationForm extends React.Component{
       </div>
   
     </Container>
+    </div>
+    </div>
   );
     }
 })
