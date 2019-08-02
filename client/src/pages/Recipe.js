@@ -167,11 +167,11 @@ class Recipe extends Component {
                     <div className="column" />
                     <div className="column">
                       {/* Area for steam directly above the mug */}
-                      <div id="steam-engine">
+                      {/* <div id="steam-engine">
                         <div className="steam-right" />
                         <div className="steam-center" />
                         <div className="steam-left" />
-                      </div>
+                      </div> */}
                       <div id="drink">
                         {/* Are for the mug, will contain each ingredient */}
                         <div id="mug">
