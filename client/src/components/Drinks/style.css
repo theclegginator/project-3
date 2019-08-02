@@ -9,8 +9,19 @@
   text-decoration: none;
   
 }
+.drinksList:hover {
+  transition: .5s all;
+  transform: scale(1.1);
+}
+
+.drinksList:active {
+  transform: scale(1);
+  transition: .3s all;
+}
+
 link{
   text-decoration: none;
+
 }
 a{
   text-decoration: none;
@@ -31,7 +42,8 @@ a{
   font-family: 'josefin sans';
   font-weight: 400;
   text-decoration: none;
-
+  -webkit-animation: slide-in-bottom cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
+  animation: slide-in-bottom cubic-bezier(0.250, 0.460, 0.450, 0.940)1s both;
 }
 
 .img-thumbnail {
@@ -39,11 +51,18 @@ a{
 
   width: 100%;
   height: 100%;
-  border-radius: 50px;
+  border-radius: 2.2rem;
+  border: 3px solid rgba(255, 255, 255, 0);
   
   -webkit-animation: slide-in-bottom cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
   animation: slide-in-bottom cubic-bezier(0.250, 0.460, 0.450, 0.940)1s both;
 
+}
+
+.img-thumbnail:hover {
+  border: 3px solid rgb(255, 255, 255);
+  transition: .5s all;
+  transform: scale(1.1);
 }
 
 @-webkit-keyframes slide-in-bottom {
