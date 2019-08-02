@@ -10,7 +10,7 @@ class Home extends Component {
         return (
             <div className='backgroundhome'>
                 <Navigation />
-                <h1>BARISSO</h1>                
+                <h1 className='barisso'>BARISSO</h1>                
                 <div>
                 </div>
             </div>
