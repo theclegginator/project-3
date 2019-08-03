@@ -65,7 +65,7 @@ class ShopListContainer extends Component {
         />
         {this.state.results.length > 0 ?
           <ShopList results={this.state.results} /> : null}
-        />
+        
       </div>
     )
   }

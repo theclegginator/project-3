@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import { Star, Delete} from '@material-ui/icons'
 
 function ShopList(props) {
   return (
@@ -11,6 +12,7 @@ function ShopList(props) {
           <h2>{result.vicinity}</h2>
           <h3>{result.rating} - {result.user_ratings_total} reviews</h3>
           <h3>{result.opening_hours.open_now}</h3>
+          <Star data-id={result.id} />  |  <Delete data-id={result.id} />
           <hr />
           
         </div>

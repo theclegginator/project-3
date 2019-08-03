@@ -10,6 +10,10 @@ export default {
   },
 
 
+  getShop: function (shopID) {
+    return axios.get("/api/google/", {params: { shopID } });
+  },
+  
   // Gets the book with the given id
   getDrink: function (id) {
     return axios.get("/api/drinks/" + id);
