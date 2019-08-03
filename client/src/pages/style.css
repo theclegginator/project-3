@@ -36,3 +36,32 @@ align-items: right;
 margin-left: 40rem;
 /* padding-bottom: 10px; */
 }
+
+/* Large desktop */
+@media (min-width: 1200px) {
+     /* ...  */
+    }
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+        .barisso {
+            margin-left: 20rem;
+            font-size: 80px;
+        }
+    }
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+        .barisso {
+            margin-left: 10rem;
+            font-size: 80px;
+        }
+    }
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+        .barisso {
+            margin-left: 0rem;
+            font-size: 80px;
+        }
+    }
