@@ -4,7 +4,8 @@ import Drinks from '../components/Drinks';
 import { Container } from "../components/Grid";
 import images from '../images.json';
 import '../App.css';
-
+import Navigation from '../components/Shared/Navigation';
+import "./style.css";
 import DrinkIconPics from '../components/DrinkIconPics';
 
 class DrinksList extends Component {
@@ -24,15 +25,19 @@ class DrinksList extends Component {
   // }
 
   render() {
+    console.log(images)
     return (
-      <div className="App background-gradient">
-        <div className="background-gradient">
+
+
+
         
+      
+        <Container fluid className="background1">
+        < Navigation />
         <header className="header">
           Espresso Drinks
         </header>
-        <Container>
-
+        <div>
         <DrinkIconPics
           pictures={this.state.images.map(picture => (
             <Link to={{
@@ -41,18 +46,20 @@ class DrinksList extends Component {
                }}>
               <Drinks
                 // selectedCoffeeRecipe={this.selectedCoffeeRecipe}
-                allDrinks={this.allDrinks}
+                // allDrinks={this.allDrinks}
                 id={picture.id}
                 key={picture.id}
                 name={picture.name}
                 image={picture.image}
+                // /Users/theclegginator/bootcamp/Homework/project-3/client/src/pages/DrinksList.js
+                
               />
             </Link>
           ))}
           />
+          </div>
         </Container>
-        </div>
-        </div>
+       
     );
   };
 

@@ -1,0 +1,67 @@
+.background1{
+    background-image: url(https://images.unsplash.com/photo-1463797221720-6b07e6426c24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80);
+ 
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+
+/* height: 900px; */
+}
+
+.background2{
+    background-image: url(https://images.unsplash.com/photo-1463797221720-6b07e6426c24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+.backgroundhome {
+    background-image: url(../images/orangecup.jpg);
+
+    background-size: cover;
+    /* background-attachment: fixed; */
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 1050px;
+    font-family: 'Shadows Into Light', cursive;
+
+}
+.barisso{
+color: white;
+font-size: 120px;
+align-items: right;
+margin-left: 40rem;
+/* padding-bottom: 10px; */
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+     /* ...  */
+    }
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+        .barisso {
+            margin-left: 20rem;
+            font-size: 80px;
+        }
+    }
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+        .barisso {
+            margin-left: 10rem;
+            font-size: 80px;
+        }
+    }
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+        .barisso {
+            margin-left: 0rem;
+            font-size: 80px;
+        }
+    }

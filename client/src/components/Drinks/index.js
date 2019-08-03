@@ -8,10 +8,10 @@ function Drinks (props) {
     <div className="drinksList">
       <div className="espressoList">
         <Link to="/recipe">
-          <img className="img-responsive img-thumbnail" alt={props.name} src={props.image}/>
+          <img className="img-responsive img-thumbnail" alt={props.name} src={require(`../../images/coffee-icons/${props.image}`)}/>
           {/* onClick={() => props.selectedCoffeeRecipe(props.id)} */}
         </Link>
-        <h3 className="drinkName img-thumbnail">{props.name}</h3>
+        <h3 className="drinkName">{props.name}</h3>
       </div>
     </div>
   )

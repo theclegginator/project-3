@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-
 import { Col, Row, Container } from "../components/Grid";
-
 import images from "../images.json";
 import "../components/Mug/style.css"; //style properties from mug component
 import IngredientMilk from "../components/IngredientMilk";
@@ -14,7 +12,8 @@ import IngredientFoamedMilk from "../components/IngredientFoamedMilk";
 import IngredientSteamedMilk from "../components/IngredientSteamedMilk";
 import IngredientWhippedCream from "../components/IngredientWhippedCream";
 import IngredientCondensedMilk from "../components/IngredientCondensedMilk";
-
+import Navigation from '../components/Shared/Navigation';
+import "./style.css";
 
 class Recipe extends Component {
   state = {
@@ -157,12 +156,16 @@ class Recipe extends Component {
     // let headFirst = [ IngredientEspresso, IngredientMilk ]
 
     return (
-      <div>
-        <Container fluid>
-          <div className="selectedRecipe background-gradient">
-            <Row>
+ 
+             
+
+        <Container fluid className="background1">
+      
+    
+         
+            < Navigation />
               <h1 className="selectedRecipeTitle">{this.state.recipe.name}</h1>
-              <Col size="md-8 xs-12 md-offset-1">
+              {/* <Col> */}
                 {/* COFFEE MUG */}
                 <div className="container mug-wrapper">
                   <div className="columns">
@@ -199,10 +202,10 @@ class Recipe extends Component {
                   </div>
                 </div>
                 {/* END COFFEE MUG */}
-              </Col>
-            </Row>
-            <Row>
-              <Col size="xs-6 lg-4">
+              {/* </Col> */}
+       
+        
+              {/* <Col size="xs-6 lg-4"> */}
                 {/* GRIND SIZE MAPPING */}
                 <div>
                   {this.state.ingredientList.reverse().map((dummy, i) => (
@@ -212,7 +215,7 @@ class Recipe extends Component {
                     }</h2>
                   ))}
                 </div>
-                <br></br>
+                {/* <br></br> */}
                 {/* BEAN WEIGHT MAPPING */}
                 <div>
                   {this.state.ingredientList.reverse().map((dummy, i) => (
@@ -222,13 +225,12 @@ class Recipe extends Component {
                     }</h2>
                   ))}
                 </div>
-                <br></br>
-                <br></br>
-              </Col>
-            </Row>
-          </div>
+           
+              {/* </Col> */}
+ 
+     
         </Container>
-      </div>
+  
     );
   }
 }
