@@ -156,16 +156,16 @@ class Recipe extends Component {
     // let headFirst = [ IngredientEspresso, IngredientMilk ]
 
     return (
-      <div className="background1">
+ 
              
 
-        <Container fluid>
+        <Container fluid className="background1">
       
-          <div className="selectedRecipe background-gradient">
-            <Row>
+    
+         
             < Navigation />
               <h1 className="selectedRecipeTitle">{this.state.recipe.name}</h1>
-              <Col size="md-8 xs-12 md-offset-1">
+              {/* <Col> */}
                 {/* COFFEE MUG */}
                 <div className="container mug-wrapper">
                   <div className="columns">
@@ -202,10 +202,10 @@ class Recipe extends Component {
                   </div>
                 </div>
                 {/* END COFFEE MUG */}
-              </Col>
-            </Row>
-            <Row>
-              <Col size="xs-6 lg-4">
+              {/* </Col> */}
+       
+        
+              {/* <Col size="xs-6 lg-4"> */}
                 {/* GRIND SIZE MAPPING */}
                 <div>
                   {this.state.ingredientList.reverse().map((dummy, i) => (
@@ -215,7 +215,7 @@ class Recipe extends Component {
                     }</h2>
                   ))}
                 </div>
-                <br></br>
+                {/* <br></br> */}
                 {/* BEAN WEIGHT MAPPING */}
                 <div>
                   {this.state.ingredientList.reverse().map((dummy, i) => (
@@ -225,13 +225,12 @@ class Recipe extends Component {
                     }</h2>
                   ))}
                 </div>
-                <br></br>
-                <br></br>
-              </Col>
-            </Row>
-          </div>
+           
+              {/* </Col> */}
+ 
+     
         </Container>
-      </div>
+  
     );
   }
 }
