@@ -1,9 +1,9 @@
 .iconPics {
-  padding: 85px;
+  /* padding: 85px; */
   display: inline-flex;
   flex-flow: row wrap;
   padding-top: 50px;
   justify-content: center;
-  clear: none;
+  /* clear: none; */
   text-decoration: none;
 }

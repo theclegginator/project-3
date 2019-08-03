@@ -92,3 +92,22 @@ a{
     opacity: 1;
   }
 }
+
+@media (max-width: 600px) {
+  .drinksList {
+    width: 95px;
+    height: 95px;
+    margin: 10px;
+  }
+  .drinkName {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (min-width : 600px) and (max-width : 900px) {
+  .drinksList {
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+  }
+}

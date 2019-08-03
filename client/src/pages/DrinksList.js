@@ -5,8 +5,8 @@ import { Container } from "../components/Grid";
 import images from '../images.json';
 import '../App.css';
 import Navigation from '../components/Shared/Navigation';
-import "./style.css";
 import DrinkIconPics from '../components/DrinkIconPics';
+import "./style.css";
 
 class DrinksList extends Component {
 
@@ -32,7 +32,8 @@ class DrinksList extends Component {
 
         
       
-        <Container fluid className="background1">
+        <Container fluid >
+        <div className="background1">
         < Navigation />
         <header className="header">
           Espresso Drinks
@@ -57,6 +58,7 @@ class DrinksList extends Component {
             </Link>
           ))}
           />
+          </div>
           </div>
         </Container>
        
