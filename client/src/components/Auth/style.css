@@ -15,19 +15,15 @@
 }
 
 .background3{
-      text-align: center;
+      /* text-align: center; */
   /* background-image: url(https://images.pexels.com/photos/585750/pexels-photo-585750.jpeg?cs=srgb&dl=caffeine-coffee-coffee-beans-585750.jpg&fm=jpg); */
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+ 
     background-size: cover;
     /* background-attachment: fixed; */
     background-position: center;
     background-repeat: no-repeat;
-    max-height: 900px;
 
-    min-height: fit-content
-  
+
 
 }
 .nav{

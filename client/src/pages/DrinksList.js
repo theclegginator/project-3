@@ -27,15 +27,17 @@ class DrinksList extends Component {
   render() {
     console.log(images)
     return (
-      <div className="background2">
-        < Navigation />
-        <div className="background-gradient">
+
+
+
         
+      
+        <Container fluid className="background1">
+        < Navigation />
         <header className="header">
           Espresso Drinks
         </header>
-        <Container>
-
+        <div>
         <DrinkIconPics
           pictures={this.state.images.map(picture => (
             <Link to={{
@@ -55,9 +57,9 @@ class DrinksList extends Component {
             </Link>
           ))}
           />
+          </div>
         </Container>
-        </div>
-        </div>
+       
     );
   };
 
