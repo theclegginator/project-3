@@ -5,8 +5,6 @@
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-
-/* height: 900px; */
 }
 
 .background2{
@@ -15,7 +13,6 @@
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-
 }
 .backgroundhome {
     background-image: url(../images/orangecup.jpg);
