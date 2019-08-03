@@ -7,14 +7,13 @@
 }
 
 .mug-wrapper {
-    padding: 85px;
     display: inline-flex;
     flex-flow: row wrap;
     padding-top: 50px;
     justify-content: center;
 }
 
-#mug {
+.mug {
     /* margin-left: 100px;
     margin-top: 100px; */
     /* box-shadow: 10px 10px 15px 1px rgba(0, 0, 0, 0.41); */
@@ -219,3 +218,27 @@
           opacity: 0;
         }
       } 
+
+@media (max-width: 767px) {
+  .mug {
+    width: 14rem;
+    height: 15rem;
+    border-left: solid rgb(209, 208, 208) 1.5rem;
+    border-right: solid rgb(209, 208, 208) 1.5rem;
+    border-bottom: solid rgb(209, 208, 208) 1.5rem;
+    margin: 0px;
+    padding: 0px;
+  }
+  .mug-handle {
+    position: absolute;
+    top: 1.5rem;
+    left: 14rem; 
+    border-top: solid rgb(209, 208, 208) 1.5rem;
+    border-right: solid rgb(209, 208, 208) 1.5rem;
+    border-bottom: solid rgb(209, 208, 208) 1.5rem;
+    height: 5rem;
+    width: 3rem;
+    border-radius: 0 5rem 5rem 0;
+    position: absolute;
+  }
+}
