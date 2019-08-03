@@ -11,7 +11,8 @@ class ShopListContainer extends Component {
   state = {
     location: "",
     results: [],
-    checked: false
+    checked: false,
+    shopId: ""
   };
 
   searchGoogle = location => {
@@ -53,6 +54,7 @@ class ShopListContainer extends Component {
   }
 
 
+
   render() {
     return (
       <div>
@@ -64,7 +66,9 @@ class ShopListContainer extends Component {
           checked={this.state.checked}
         />
         {this.state.results.length > 0 ?
-          <ShopList results={this.state.results} /> : null}
+          <ShopList 
+          results={this.state.results} 
+          /> : null}
         
       </div>
     )

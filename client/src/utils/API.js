@@ -10,13 +10,22 @@ export default {
   },
 
 
-  getShop: function (shopID) {
-    return axios.get("/api/google/", {params: { shopID } });
+  getShop: function (placeid) {
+    return axios.get("/api/google/", { params: { placeid } });
   },
-  
-  // Gets the book with the given id
+
+  // Gets the user with the given id
   getDrink: function (id) {
     return axios.get("/api/drinks/" + id);
 
+  },
+
+  // Gets all saved users
+  createUser: function (clientId) {
+    return axios.post("/api/" + clientId);
+  },
+  // Deletes the saved user with the given id
+  updateUser: function (clientId) {
+    return axios.put("/api/user/" + clientId);
   }
 }
