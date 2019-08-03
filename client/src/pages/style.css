@@ -1,5 +1,5 @@
 .background1{
-    background-image: url(https://images.unsplash.com/photo-1463797221720-6b07e6426c24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80);
+    background-image: url("../images/coffee-shop-blur1.jpg");
  
     background-size: cover;
     background-attachment: fixed;
@@ -8,7 +8,7 @@
 }
 
 .background2{
-    background-image: url(https://images.unsplash.com/photo-1463797221720-6b07e6426c24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80);
+    background-image: url("../images/coffee-shop-blur1.jpg");
     background-size: cover;
     background-attachment: fixed;
     background-position: center;

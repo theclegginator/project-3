@@ -14,8 +14,10 @@ import IngredientWhippedCream from "../components/IngredientWhippedCream";
 import IngredientCondensedMilk from "../components/IngredientCondensedMilk";
 import Navigation from '../components/Shared/Navigation';
 import "./style.css";
+import Auth from "@okta/okta-react";
 
 class Recipe extends Component {
+  
   state = {
     images,
     recipe: {},
@@ -153,14 +155,12 @@ class Recipe extends Component {
   }
 
   render() {
-    // let headFirst = [ IngredientEspresso, IngredientMilk ]
-
     return (
  
              
 
         <Container fluid className="background1">
-      
+          <div className="background2">
     
          
             < Navigation />
@@ -179,7 +179,7 @@ class Recipe extends Component {
                       </div>
                       <div id="drink">
                         {/* Are for the mug, will contain each ingredient */}
-                        <div id="mug">
+                        <div className="mug">
                           <div className="mug-handle" />
                           <div className="air">air</div>
                           {/* MAP THE COMPONENT ARRAY FOR EACH INGREDIENT */}
@@ -228,7 +228,7 @@ class Recipe extends Component {
            
               {/* </Col> */}
  
-     
+              </div>
         </Container>
   
     );
