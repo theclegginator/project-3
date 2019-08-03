@@ -159,7 +159,8 @@ class Recipe extends Component {
  
              
 
-        <Container fluid className="background1">
+        <Container fluid>
+         <div className="background1">
       
     
          
@@ -228,7 +229,7 @@ class Recipe extends Component {
            
               {/* </Col> */}
  
-     
+     </div>
         </Container>
   
     );

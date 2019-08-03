@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
-// import ShopListContainer from "../components/ShopListContainer";
 import Navigation from '../components/Shared/Navigation';
+import { Container } from "../components/Grid";
 import "./style.css";
 
 class Home extends Component {
 
-
     render() {
         return (
-            <div className='backgroundhome'>
-                <Navigation />
-                <h1 className='barisso'>BARISSO</h1>                
-                <div>
+            <Container fluid>
+                <div className='backgroundhome'>
+                    <Navigation />
+                        <h1 className='barisso'>BARISSO</h1>                
                 </div>
-            </div>
+            </Container>
         );
     }
 };
