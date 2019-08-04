@@ -1,18 +1,20 @@
 .background1{
     background-image: url("../images/coffee-shop-blur1.jpg");
- 
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-}
+    height: -webkit-fill-available;
 
+}
 .background2{
     background-image: url("../images/coffee-shop-blur1.jpg");
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
+    height: fit-content;
+
 }
 .backgroundhome {
     background-image: url(../images/orangecup.jpg);
@@ -20,7 +22,7 @@
     background-position: center;
     background-repeat: no-repeat;
     font-family: 'Shadows Into Light', cursive;
-    height: 990px;
+    height: -webkit-fill-available;
 }
 .barisso{
 color: white;
@@ -61,6 +63,15 @@ margin-left: 40rem;
 
 .drinksheader{
     font-family: 'Shadows Into Light', cursive;
-    font-size: 90px;
-
+    font-size: 80px;
+    /* font-weight: bold;  */
+}
+.selectedRecipeTitle{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 80px;
+    /* font-weight: bold;  */
+}
+.ingredientstext{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 30px;
 }
