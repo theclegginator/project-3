@@ -8,7 +8,7 @@ class Shops extends Component {
 
     render() {
         return (
-            <div className='background2'>
+            <div className='background1'>
                 <Navigation />
                 <div>
                     <ShopListContainer />

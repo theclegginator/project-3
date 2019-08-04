@@ -33,7 +33,7 @@ class DrinksList extends Component {
         
       
         <Container fluid >
-        <div className="background1">
+        <div className="background2">
         < Navigation />
         <header className="drinksheader">
           Espresso Drinks

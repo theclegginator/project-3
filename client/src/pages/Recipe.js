@@ -155,17 +155,11 @@ class Recipe extends Component {
   }
 
   render() {
-    return (
- 
-             
-
+    return (             
         <Container fluid className="background1">
-          <div className="background2">
-    
-         
+          <div className="background2">       
             < Navigation />
-              <h1 className="selectedRecipeTitle">{this.state.recipe.name}</h1>
-              {/* <Col> */}
+              <h1 className="selectedRecipeTitle">{this.state.recipe.name}</h1>           
                 {/* COFFEE MUG */}
                 <div className="container mug-wrapper">
                   <div className="columns">
@@ -198,39 +192,30 @@ class Recipe extends Component {
                         </div>
                       </div>
                     </div>
-                    <div className="column" />
+                    <div/>
                   </div>
                 </div>
-                {/* END COFFEE MUG */}
-              {/* </Col> */}
-       
-        
-              {/* <Col size="xs-6 lg-4"> */}
+                {/* END COFFEE MUG */}        
                 {/* GRIND SIZE MAPPING */}
                 <div>
                   {this.state.ingredientList.reverse().map((dummy, i) => (
                   // map grind size for coffee ingredients only
-                    <h2>{this.state.grindSize[i] !== undefined ? 
+                    <h2 className='ingredientstext'>{this.state.grindSize[i] !== undefined ? 
                       `${this.state.grindSize[i].ingredient} Grind Size: ${this.state.grindSize[i].grind}` : null
                     }</h2>
                   ))}
                 </div>
-                {/* <br></br> */}
                 {/* BEAN WEIGHT MAPPING */}
                 <div>
                   {this.state.ingredientList.reverse().map((dummy, i) => (
                     // map ground weight of beans for coffee ingredients only
-                    <h2>{this.state.grindSize[i] !== undefined ? 
+                    <h2 className='ingredientstext'>{this.state.grindSize[i] !== undefined ? 
                       `${this.state.grindSize[i].ingredient} Bean Weight: ${this.state.grindSize[i].weightLow} - ${this.state.grindSize[i].weightHigh} grams` : null
                     }</h2>
                   ))}
                 </div>
-           
-              {/* </Col> */}
- 
-              </div>
-        </Container>
-  
+                 </div>
+        </Container>  
     );
   }
 }
