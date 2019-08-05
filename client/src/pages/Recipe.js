@@ -35,13 +35,7 @@ class Recipe extends Component {
 
   // setting recipe ID and getting current window size for dynamic styling
   componentDidMount() {
-    let { data } = this.props.location;
-    if (data === undefined) {
-      // default to first drink if no link was followed in react router to get here
-      data = 1;
-    }
     this.setState({ 
-      recipe: images[data - 1], // data is the id of the coffee recipe
       width: window.innerWidth, // gather window size data from browser
       height: window.innerHeight
     });  
@@ -49,7 +43,32 @@ class Recipe extends Component {
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
-    this.selectedCoffeeRecipe(data);
+
+
+    let { data } = this.props.location;
+    // data will be undefined if refreshed on this page as the value is retrieved from react router on the Drinks page
+    if (data === undefined) {
+      let prevRun = sessionStorage.getItem('drinkId')
+      if (!prevRun) {
+        // default to first drink if no link was followed in react router to get here
+        data = 1;
+        // if no session data, use default data value
+        this.setState({recipe: images[data - 1]}) // data is the id of the coffee recipe
+        this.selectedCoffeeRecipe(data);
+      }
+      else {
+        // if session data exists, use that instead
+        this.setState({recipe: images[prevRun - 1]})
+        this.selectedCoffeeRecipe(prevRun);
+      }
+    }
+    // if session storage has no drink id value, set one
+    else {
+      sessionStorage.setItem('drinkId', data);
+      this.setState({recipe: images[data - 1]}) // data is the id of the coffee recipe
+      this.selectedCoffeeRecipe(data);
+    }
+
   }
   
   // Handle resize dynamically
