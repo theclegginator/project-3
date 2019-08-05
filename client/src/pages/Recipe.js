@@ -181,7 +181,7 @@ class Recipe extends Component {
     return (
 
         <Container fluid>
-          <div className="background1">
+          <div className="background2">
             < Navigation />
               <h1 className="selectedRecipeTitle">{this.state.recipe.name}</h1>
               {/* <Col> */}
