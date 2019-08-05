@@ -42,5 +42,21 @@ module.exports = {
     //   )
     // .then(books => res.json(books))
     // .catch(err => res.status(422).json(err));
-  }
+  },
+
+  // shopDetail: function (req, res) {
+  //   const apiKEY = process.env.REACT_APP_SHOP_API_KEY;
+  //   axios
+  //   .get("https://maps.googleapis.com/maps/api/place/details/json?placeid=" + req.shopID "&key=" + apiKEY)
+
+  //   .then(results => {
+  //     console.log("PLACE STUFF!");
+  //     // console.log(results)
+  //     // console.log(results.data)
+  //     // res.json({
+  //     //   msg: 'api',
+  //     //   results: results
+  //     // })
+  //     res.json(place.data)
+  // }
 };

@@ -19,6 +19,7 @@ export default withAuth(class ProfilePage extends React.Component {
   render() {
     if(!this.state.user) return null;
     return (
+      
       <section className="user-profile">
         <h1>User Profile</h1>
         <div>
