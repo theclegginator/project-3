@@ -9,6 +9,7 @@ export class IngredientMilk extends Component {
         if (this.props.firstIngredient) {
             style = {
                 height: this.props.height,
+                width: this.props.width,
                 lineHeight: this.props.height,
                 borderRadius: [0 , 0 , 3 + 'rem', 3 + 'rem'],
             }
@@ -16,6 +17,7 @@ export class IngredientMilk extends Component {
         else {
             style = {
                 height: this.props.height,
+                width: this.props.width,
                 lineHeight: this.props.height,
                 animationDelay: delay,
             }

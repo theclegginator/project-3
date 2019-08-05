@@ -14,6 +14,7 @@ import IngredientWhippedCream from "../components/IngredientWhippedCream";
 import IngredientCondensedMilk from "../components/IngredientCondensedMilk";
 import Navigation from '../components/Shared/Navigation';
 import "./style.css";
+import Auth from "@okta/okta-react";
 
 class Recipe extends Component {
   
@@ -26,8 +27,35 @@ class Recipe extends Component {
     divHeights: [],
     headFirst: [],
     animationDelays: [],
-    grindSize: []
+    grindSize: [],
+    divWidths: 20 + 'rem',
+    // width: 0,
+    // height: 0
   };
+
+  // setting recipe ID and getting current window size for dynamic styling
+  componentDidMount() {
+    let { data } = this.props.location;
+    if (data === undefined) {
+      // default to first drink if no link was followed in react router to get here
+      data = 1;
+    }
+    this.setState({ 
+      recipe: images[data - 1], // data is the id of the coffee recipe
+      width: window.innerWidth, // gather window size data from browser
+      height: window.innerHeight
+    });  
+    // set the recipe state equal to the id
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+    this.selectedCoffeeRecipe(data);
+  }
+  
+  // Handle resize dynamically
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+  }
 
   selectedCoffeeRecipe = id => {
     console.log("id = " + id);
@@ -74,8 +102,15 @@ class Recipe extends Component {
     let totalOunces = ounces.reduce((a, b) => a + b, 0);
 
     for (let i = 0; i < ounces.length; i++) {
-      // Note: total rem height for coffee cup is 20 rem, hence the calculation below (total height / ingredient ratio). Limiting to 2 decimal places limits screen tear.
-      ingredientHeights.push((20 * (ounces[i] / totalOunces)).toFixed(2));
+      // Note: for large screens, coffee cup height is 20 rem, hence the calculation below (total height / ingredient ratio). Limiting to 2 decimal places limits screen tear.
+      if (window.innerWidth > 767) {
+        ingredientHeights.push((20 * (ounces[i] / totalOunces)).toFixed(2));
+      }
+      // for smaller screen sizes:
+      else {
+        ingredientHeights.push((14 * (ounces[i] / totalOunces)).toFixed(2));   
+        this.setState({divWidths: 14 + 'rem'});   
+      }
     }
     this.setState({ divHeights: ingredientHeights });
 
@@ -142,28 +177,14 @@ class Recipe extends Component {
     this.setState({ headFirst: headTitles , grindSize: grindSize});
   };  
 
-  componentDidMount() {
-    let { data } = this.props.location;
-    if (data === undefined) {
-      // default to espresso if no link was followed in react router to get here
-      data = 1;
-    }
-    // data is the id of the coffee recipe
-    this.setState({ recipe: images[data - 1] }); // set the recipe state equal to the id
-    this.selectedCoffeeRecipe(data);
-  }
-
   render() {
     return (
- 
-             
 
-        <Container fluid className="background1">
+        <Container fluid>
           <div className="background1">
-    
-         
             < Navigation />
-              <h1 className="selectedRecipeTitle">{this.state.recipe.name}</h1>           
+              <h1 className="selectedRecipeTitle">{this.state.recipe.name}</h1>
+              {/* <Col> */}
                 {/* COFFEE MUG */}
                 <div className="container mug-wrapper">
                   <div className="columns">
@@ -186,6 +207,7 @@ class Recipe extends Component {
                               <Component
                                 key={i}
                                 height={this.state.divHeights[i] + "rem"}
+                                width={this.state.divWidths}
                                 firstIngredient={this.state.firstIngredient[i]}
                                 name={this.state.ingredientList[i]}
                                 ounces={this.state.ounces[i]}
@@ -196,30 +218,39 @@ class Recipe extends Component {
                         </div>
                       </div>
                     </div>
-                    <div/>
+                    <div className="column" />
                   </div>
                 </div>
-                {/* END COFFEE MUG */}        
+                {/* END COFFEE MUG */}
+              {/* </Col> */}
+       
+        
+              {/* <Col size="xs-6 lg-4"> */}
                 {/* GRIND SIZE MAPPING */}
                 <div>
                   {this.state.ingredientList.reverse().map((dummy, i) => (
                   // map grind size for coffee ingredients only
-                    <h2 className='ingredientstext'>{this.state.grindSize[i] !== undefined ? 
+                    <h2>{this.state.grindSize[i] !== undefined ? 
                       `${this.state.grindSize[i].ingredient} Grind Size: ${this.state.grindSize[i].grind}` : null
                     }</h2>
                   ))}
                 </div>
+                <br></br>
                 {/* BEAN WEIGHT MAPPING */}
                 <div>
                   {this.state.ingredientList.reverse().map((dummy, i) => (
                     // map ground weight of beans for coffee ingredients only
-                    <h2 className='ingredientstext'>{this.state.grindSize[i] !== undefined ? 
+                    <h2>{this.state.grindSize[i] !== undefined ? 
                       `${this.state.grindSize[i].ingredient} Bean Weight: ${this.state.grindSize[i].weightLow} - ${this.state.grindSize[i].weightHigh} grams` : null
                     }</h2>
                   ))}
                 </div>
-                 </div>
-        </Container>  
+           
+              {/* </Col> */}
+ 
+              </div>
+        </Container>
+  
     );
   }
 }
