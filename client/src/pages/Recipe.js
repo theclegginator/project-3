@@ -14,7 +14,6 @@ import IngredientWhippedCream from "../components/IngredientWhippedCream";
 import IngredientCondensedMilk from "../components/IngredientCondensedMilk";
 import Navigation from '../components/Shared/Navigation';
 import "./style.css";
-import Auth from "@okta/okta-react";
 
 class Recipe extends Component {
   
@@ -160,7 +159,7 @@ class Recipe extends Component {
              
 
         <Container fluid className="background1">
-          <div className="background2">
+          <div className="background1">
     
          
             < Navigation />
