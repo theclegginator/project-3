@@ -277,8 +277,6 @@ class Recipe extends Component {
                     }</h2>
                   ))}
                 </div>
-           
-              {/* </Col> */}
  
               </div>
         </Container>
