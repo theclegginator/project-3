@@ -4,6 +4,7 @@ import './App.css';
 import DrinksList from './pages/DrinksList';
 import Shops from './pages/Shops';
 import Recipe from './pages/Recipe'
+import MakeDrink from './pages/MakeDrink'
 import Home from './pages/Home'
 import Nav from "./components/Nav"
 import { Container } from "./components/Grid";
@@ -33,6 +34,7 @@ class App extends Component {
               <Route exact path="/shops" component={Shops} />
               <Route exact path="/recipe" component={Recipe} />
               <Route exact path="/drinks" component={DrinksList} />
+              <Route exact path="/makedrink" component={MakeDrink} />
               <Route path="/login" render={() => <LoginPage baseUrl={config.url} />} />
               <Route path="/implicit/callback" component={ImplicitCallback} />
               <Route path="/register" component={RegistrationForm} />
