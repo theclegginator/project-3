@@ -215,6 +215,7 @@
     border-right: solid rgb(209, 208, 208) 1.5rem;
     border-bottom: solid rgb(209, 208, 208) 1.5rem;
     border-radius: 0 0 4.4rem 4.4rem;
+    margin-right: 1.5rem;
   }
   .mug-handle {
     position: absolute;
