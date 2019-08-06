@@ -39,8 +39,8 @@ a{
 
 .drinkName {
   color: white;
-  font-family: 'josefin sans';
-  font-weight: 400;
+  font-family: 'Shadows Into Light', cursive;
+  font-weight: bold;
   text-decoration: none;
   -webkit-animation: slide-in-bottom cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
   animation: slide-in-bottom cubic-bezier(0.250, 0.460, 0.450, 0.940)1s both;
