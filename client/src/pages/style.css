@@ -31,42 +31,7 @@ align-items: right;
 margin-left: 40rem;
 /* padding-bottom: 10px; */
 }
-
-/* Large desktop */
-@media (min-width: 1200px) {
-     /* ...  */
-    }
-
-/* Portrait tablet to landscape and desktop */
-@media (min-width: 768px) and (max-width: 979px) {
-        .barisso {
-            margin-left: 20rem;
-            font-size: 80px;
-        }
-    }
-
-/* Landscape phone to portrait tablet */
-@media (max-width: 767px) {
-        .barisso {
-            margin-left: 10rem;
-            font-size: 80px;
-        }
-    }
-
-/* Landscape phones and down */
-@media (max-width: 480px) {
-        .barisso {
-            margin-left: 0rem;
-            font-size: 80px;
-        }
-    }
-
 .drinksheader{
-    font-family: 'Shadows Into Light', cursive;
-    font-size: 80px;
-    /* font-weight: bold;  */
-}
-.selectedRecipeTitle{
     font-family: 'Shadows Into Light', cursive;
     font-size: 80px;
     /* font-weight: bold;  */
@@ -84,3 +49,83 @@ margin-left: 40rem;
     font-family: 'Shadows Into Light', cursive;
     font-size: 20px;
 }
+.description{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.selectedRecipeTitle{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 80px;
+    /* font-weight: bold;  */
+}
+
+.text-focus-in {
+	-webkit-animation: text-focus-in 1.9s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+            animation: text-focus-in 1.9s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+            animation-delay: 2.2s;
+            -webkit-animation-delay: 2.2s;
+}
+
+@-webkit-keyframes text-focus-in {
+    0% {
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes text-focus-in {
+    0% {
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+/* Large desktop */
+@media (min-width: 1200px) {
+     /* ...  */
+    }
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+        .barisso {
+            margin-left: 20rem;
+            font-size: 80px;
+        }
+        .description{
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+    }
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+        .barisso {
+            margin-left: 10rem;
+            font-size: 80px;
+        }
+        .description{
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+    }
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+        .barisso {
+            margin-left: 0rem;
+            font-size: 80px;
+        }
+    }
