@@ -259,7 +259,7 @@ class Recipe extends Component {
                 {/* END COFFEE MUG */}
 
                 {/* GRIND SIZE MAPPING */}
-                <div>
+                <div className='grindsize'>
                   {this.state.ingredientList.reverse().map((dummy, i) => (
                   // map grind size for coffee ingredients only
                     <h2>{this.state.grindSize[i] !== undefined ? 
@@ -269,7 +269,7 @@ class Recipe extends Component {
                 </div>
                 <br></br>
                 {/* BEAN WEIGHT MAPPING */}
-                <div>
+                <div className='beanweight'>
                   {this.state.ingredientList.reverse().map((dummy, i) => (
                     // map ground weight of beans for coffee ingredients only
                     <h2>{this.state.grindSize[i] !== undefined ? 
