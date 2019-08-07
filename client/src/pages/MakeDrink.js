@@ -9,6 +9,15 @@ import Navigation from "../components/Shared/Navigation";
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import clsx from 'clsx';
+import Select from '@material-ui/core/Select';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import InputLabel from '@material-ui/core/InputLabel';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import Button from '@material-ui/core/Button';
+
 import "./style.css";
 
 class MakeDrink extends Component {
@@ -19,31 +28,95 @@ class MakeDrink extends Component {
   render() {
     return (
       <Container fluid>
-        <div className="background1">
+        <div className="background2">
           <Navigation />
           <div>
             <h1 className='createdrinktitle'>Create Custom Drink</h1>
           <form className='makedrinkform' noValidate autoComplete="off">
+      <div>
       <TextField
           required
           id="standard-required"
           label="Drink Name"
           // defaultValue="Hello World"
           className='drinkName'
-          margin="normal"
+          margin="dense"
       />
+      </div>
+      <div>
+      <FormControl className='ingredientlist'>
+        <InputLabel htmlFor="ingredient-native-simple">Ingredient</InputLabel>
+        <Select
+          native
+          // value={state.ingredient}
+          // onChange={handleChange('ingredient')}
+          inputProps={{
+            name: 'ingredient',
+            id: 'ingredient-native-simple',
+          }}
+        >
+ “Whipped Cream”,“Hot Water”, “Ice Cream”
+
+          <option value="" />
+          <option value='Espresso'>Espresso</option>
+          <option value='Decaf Drip Brew'>Decaf Drip Brew</option>
+          <option value='Drip Brew'>Drip Brew</option>
+          <option value='French Press'>French Press</option>
+          <option value='Warm Milk'>Warm Milk</option>
+          <option value='Condensed Milk'>Condensed Milk</option>
+          <option value='Cubano'>Cubano</option>
+          <option value='Steamed Milk'>Steamed Milk</option>
+          <option value='Hot Chocolate'>Hot Chocolate</option>
+          <option value='Foamed Milk'>Foamed Milk</option>
+          <option value='Long Pull Espresso'>Long Pull Espresso</option>
+          <option value='Whipped Cream'>Whipped Cream</option>
+          <option value='Hot Water'>Hot Water</option>
+          <option value='Ice Cream'>Ice Cream</option>
+        </Select>
+      </FormControl>
+      <FormControl className='ounces'>
+        <InputLabel htmlFor="ounces-native-simple">Ounces</InputLabel>
+        <Select
+          native
+          // value={state.ounces}
+          // onChange={handleChange('ounces')}
+          inputProps={{
+            name: 'ounces',
+            id: 'ounces-native-simple',
+          }}
+        >
+          <option value="" />
+          <option value={5}>Five</option>
+          <option value={10}>Ten</option>
+          <option value={20}>Twenty</option>
+          <option value={30}>Thirty</option>
+        </Select>
+      </FormControl>
+      <div className='btns'>
+      <Button variant="contained" size="small" color="primary" className='add'>
+          Add Ingredient
+        </Button>
+       {/* <Fab size="small" color="secondary" aria-label="add" className='icon'>
+          <AddIcon />
+          </Fab> */}
+          </div>
+</div>
+        <div>
         <TextField
-        id="standard-number"
-        label=""
-        // value={values.ounces}
-        // onChange={handleChange('ounces')}
-        type="number"
-        className='ounces'
-        InputLabelProps={{
-          shrink: true,
-        }}
+        id="standard-full-width-multiline-flexible"
+        label="Description"
+        multiline
+        rowsMax="4"
+        // value={values.multiline}
+        // onChange={handleChange('multiline')}
+        className='drinkdescription'
+        style={{ margin: 20 }}
         margin="normal"
-      />
+        />
+      </div>
+      <Button variant="contained" size="large" color="primary" className='submit'>
+          Add Drink
+        </Button>
       </form>
           </div>
         </div>
