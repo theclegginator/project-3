@@ -19,6 +19,10 @@ export default {
     return axios.get("/api/drinks/" + id);
 
   },
+  // Gets the user with the given id
+  getAllUserDrinks: function (clientId) {
+    return axios.get("/api/drinks/all/" + clientId);
+  },
 
   getUserFaves: function (clientId) {
     return axios.get("/api/user/faves/" + clientId);
