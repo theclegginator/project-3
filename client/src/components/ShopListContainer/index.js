@@ -47,10 +47,17 @@ class ShopListContainer extends Component {
         console.log("Results", res);
         const shops = res.data.results;
         shops.forEach(shop => {
+
           if (this.state.faves.data[0].faveShops.indexOf(shop.id) !== -1) {
             shop.isFave = true
           } else {
             shop.isFave = false
+          }
+
+          if (this.state.faves.data[0].banShops.indexOf(shop.id) !== -1) {
+            shop.isBan = true
+          } else {
+            shop.isBan = false
           }
 
           this.setState({ results: shops });

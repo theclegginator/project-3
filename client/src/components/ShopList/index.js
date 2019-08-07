@@ -69,24 +69,31 @@ class ShopList extends Component {
     return (
       <div className="list-group">
         <hr />
-        {this.props.results.map((result) => (
-          // for each banned list (from this.state.bannedList)
-          // if this.state.bannedList.contains(result.id) then (DON"T LOAD THAT list-group-item) 
-          <div className="list-group-item" key={result.id}>
-            <h1>{result.name}</h1>
-            <h2>{result.vicinity}</h2>
-            <h3>{result.rating} - {result.user_ratings_total} reviews</h3>
-            <h3>{result.opening_hours.open_now}</h3>
+        {this.props.results.map((result) => {
+
+          if (!result.isBan) {
+
+            return(
+              <div className="list-group-item" key={result.id}>
+                <h1>{result.name}</h1>
+                <h2>{result.vicinity}</h2>
+                <h3>{result.rating} - {result.user_ratings_total} reviews</h3>
+                <h3>{result.opening_hours.open_now}</h3>
 
 
-            {this.state.isLoggedIn ?
-              <Star key={result.id} className={result.isFave ? "fave" : "starry"} onClick={() => this.handleFave(result.id)} /> : null}
-            {this.state.isLoggedIn ?
-              <Delete onClick={() => this.handleBan(result.id)} /> : null}
-            <hr />
+                {this.state.isLoggedIn ?
+                  <Star key={result.id} className={result.isFave ? "fave" : "starry"} onClick={() => this.handleFave(result.id)} /> : null}
+                {this.state.isLoggedIn ?
+                  <Delete onClick={() => this.handleBan(result.id)} /> : null}
+                <hr />
 
-          </div>
-        ))}
+              </div>)
+          } else {
+
+            return (
+              null)
+          }
+        })}
       </div>
     )
   }
