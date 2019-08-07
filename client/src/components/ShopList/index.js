@@ -30,14 +30,6 @@ class ShopList extends Component {
           console.log("FAVES:", this.state.faves)
         })
       )
-
-      API.getUserFaves(this.state.clientId)
-        .then(res => {
-          this.setState({
-            faves: res
-          })
-          console.log("FAVES:", this.state.faves)
-        })
     }
 
 
@@ -58,6 +50,15 @@ class ShopList extends Component {
   }
 
   handleBan = (shopId) => {
+    const { results } = this.props
+    console.log("ShopId", shopId)
+
+    const shopIndex = results.findIndex(result => result.id === shopId)
+    console.log("Index", shopIndex)
+    results[shopIndex].isBan = !results[shopIndex].isBan
+    { (results[shopIndex].isBan) ? API.addUserBan(this.state.clientId, shopId) : API.removeUserBan(this.state.clientId, shopId) }
+    console.log("Shoppy:", shopId)
+    this.setState({ results })
     API.addUserBan(this.state.clientId, shopId)
     console.log("Bandit:", shopId)
 

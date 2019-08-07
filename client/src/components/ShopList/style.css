@@ -16,6 +16,14 @@ li {
     color: white
 }
 
+.ban {
+    color: black;
+    font-size: large;
+}
+
+.trash {
+    color: white
+}
 .list-group {
     color: white;
     font-family: 'Shadows Into Light', cursive;
