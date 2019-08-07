@@ -6,6 +6,7 @@ li {
     color: white;
 }
 
+
 .fave {
     color: darkorange;
     font-size: large;
@@ -13,4 +14,17 @@ li {
 
 .starry {
     color: white
+}
+
+.list-group {
+    color: white;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 20px;
+}
+
+.list-group-item {
+    color: white;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 20px;
+
 }

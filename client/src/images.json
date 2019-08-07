@@ -1,12 +1,13 @@
 [
     {
         "id" : 1,
-        "name" : "Café Allogato",
+        "name" : "Café Affogato",
         "image": "cafe-allogato.png",
         "ingredients": {
             "Espresso": 30,
             "Ice Cream": 30
-        }
+        },
+        "description" : "Café Affogato is a coffee-based dessert which is made by combining gelato and his double espresso. It was originated from Italy but is not too common around the world. "
     },
     {
         "id" : 2,
@@ -15,7 +16,8 @@
         "ingredients": {
             "Cubano": 30,
             "Warm Milk": 30
-        }
+        },
+        "description" : "Cortadito is an espresso shot mixed with steam milk. It's ratio can be either 50/50 or 75/50 of espresso and milk. This beverage is pre-sweetened and is similar to the cortado served in other Latin countries. "
     },
     {
         "id" : 3,
@@ -25,7 +27,8 @@
             "Espresso": 60,
             "Hot Chocolate": 120,
             "Whipped Cream": 40
-        } 
+        },
+        "description" : "Mocha is a beverage, typically served hot, which has milk froth or whipped cream on top. Normally, it is served with one third espresso and two thirds steamed milk. This coffee has a chocolaty taste and takes it's name from the Red Sea."
     },
     {
         "id" : 4,
@@ -35,7 +38,8 @@
             "Espresso": 60,
             "Steamed Milk": 60,
             "Foamed Milk": 60
-        }    
+        },
+        "description" : "Cappuccino is a beverage that contains double espresso and hot milk. It is typically topped with foamed milk. This beverage originated from Italy and is now popular worldwide. "    
     },
     {
         "id" : 5,
@@ -44,7 +48,8 @@
         "ingredients": {
             "Espresso": 60,
             "Hot Water": 120
-        } 
+        },
+        "description" : "An Americano is an espresso-based drink. Consumers can choose between a single or double-shot of espresso in addition to a few cups of hot water. An Americano is a crowd favorite in the United States."
     },
     {
         "id" : 6,
@@ -53,7 +58,8 @@
         "ingredients": {
             "Espresso": 60,
             "Steamed Milk": 120
-        }  
+        },
+        "description" : "A Flat White is a drink which has espresso with steamed milk. This drink has a higher proportion of coffee to milk. The Flat White originated from Australia in the mid-1980s. "
     },
     {
         "id" : 7,
@@ -62,7 +68,8 @@
         "ingredients": {
             "French Press": 90,
             "Steamed Milk": 90
-        }  
+        },
+        "description" : "Café Au Lait is coffee with hot milk mixed together. It has a strong, bitter taste. Around the world, there are many variations of the Café Au Lait. "
     },
     {
         "id" : 8,
@@ -71,7 +78,8 @@
         "ingredients": {
             "Espresso": 20,
             "Steamed Milk": 60
-        }
+        },
+        "description" : "A Piccolo Latte is a ristretto shot mixed with warm milk in a small latte glass. This beverage became popular about ten years ago and continues to maintain its taste till this day."
     },
     {
         "id" : 9,
@@ -80,7 +88,8 @@
         "ingredients": {
             "Espresso": 30,
             "Drip Brew": 120
-        }  
+        },
+        "description" : "A Red Eye is a drink that has brewed coffee and is topped with a shot of espresso. Years ago, this coffee was served with double shots of espresso. It is popular for its strong taste and known to keep someone up for quite some time. "
     },
     {
         "id" : 10,
@@ -89,7 +98,8 @@
         "ingredients": {
             "Espresso": 60,
             "Drip Brew": 120
-        } 
+        },
+        "description" : "A Black Eye is a drink that is served iced or hot and consists of coffee with a double shot of espresso. It’s combination of coffee and espresso adds much flavor and enough caffeine to keep you energized for the day."
     },
     {
         "id" : 11,
@@ -98,7 +108,8 @@
         "ingredients": {
             "Espresso": 90,
             "Drip Brew": 120
-        } 
+        },
+        "description" : "A Dead Eye is a drink that consists of drip coffee with three shots of espresso. This is the drink that will turn your frown upside-down within seconds because of it’s high intensity. "
     },
     {
         "id" : 12,
@@ -107,7 +118,8 @@
         "ingredients": {
             "Espresso": 60,
             "Decaf Drip Brew": 120
-        } 
+        },
+        "description" : "A Lazy Eye is a cream-based beverage that is prepared by having two shots of espresso topped over decaffeinated coffee. Whipped cream is put over two standard shots of espresso until the cup is completely full."
     },
     {
         "id" : 13,
@@ -116,7 +128,8 @@
         "ingredients": {
             "Hot Water": 120,
             "Espresso": 60
-        } 
+        }, 
+        "description" : "A Long Black is made by mixing hot water and a double shot of espresso. The Long Black is mostly popular is Australia and New Zealand and is known for it’s aroma and flavor."
     },
     {
         "id" : 14,
@@ -125,7 +138,8 @@
         "ingredients": {
             "Espresso": 60,
             "Whipped Cream": 40
-        } 
+        }, 
+        "description" : "Vienna is a cream-based coffee which is prepared by mixing two shots of black espresso with whipped cream. This coffee came from the Turks when they left behind coffee beans."
     },
     {
         "id" : 15,
@@ -134,7 +148,8 @@
         "ingredients": {
             "Espresso": 60,
             "Steamed Milk": 180
-        } 
+        },
+        "description" : "A Latte is a beverage which consists of espresso and steamed milk topped with foam. It can be served hot and iced, and the latte originated from Italy. It is a crowd favorite due to its smooth taste."
     },
     {
         "id" : 16,
@@ -143,7 +158,8 @@
         "ingredients": {
             "Espresso": 60,
             "Foamed Milk": 180
-        } 
+        },
+        "description" : "A Frappé is an iced coffee made with water and sugar. At many coffeeshops today, frappe’s can come in different flavors but are still served cold. They originated from Greece and can be found around the world. "
     },
     {
         "id" : 17,
@@ -151,7 +167,8 @@
         "image": "espresso-plain.png",
         "ingredients": {
             "Espresso": 30
-        }
+        },
+        "description" : "An Espresso is brewed and served in a small cup. It is made using roasted coffee beans that are brewed in a special machine. An Espresso is typically dark topped with a layer of cream. This drink originated from Italy."
     },
     {
         "id" : 18,
@@ -159,7 +176,8 @@
         "image": "espresso-plain.png",
         "ingredients": {
             "Espresso": 20
-        }
+        },
+        "description" : "A Ristretto is served in a short glass and consists of espresso coffee with almost the same amount of coffee beans but minimal water is mixed in. This coffee originated from Italy but is now served all around the world."
     },
     {
         "id" : 19,
@@ -167,7 +185,8 @@
         "image": "espresso-plain.png",
         "ingredients": {
             "Long Pull Espresso": 90
-        }
+        },
+        "description" : "Lungo is a beverage which is made by using an espresso machine that has coffee with twice as much water. It is served in an average cup instead of a shot glass. It originated from Italy but is not as popular as many people may think it is. "
     },
     {
         "id" : 20,
@@ -175,7 +194,8 @@
         "image": "espresso-plain.png",
         "ingredients": {
             "Espresso": 60
-        }
+        },
+        "description" : "Doppio espresso, typically called a Standard Double, is a drink which is prepared with double shots of espresso. Some coffeeshops allow customers to choose how many shots of espresso, but most coffeeshops around the world typically serve it with double shots of espresso."
     },
     {
         "id" : 21,
@@ -183,7 +203,8 @@
         "image": "espresso-plain.png",
         "ingredients": {
             "Long Pull Espresso": 150
-        }
+        },
+        "description" : "Café Cream means “cream coffee” in Italian. It is typically made by adding coffee or double espresso mixed in with cream. This coffee is normally served hot but can also be made with ice."
     },
     {
         "id" : 22,
@@ -191,7 +212,8 @@
         "image": "espresso-plain.png",
         "ingredients": {
             "Espresso": 30
-        }
+        },
+        "description" : "Café Cubano (also know as Cuban espresso) is basically an espresso shot which is sweetened by adding more natural brown sugar or cream. Meals in Cuba are typically served with Café Cubano."
     },
     {
         "id" : 23,
@@ -200,7 +222,8 @@
         "ingredients": {
             "Espresso": 30,
             "Condensed Milk": 30
-        }
+        },
+        "description" : "A Bonbon coffee can be prepared by having espresso topped with dulce de leche. The crowd enjoys this coffee because of its' sweet taste. This coffee originated from Spain and has been spread around the world.  "
     },
     {
         "id" : 24,
@@ -209,7 +232,8 @@
         "ingredients": {
             "Espresso": 30,
             "Foamed Milk": 10
-        }
+        },
+        "description" : "A Macchiato is prepared with espresso coffee mixed with a small amount of foamed milk. This beverage has the highest ratio of espresso to milk. It is also known as a Caffé Macchiato and originated from Italy. "
     },
     {
         "id" : 25,
@@ -218,7 +242,8 @@
         "ingredients": {
             "Espresso": 30,
             "Warm Milk": 30
-        }
+        },
+        "description" : "A Cortado is a drink which consists of espresso and an equal amount of warm milk. The milk in a Cortado is steamed but not exactly frothy as other Italian coffees. This coffee originated from Italy."
     }
     
 ]
