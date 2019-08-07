@@ -5,28 +5,32 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/barisso"
+  "mongodb://192.168.99.100/barisso"
 );
 
-const shopSeed = [
+const userSeed = [
   {
-    placeID: "ChIJVVWV9SkF9YgRtJoGM2AKDU4",
-    name: "Metrotainment Cafes",
-    userRatings: [
+    clientId: "0oa10n4ne7DzM0xRF357",
+    faveDrinks: [],
+    userDrinks: {},
+    faveShops: [],
+    banShops: []
 
-    ],
-    userFaves: [
+  },
 
-    ],
-    userBans: [
+  {
+    clientId: "0oa10n4ne7DzM0xRF357",
+    faveDrinks: [],
+    userDrinks: {},
+    faveShops: [],
+    banShops: []
 
-    ]
   }
 ];
 
-db.Shops
+db.Users
   .remove({})
-  .then(() => db.Shops.collection.insertMany(shopSeed))
+  .then(() => db.Users.collection.insertMany(userSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);

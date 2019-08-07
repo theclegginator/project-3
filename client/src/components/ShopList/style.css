@@ -5,3 +5,12 @@ body {
 li {
     color: white;
 }
+
+.fave {
+    color: darkorange;
+    height: 2rem
+}
+
+.starry {
+    color: white
+}

@@ -1,15 +1,15 @@
 const path = require("path");
 const router = require("express").Router();
-// const coffeeRoutes = require("./coffee");
+const userRoutes = require("./user");
 const googleRoutes = require("./google");
 
 
-// router.use("/coffee", coffeeRoutes);
+router.use("/user", userRoutes);
 
 // Google Routes
 router.use("/google", googleRoutes);
 
-// For anything else, render the html page
+// // For anything else, render the html page
 // router.use(function (req, res) {
 //   res.sendFile(path.join(__dirname, "../../client/build/index.html"));
 // });

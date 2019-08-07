@@ -21,7 +21,7 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://192.168.99.199/Barisso', {
+  process.env.MONGODB_URI || 'mongodb://192.168.99.100/Barisso', {
     useCreateIndex: true,
     useNewUrlParser: true
   }
