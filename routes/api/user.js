@@ -29,8 +29,13 @@ router
   .route("/ban/:clientId/:shopId")
   .put(userController.addUserBan)
 
+
 router
   .route("/unban/:clientId/:shopId")
   .put(userController.removeUserBan)
+
+router 
+  .route("/api/drinks/all/:clientId")
+  .get(userController.getAllUserDrinks)
 
 module.exports = router;
