@@ -27,6 +27,7 @@ class Recipe extends Component {
     headFirst: [],
     animationDelays: [],
     grindSize: [],
+    description: [],
     divWidths: 20 + 'rem',
   };
 
@@ -108,7 +109,8 @@ class Recipe extends Component {
     }
     this.setState({
       ingredientList: ingredientKeys,
-      animationDelays: animationDelays
+      animationDelays: animationDelays,
+      description: images[id-1].description
     });
 
     // This switch case sorts through the possible ingredients and assigns a component name to it
@@ -219,7 +221,7 @@ class Recipe extends Component {
         <Container fluid>
           <div className="background2">
             < Navigation />
-              <h1 className="selectedRecipeTitle">{this.state.recipe.name}</h1>
+              <h1 className="selectedRecipeTitle text-focus-in">{this.state.recipe.name}</h1>
                 {/* COFFEE MUG */}
                 <div className="container mug-wrapper">
                   <div className="columns">
@@ -259,25 +261,33 @@ class Recipe extends Component {
                 {/* END COFFEE MUG */}
 
                 {/* GRIND SIZE MAPPING */}
-                <div className='grindsize'>
-                  {this.state.ingredientList.reverse().map((dummy, i) => (
-                  // map grind size for coffee ingredients only
-                    <h2>{this.state.grindSize[i] !== undefined ? 
-                      `${this.state.grindSize[i].ingredient} Grind Size: ${this.state.grindSize[i].grind}` : null
-                    }</h2>
-                  ))}
+                <div className='text-wrapper'>
+                  <div className='grindsize'>
+                    {this.state.ingredientList.reverse().map((dummy, i) => (
+                    // map grind size for coffee ingredients only
+                      <h2>{this.state.grindSize[i] !== undefined ? 
+                        `${this.state.grindSize[i].ingredient} Grind Size: ${this.state.grindSize[i].grind}` : null
+                      }</h2>
+                    ))}
+                  </div>
+                  <br></br>
+                  {/* BEAN WEIGHT MAPPING */}
+                  <div className='beanweight'>
+                    {this.state.ingredientList.reverse().map((dummy, i) => (
+                      // map ground weight of beans for coffee ingredients only
+                      <h2>{this.state.grindSize[i] !== undefined ? 
+                        `${this.state.grindSize[i].ingredient} Bean Weight: ${this.state.grindSize[i].weightLow} - ${this.state.grindSize[i].weightHigh} grams` : null
+                      }</h2>
+                    ))}
+                  </div>
+                  <br></br>
+                  <div className='description'>
+                      <h2>{this.state.description !== undefined ? 
+                        `${this.state.description}` : null
+                      }</h2>
+                  </div>
+  
                 </div>
-                <br></br>
-                {/* BEAN WEIGHT MAPPING */}
-                <div className='beanweight'>
-                  {this.state.ingredientList.reverse().map((dummy, i) => (
-                    // map ground weight of beans for coffee ingredients only
-                    <h2>{this.state.grindSize[i] !== undefined ? 
-                      `${this.state.grindSize[i].ingredient} Bean Weight: ${this.state.grindSize[i].weightLow} - ${this.state.grindSize[i].weightHigh} grams` : null
-                    }</h2>
-                  ))}
-                </div>
- 
               </div>
         </Container>
   
