@@ -20,12 +20,25 @@ export default {
 
   },
 
+  getUserFaves: function (clientId) {
+    return axios.get("/api/user/faves/" + clientId);
+  },
+
   // Gets all saved users
   createUser: function (clientId) {
-    return axios.post("/api/" + clientId);
+    return axios.post("/api//user/" + clientId);
   },
-  // Deletes the saved user with the given id
-  updateUser: function (clientId) {
-    return axios.put("/api/user/" + clientId);
+  // Updates the saved user with the given id
+  addUserFave: function (clientId, shopId) {
+    return axios.put("/api/user/fave/" + clientId + "/" + shopId);
+  },
+
+  // Updates the saved user with the given id
+  removeUserFave: function (clientId, shopId) {
+    return axios.put("/api/user/remove/" + clientId + "/" + shopId);
+  },
+
+  addUserBan: function (clientId, shopId) {
+    return axios.put("/api/user/ban/" + clientId + "/" + shopId);
   }
 }

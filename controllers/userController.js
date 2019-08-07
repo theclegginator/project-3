@@ -17,8 +17,30 @@ module.exports = {
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
-  update: function(req, res) {
-    db.User.findOneAndUpdate({ clientId: req.params.clientId }, req.body)
+
+  getUserFaves: function(req, res) {
+    db.User.find({ clientId: req.params.clientId })
+      .then(dbUser => res.json(dbUser))
+      .catch(err => res.status(422).json(err));
+  },
+
+  addUserFave: function(req, res) {
+    console.log("You added that favorite!")
+    db.User.findOneAndUpdate({ clientId: req.params.clientId}, {$push: {faveShops: req.params.shopId}})
+      .then(dbUser => res.json(dbUser))
+      .catch(err => res.status(422).json(err));
+  },
+
+  removeUserFave: function(req, res) {
+    console.log("You removed that favorite!")
+    db.User.findOneAndUpdate({ clientId: req.params.clientId}, {$pull: {faveShops: req.params.shopId}})
+      .then(dbUser => res.json(dbUser))
+      .catch(err => res.status(422).json(err));
+  },
+
+  addUserBan: function(req, res) {
+    console.log("You banned that!")
+    db.User.findOneAndUpdate({ clientId: req.params.clientId}, {$push: {banShops: req.params.shopId}})
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
