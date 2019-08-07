@@ -4,7 +4,7 @@ const userController = require("../../controllers/userController");
 // Matches with "/api/user"
 router.route("/")
   .get(userController.findAll)
-  .post(userController.create);
+  .post(userController.createUser);
 
 // Matches with "/api/user/:id"
 // router
@@ -18,7 +18,7 @@ router
   .put(userController.addUserFave)
 
 router
-  .route("/remove/:clientId/:shopId")
+  .route("/unfave/:clientId/:shopId")
   .put(userController.removeUserFave)
 
 router
@@ -28,6 +28,11 @@ router
 router
   .route("/ban/:clientId/:shopId")
   .put(userController.addUserBan)
+
+
+router
+  .route("/unban/:clientId/:shopId")
+  .put(userController.removeUserBan)
 
 router 
   .route("/api/drinks/all/:clientId")

@@ -12,8 +12,9 @@ module.exports = {
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
-    db.User.create(req.body)
+  createUser: function(req, res) {
+    console.log("CREATE IT!")
+    db.User.insert({clientId: req.body, "faveDrinks":[], "userDrinks": {}, "faveShops":[], "banShops":[] })
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
@@ -50,6 +51,14 @@ module.exports = {
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
+
+  removeUserBan: function(req, res) {
+    console.log("You removed that favorite!")
+    db.User.findOneAndUpdate({ clientId: req.params.clientId}, {$pull: {banShops: req.params.shopId}})
+      .then(dbUser => res.json(dbUser))
+      .catch(err => res.status(422).json(err));
+  },
+
   remove: function(req, res) {
     db.User.findById(req.params.clientId)
       .then(dbUser => dbUser.remove())
