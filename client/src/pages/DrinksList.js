@@ -1,13 +1,14 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import Drinks from "../components/Drinks";
-import { Container } from "../components/Grid";
-import images from "../images.json";
-import createDrink from "../createDrink.json";
 import "../App.css";
-import Navigation from "../components/Shared/Navigation";
-import DrinkIconPics from "../components/DrinkIconPics";
 import "./style.css";
+import API from "../utils/API";
+import images from "../images.json";
+import { Link } from "react-router-dom";
+import React, { Component } from "react";
+import Drinks from "../components/Drinks";
+import createDrink from "../createDrink.json";
+import { Container } from "../components/Grid";
+import DrinkIconPics from "../components/DrinkIconPics";
+import Navigation from "../components/Shared/Navigation";
 
 class DrinksList extends Component {
   state = {
@@ -24,10 +25,16 @@ class DrinksList extends Component {
       this.setState({
         clientId: oktaId,
         isLoggedIn: true
-      }, () => console.log(this.state.isLoggedIn)
-      )
+      }, () => 
+        API.getAllUserDrinks(this.state.clientId)
+          .then(res => {
+            this.setState({
+              userDrinks: res
+            })
+          })
+        )
+      }
     }
-  }
 
   render() {
     return (
@@ -76,6 +83,32 @@ class DrinksList extends Component {
             />
           </div>
           : null}
+
+          {/* Also load a section below with user created drinks */}
+          {this.state.isLoggedIn && this.state.userDrinks !== undefined ?
+          <div>
+            <header className="drinksheader">User Creations</header>
+              <DrinkIconPics
+                pictures={this.state.userDrinks.map(userDrink => (
+                  <Link
+                    to={{
+                      pathname: "/recipe",
+                      data: userDrink.id 
+                    }}
+                  >
+                    <Drinks
+                      id={userDrink.id}
+                      key={userDrink.id}
+                      name={userDrink.name}
+                      image={userDrink.image}
+                    />
+                  </Link>
+                ))}
+              />
+          </div>
+          : null}
+
+
         </div>
       </Container>
       );

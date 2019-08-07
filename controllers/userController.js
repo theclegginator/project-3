@@ -24,6 +24,12 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+  getAllUserDrinks: function(req, res) {
+    db.User.find({ clientId: req.params.clientId }, {$pull: {userDrinks}})
+      .then(dbUser => res.json(dbUser))
+      .catch(err => res.status(422).json(err));
+  },
+
   addUserFave: function(req, res) {
     console.log("You added that favorite!")
     db.User.findOneAndUpdate({ clientId: req.params.clientId}, {$push: {faveShops: req.params.shopId}})
