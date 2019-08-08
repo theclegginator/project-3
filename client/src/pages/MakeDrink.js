@@ -72,7 +72,6 @@ class MakeDrink extends Component {
       ingredient: this.state.ingredient.concat([{ name: "", weight: '' }])
     });
   };
-
   handleRemoveingredient = id => () => {
     this.setState({
       ingredient: this.state.ingredient.filter((e, sidx) => id !== sidx)
@@ -90,7 +89,6 @@ class MakeDrink extends Component {
             <h1 className='createdrinktitle'>Create Custom Drink</h1>
 <div className='makedrinkform'>
       <form className='createdrinkfm' noValidate autoComplete="off" onSubmit={this.handleSubmit}>
-
         <TextField
             required
             id="standard-required"
@@ -137,7 +135,6 @@ class MakeDrink extends Component {
           value={ingredient.weight}
           onChange={this.handleingredientNameChange(id)}
           // helperText="Weight"
-
           InputProps={{
           endAdornment: <InputAdornment position="end">Oz</InputAdornment>,
           }}

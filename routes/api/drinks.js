@@ -1,8 +1,12 @@
 const router = require("express").Router();
-const userController = require("../../controllers/drinkController");
+const drinkController = require("../../controllers/drinkController");
 
 router 
   .route("/all/:clientId")
-  .get(userController.getAllUserDrinks)
+  .get(drinkController.getAllUserDrinks)
+
+router 
+  .route("/create/")
+  .put(drinkController.createDrink)
 
 module.exports = router;

@@ -42,32 +42,49 @@ class Recipe extends Component {
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
 
+    // ======
 
     let { data } = this.props.location;
     // data will be undefined if refreshed on this page as the value is retrieved from react router on the Drinks page
-    if (data === undefined) {
-      let prevRun = sessionStorage.getItem('drinkId')
-      if (!prevRun) {
-        // default to first drink if no link was followed in react router to get here
-        data = 1;
-        // if no session data, use default data value
-        this.setState({recipe: images[data - 1]}) // data is the id of the coffee recipe
-        this.selectedCoffeeRecipe(data);
+    // if (typeof(data) === "number") {
+      // first see if it was a user created drink or not. If it wasn't, we use the data id from the images.json file
+      if (data === undefined) {
+  
+        let prevRun = sessionStorage.getItem('drinkId')
+        console.log("prevRun", prevRun)
+        if (!prevRun) {
+          // default to first drink if no link was followed in react router to get here
+          data = 1;
+          // if no session data, use default data value
+          this.setState({recipe: images[data - 1]}) // data is the id of the coffee recipe
+          this.selectedCoffeeRecipe(data);
+        }
+        else {
+          // if session data exists, use that instead
+          this.setState({recipe: images[prevRun - 1]})
+          this.selectedCoffeeRecipe(parseInt(prevRun));
+        }
+  
+  
       }
+      // if session storage has no drink id value, set one
       else {
-        // if session data exists, use that instead
-        this.setState({recipe: images[prevRun - 1]})
-        this.selectedCoffeeRecipe(prevRun);
+
+        if (typeof(data) === "number") {
+          sessionStorage.setItem('drinkId', data);
+          this.setState({recipe: images[data - 1]}) // data is the id of the coffee recipe
+          this.selectedCoffeeRecipe(data);
+        }
+        else {
+          // sessionStorage.setItem('drinkId', data.id);
+          this.setState({recipe: data.recipe[data.id]}) // data is the id of the coffee recipe
+          this.selectedCoffeeRecipe(data.id);
+        }
       }
-    }
-    // if session storage has no drink id value, set one
-    else {
-      sessionStorage.setItem('drinkId', data);
-      this.setState({recipe: images[data - 1]}) // data is the id of the coffee recipe
-      this.selectedCoffeeRecipe(data);
-    }
 
   }
+
+  // ======
   
   // Handle resize dynamically
   updateWindowDimensions() {
@@ -90,8 +107,13 @@ class Recipe extends Component {
   }
 
   selectedCoffeeRecipe = id => {
-    console.log("id = " + id);
-    let drinkSelection = images[id - 1];
+    let drinkSelection = {};
+    if (typeof(id) === "number") {
+      drinkSelection = images[id - 1];
+    }
+    else {
+      drinkSelection = id.recipe[id.id];
+    }
     let ingredients = drinkSelection.ingredients;
     const keys = []; // array for ingredient key values
     const ounces = []; // array for measurements of each ingredient
@@ -107,23 +129,49 @@ class Recipe extends Component {
       ingredientKeys.unshift(keys[i]);
       animationDelays.unshift(i * 0.6);
     }
-    this.setState({
-      ingredientList: ingredientKeys,
-      animationDelays: animationDelays,
-      description: images[id-1].description
-    }, () => {
-      // This switch case sorts through the possible ingredients and assigns a component name to it
-      for (let i = 0; i < this.state.ingredientList.length; i++) {
-        if (i === 0) {
-          firstIngredient.unshift(true);
-        } else {
-          firstIngredient.unshift(false);
-        }
-      }
+
+    // NON-USER CREATED DRINKS
+    if (typeof(id) === "number") {
       this.setState({
-        firstIngredient: firstIngredient
-      })
-    });
+        ingredientList: ingredientKeys,
+        animationDelays: animationDelays,
+        description: images[id-1].description
+      }, () => {
+        // This switch case sorts through the possible ingredients and assigns a component name to it
+        for (let i = 0; i < this.state.ingredientList.length; i++) {
+          if (i === 0) {
+            firstIngredient.unshift(true);
+          } else {
+            firstIngredient.unshift(false);
+          }
+        }
+        this.setState({
+          firstIngredient: firstIngredient
+        })
+      });
+    } 
+
+    // USER CREATED DRINKS
+    else {
+      this.setState({
+        ingredientList: ingredientKeys,
+        animationDelays: animationDelays,
+        description: id.recipe[id.id].description
+      }, () => {
+        // This switch case sorts through the possible ingredients and assigns a component name to it
+        for (let i = 0; i < this.state.ingredientList.length; i++) {
+          if (i === 0) {
+            firstIngredient.unshift(true);
+          } else {
+            firstIngredient.unshift(false);
+          }
+        }
+        this.setState({
+          firstIngredient: firstIngredient
+          
+        }, () => {console.log(this.state)})
+      });
+    }
 
    
 
@@ -222,7 +270,6 @@ class Recipe extends Component {
   };  
 
   render() {
-    console.log(this.state)
     return (
 
         <Container fluid>
