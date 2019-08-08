@@ -19,8 +19,7 @@ class ShopListContainer extends Component {
 
   componentDidMount() {
     const oktaToken = localStorage.getItem("okta-token-storage")
-    console.log("oktaToken:", oktaToken)
-
+    if (oktaToken) {
     if (JSON.parse(oktaToken).idToken !== undefined) {
       const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.claims.sub)
       console.log("OktaId:", oktaId);
@@ -44,21 +43,23 @@ class ShopListContainer extends Component {
              })
           }
           else {
+            console.log("Hitting User Faves Route")
              API.getUserFaves(this.state.clientId) 
              .then(res => {
               this.setState({
                 faves: res.data
               })
+              console.log("USER OBJECT:", this.state.faves)
              })
             }
-
+           
         }
         )
-      )    // 
-      console.log("FAVORS:", this.state.faves)
+      )    
+
       
     }
-
+  }
 
   }
 
@@ -70,12 +71,15 @@ class ShopListContainer extends Component {
         const shops = res.data.results;
         shops.forEach(shop => {
 
+      
           if (this.state.faves.data) {
             if (this.state.faves.data[0].faveShops.indexOf(shop.id) !== -1) {
-              shop.isFave = true
+              shop.isFave = true;
+
             }
           } else {
-            shop.isFave = false
+            shop.isFave = false;
+          
           }
 
 

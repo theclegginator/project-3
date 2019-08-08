@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./style.css";
 import { Star, Delete } from '@material-ui/icons'
-import { isThisHour } from "date-fns";
 import API from "../../utils/API"
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -20,9 +19,7 @@ class ShopList extends Component {
 
   componentDidMount() {
     const oktaToken = localStorage.getItem("okta-token-storage")
-    console.log("oktaToken:", oktaToken)
-
-
+    // console.log("oktaToken:", oktaToken)
 
     if (JSON.parse(oktaToken).idToken !== undefined) {
       const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.claims.sub)
@@ -59,7 +56,7 @@ class ShopList extends Component {
 
   handleFave = (shopId) => {
     const { results } = this.props
-    console.log("ShopId", shopId)
+    // console.log("ShopId", shopId)
 
     const shopIndex = results.findIndex(result => result.id === shopId)
     console.log("Index", shopIndex)
@@ -103,7 +100,7 @@ class ShopList extends Component {
 
 
                 {this.state.isLoggedIn ?
-                  <Star key={result.id} className={result.isFave ? "fave" : "starry"} onClick={() => this.handleFave(result.id)} /> : null}
+                  <Star className={result.isFave ? "fave" : "starry"} onClick={() => this.handleFave(result.id)} /> : null}
                 {this.state.isLoggedIn ?
                   <Delete onClick={() => this.handleBan(result.id)} /> : null}
               
