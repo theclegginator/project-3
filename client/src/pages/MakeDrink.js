@@ -40,54 +40,81 @@ const useStyles = makeStyles(theme => ({
 
 // const classes = useStyles();
 class MakeDrink extends Component {
-
+  componentDidMount() {
+    const oktaToken = localStorage.getItem("okta-token-storage");
+    if (oktaToken) {
+      if (JSON.parse(oktaToken).idToken !== undefined) {
+        const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.claims.sub)
+        this.setState({
+          clientId: oktaId,
+          isLoggedIn: true
+        })
+        }
+      }
+    }
+    
   constructor() {
     // const classes = useStyles();
     super();
     this.state = {
       name: "",
-      ingredient: [{ name: "", weight: ''}]
+      ingredients: [{}],
+      description: ""
     };
   }
 
   handleNameChange = event => {
     this.setState({ name: event.target.value });
+    console.log(this.state)
   };
 
-  handleingredientNameChange = id => event => {
-    const newingredient = this.state.ingredient.map((ingredient, sidx) => {
-      if (id !== sidx) return ingredient;
-      return { ...ingredient, name: event.target.value };
-    });
-
-    this.setState({ ingredient: newingredient });
+  handleDescriptionChange = event => {
+    this.setState({ description: event.target.value });
+    console.log(this.state)
   };
+
+  // handleingredientNameChange = id => event => {
+  //   const newingredient = this.state.ingredients.map((ingredient, sidx) => {
+  //     // if (id !== sidx) return ingredient;
+  //     // let temp = this.state.ingredients;
+  //     newingredient[`test`] = 30;
+  //     console.log(newingredient)
+  //     return {newingredient};
+  //   });
+  //   // obj["key3"] = "value3";
+
+  //   this.setState({ ingredients: newingredient });
+  //   console.log(this.state) 
+  // };
 
   handleSubmit = event => {
-    const { name, ingredients } = this.state;
+    // const { name, ingredients } = this.state;
+    console.log(
+      "okay"
+    )
   };
 
-  handleaddingredient= () => {
-    this.setState({
-      ingredient: this.state.ingredient.concat([{ name: "", weight: '' }])
-    });
-  };
-  handleRemoveingredient = id => () => {
-    this.setState({
-      ingredient: this.state.ingredient.filter((e, sidx) => id !== sidx)
-    });
-  };
+  // handleaddingredient= () => {
+  //   this.setState({
+  //     ingredients: this.state.ingredients.concat([{}])
+  //   });
+  // };
+  // handleRemoveingredient = id => () => {
+  //   this.setState({
+  //     ingredients: this.state.ingredients.filter((e, sidx) => id !== sidx)
+  //   });
+  // };
 
   render() {
     // const classes = useStyles();
 
     return (
       <Container fluid>
-      <div className="background2">
+      <div className="background3">
         <Navigation />
           <div>
             <h1 className='createdrinktitle'>Create Custom Drink</h1>
-<div className='makedrinkform'>
+    <div className='makedrinkform'>
       <form className='createdrinkfm' noValidate autoComplete="off" onSubmit={this.handleSubmit}>
         <TextField
             required
@@ -98,16 +125,16 @@ class MakeDrink extends Component {
             value = {this.state.name}
             onChange={this.handleNameChange}
             />
-        {this.state.ingredient.map((ingredient, id) => (
+        {this.state.ingredients.map((ingredient, id) => (
           <div className="ingredientlist">
            <FormControl className='ingredientlist'>
           <InputLabel htmlFor="ingredient-native-simple">Ingredient</InputLabel>
             <Select
               native
               value={ingredient.name}
-              onChange={this.handleingredientNameChange(id)}              
+              onChange={this.handleingredientNameChange(ingredient.name)}              
               inputProps={{
-              name: 'ingredient',
+              name: 'ingredients',
               id: 'ingredient-native-simple',
               }}
               >
@@ -156,6 +183,8 @@ class MakeDrink extends Component {
           fullWidth
          
           margin="normal"
+          value = {this.state.description}
+          onChange={this.handleDescriptionChange}
           />
      
      <div className='adddrink'>
@@ -174,18 +203,3 @@ class MakeDrink extends Component {
 }
 
 export default MakeDrink;
-
-
-
-
-// (DONE) 1. Dynamically load an 'create drink' icon at the bottom by checking if they are logged in or not.
-// (DONE) 2. Make it a Link to via react router to send the user to MakeDrink.js
-// (VYJOO WORKING ON) 3. MakeDrink.js will have a bunch of fields to fill out: Name of Drink, Ingredients, ounces per ingredient, and description
-// (VYJOO WORKING ON) 3.5 Additionally, a drink can have a different number of ingredients. So the form should start with one field, then allow them to add up to 5 ingredients.
-// 4. Then there should be a form submit button. When they click this, it should run an API post route to post the drink details in a JSON object to the database for that client ID.
-// =====
-// 5. Back on the drink list homepage, we should run an API call for get all drinks that the user has made only if they are logged in.
-// 6. This API route will then return an array of JSON objects render a DrinksListIcon for each. Use mapping and map some prop like id to the drink icon component.
-// ===== 
-// 7. When the user clicks a drink icon component, it should use the same Link To form of other drinks, but instead of passing a static ID from our JSON array, it will pass the Mongo ID.
-// 8. It should then run through all the same functions and build the drink.
