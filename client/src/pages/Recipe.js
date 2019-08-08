@@ -277,7 +277,7 @@ class Recipe extends Component {
                       }</h2>
                     ))}
                   </div>
-                  <br></br>
+                  {/* <br></br> */}
                   {/* BEAN WEIGHT MAPPING */}
                   <div className='beanweight'>
                     {this.state.ingredientList.reverse().map((dummy, i) => (
@@ -287,7 +287,7 @@ class Recipe extends Component {
                       }</h2>
                     ))}
                   </div>
-                  <br></br>
+                  {/* <br></br> */}
                   <div className='description'>
                       <h2>{this.state.description !== undefined ? 
                         `${this.state.description}` : null
