@@ -19,7 +19,7 @@ class ShopListContainer extends Component {
 
   componentDidMount() {
     const oktaToken = localStorage.getItem("okta-token-storage")
-    console.log("oktaToken:", oktaToken)
+    // console.log("oktaToken:", oktaToken)
 
     if (JSON.parse(oktaToken).idToken !== undefined) {
       const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.claims.sub)
@@ -44,18 +44,20 @@ class ShopListContainer extends Component {
              })
           }
           else {
+            console.log("Hitting User Faves Route")
              API.getUserFaves(this.state.clientId) 
              .then(res => {
               this.setState({
                 faves: res.data
               })
+              console.log("USER OBJECT:", this.state.faves)
              })
             }
-
+           
         }
         )
-      )    // 
-      console.log("FAVORS:", this.state.faves)
+      )    
+
       
     }
 
@@ -70,21 +72,27 @@ class ShopListContainer extends Component {
         const shops = res.data.results;
         shops.forEach(shop => {
 
+      
           if (this.state.faves.data) {
             if (this.state.faves.data[0].faveShops.indexOf(shop.id) !== -1) {
-              shop.isFave = true
+              console.log("ShopFave Test", this.state.faves.data[0])
+              shop.isFave = true;
+              console.log(shop.id," Fave was TRUE")
             }
           } else {
-            shop.isFave = false
+            shop.isFave = false;
+            console.log(shop.id," Fave was FALSE")
           }
 
 
           if (this.state.faves.data) {
             if (this.state.faves.data[0].banShops.indexOf(shop.id) !== -1) {
               shop.isBan = true
+              console.log(shop.id, "Ban was TRUE")
             }
           } else {
             shop.isBan = false
+            console.log(shop.id," Ban was FALSE")
           }
         })
         this.setState({ results: shops })
