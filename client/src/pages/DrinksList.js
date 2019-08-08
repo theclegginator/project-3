@@ -15,7 +15,8 @@ class DrinksList extends Component {
     images,
     createDrink,
     isLoggedIn: false,
-    clientId: undefined
+    clientId: undefined,
+    userDrinks: []
   };
 
   componentDidMount() {
@@ -28,9 +29,10 @@ class DrinksList extends Component {
       }, () => 
         API.getAllUserDrinks(this.state.clientId)
           .then(res => {
-            this.setState({
-              userDrinks: res
-            })
+            console.log("results:", res.data)
+            // this.setState({
+            //   userDrinks: res.data.userDrinks
+            // })
           })
         )
       }
