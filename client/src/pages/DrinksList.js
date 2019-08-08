@@ -20,21 +20,24 @@ class DrinksList extends Component {
   };
 
   componentDidMount() {
-    const oktaToken = localStorage.getItem("okta-token-storage")
-    if (oktaToken !== undefined && JSON.parse(oktaToken).idToken !== undefined) {
-      const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.claims.sub)
-      this.setState({
-        clientId: oktaId,
-        isLoggedIn: true
-      }, () => 
-        API.getAllUserDrinks(this.state.clientId)
-          .then(res => {
-            console.log("results:", res.data)
-            // this.setState({
-            //   userDrinks: res.data.userDrinks
-            // })
-          })
-        )
+    const oktaToken = localStorage.getItem("okta-token-storage");
+    if (oktaToken) {
+      console.log("great")
+      if (JSON.parse(oktaToken).idToken !== undefined) {
+        const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.claims.sub)
+        this.setState({
+          clientId: oktaId,
+          isLoggedIn: true
+        }, () => 
+          API.getAllUserDrinks(this.state.clientId)
+            .then(res => {
+              console.log("results:", res.data)
+              // this.setState({
+              //   userDrinks: res.data.userDrinks
+              // })
+            })
+          )
+        }
       }
     }
 

@@ -19,8 +19,7 @@ class ShopListContainer extends Component {
 
   componentDidMount() {
     const oktaToken = localStorage.getItem("okta-token-storage")
-    // console.log("oktaToken:", oktaToken)
-
+    if (oktaToken) {
     if (JSON.parse(oktaToken).idToken !== undefined) {
       const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.claims.sub)
       console.log("OktaId:", oktaId);
@@ -60,7 +59,7 @@ class ShopListContainer extends Component {
 
       
     }
-
+  }
 
   }
 
