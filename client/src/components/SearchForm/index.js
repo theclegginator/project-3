@@ -1,12 +1,14 @@
 import React from "react";
 import "./style.css";
+// import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 
 function SearchForm(props) {
   return (
     <form>
       <div className="form-group">
-        <h1>Find a Dope Coffee Shop and Get Your Fix Now!</h1>
+        <h1 className='shopstitle'>Find a Dope Coffee Shop and Get Your Fix Now!</h1>
 
         <div className="checkform">
           <input 
@@ -31,9 +33,9 @@ function SearchForm(props) {
           placeholder="Press Search to Use Your Current Location or Enter a Location"
           id="search"
         />
-        <button onClick={props.handleFormSubmit} className="btn btn-primary mt-3 finder">
+        <Button onClick={props.handleFormSubmit} variant="contained" size="small" color="primary"  className="finder">
           Search
-        </button>
+        </Button>
 
 
       </div>

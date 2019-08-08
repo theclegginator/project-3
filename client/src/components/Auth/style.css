@@ -1,12 +1,17 @@
 .paper {
- display: 'flex';
+
  flex-direction: 'column';
- align-items: 'center';
+
  background-color: #ffffffc2;
  border-radius: 3%;
  padding: 20px;
  /* opacity: 0.9; */
- margin-bottom: 50px;
+ /* margin-bottom: 50px;
+ margin-top:150px; */
+ /* display: flex;
+ justify-content: space-around;
+ align-items: center;
+ align-content: center; */
 }
 
 .title {
@@ -14,8 +19,6 @@
     color: rgba(80, 58, 48, 0.973);
 }
 
-.nav{
-    width:20px;
-    height:30px;
-    margin-bottom: 100px;
+.logincontainer{
+ margin-top: 70px;
 }

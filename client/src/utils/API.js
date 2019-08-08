@@ -14,11 +14,16 @@ export default {
     return axios.get("/api/google/", { params: { placeid } });
   },
 
-  // Gets the user with the given id
   getDrink: function (id) {
     return axios.get("/api/drinks/" + id);
-
   },
+  // Gets the user with the given id
+  createDrink: function (body) {
+    // console.log(clientId, drinkObj)
+    // return axios.put("/api/drinks/create/" + clientId + "/" + drinkObj);
+    return axios.put("/api/drinks/create/", body);
+  },
+
   // Gets the user with the given id
   getAllUserDrinks: function (clientId) {
     return axios.get("/api/drinks/all/" + clientId);

@@ -205,6 +205,7 @@ export default withAuth(class RegistrationForm extends React.Component{
             className='submit'
             id= "submit"
             value='Register'
+            
           >
             Sign Up
           </Button>
