@@ -239,3 +239,21 @@ margin-left: 40rem;
             /* font-weight: bold;  */
         }
     }
+    @media (max-width: 360px) {
+        .barisso {
+            margin-left: 9rem;
+            font-size: 63px;
+        }
+        .drinksheader{
+            font-size: 40px;
+            font-weight: bold; 
+        }
+        .selectedRecipeTitle{
+            font-family: 'Shadows Into Light', cursive;
+            font-size: 60px;
+            /* font-weight: bold;  */
+        }
+        .paper{
+            margin-top: 90px;
+        }
+    }

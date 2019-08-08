@@ -43,7 +43,9 @@ class DrinksList extends Component {
       <Container fluid>
         <div className="background2">
           <Navigation />
-          <header className="drinksheader">Espresso Drinks</header>
+          {/* <div className="drinkpageheader"> */}
+          <h1 className="drinksheader">Espresso Drinks</h1>
+          {/* </div> */}
           <div>
             <DrinkIconPics
               pictures={this.state.images.map(picture => (
