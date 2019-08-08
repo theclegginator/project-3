@@ -14,7 +14,8 @@ class ShopListContainer extends Component {
     checked: false,
     shopId: "",
     clientId: "",
-    faves: {}
+    faves: {},
+    userDocExists: false,
   };
 
   componentDidMount() {
@@ -33,13 +34,16 @@ class ShopListContainer extends Component {
           if  (userCheck.length === 0) {
              API.createUser({
                clientId: this.state.clientId,
-               faveDrinks: [],
-               userDrinks: {},
+               userDrinks: [],
                faveShops: [],
                banShops: []
              })
              .then(res => {
-               console.log("This guy is a NEWB!")
+              this.setState({
+                userDocExits:true
+              }) 
+              console.log("This guy is a NEWB!")
+
              })
           }
           else {
@@ -49,7 +53,7 @@ class ShopListContainer extends Component {
               this.setState({
                 faves: res.data
               })
-              console.log("USER OBJECT:", this.state.faves)
+              console.log("USER OBJECT:", this.state.faves[0])
              })
             }
            
@@ -71,25 +75,21 @@ class ShopListContainer extends Component {
         const shops = res.data.results;
         shops.forEach(shop => {
 
-      
-          if (this.state.faves.data) {
-            if (this.state.faves.data[0].faveShops.indexOf(shop.id) !== -1) {
+            shop.isFave = false;
+          if (this.state.faves[0]) {
+            if (this.state.faves[0].faveShops.indexOf(shop.id) !== -1) {
               shop.isFave = true;
 
             }
-          } else {
-            shop.isFave = false;
-          
           }
 
-
-          if (this.state.faves.data) {
-            if (this.state.faves.data[0].banShops.indexOf(shop.id) !== -1) {
+          shop.isBan = false;
+          if (this.state.faves[0]) {
+            if (this.state.faves[0].banShops.indexOf(shop.id) !== -1) {
               shop.isBan = true
             }
-          } else {
-            shop.isBan = false
-          }
+          }        
+        
         })
         this.setState({ results: shops })
         

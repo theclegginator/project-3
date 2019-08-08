@@ -92,3 +92,8 @@ body{
 h1 {
   color: white;
 }
+
+.user-profile {
+  color: white;
+  font-family: 'Shadows Into Light', cursive;
+}

@@ -132,7 +132,7 @@ class MakeDrink extends Component {
             <Select
               native
               value={ingredient.name}
-              onChange={this.handleingredientNameChange(ingredient.name)}              
+              // onChange={this.handleingredientNameChange(ingredient.name)}              
               inputProps={{
               name: 'ingredients',
               id: 'ingredient-native-simple',
@@ -160,7 +160,7 @@ class MakeDrink extends Component {
           className='weight'
           label="Weight"
           value={ingredient.weight}
-          onChange={this.handleingredientNameChange(id)}
+          // onChange={this.handleingredientNameChange(id)}
           // helperText="Weight"
           InputProps={{
           endAdornment: <InputAdornment position="end">Oz</InputAdornment>,

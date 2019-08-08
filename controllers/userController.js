@@ -41,14 +41,15 @@ module.exports = {
 
   addUserFave: function (req, res) {
     console.log("You added that favorite!")
-    db.User.findOneAndUpdate({ clientId: req.params.clientId }, { $push: { faveShops: req.params.shopId } })
+    console.log("BODY:",req.body)
+    db.User.findOneAndUpdate({ clientId: req.body.clientId }, { $push: { faveShops: req.body.shop } })
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
 
   removeUserFave: function (req, res) {
     console.log("You removed that favorite!")
-    db.User.findOneAndUpdate({ clientId: req.params.clientId }, { $pull: { faveShops: req.params.shopId } })
+    db.User.findOneAndUpdate({ clientId: req.body.clientId }, { $pull: { faveShops: req.body.shop } })
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
@@ -56,14 +57,14 @@ module.exports = {
 
   addUserBan: function (req, res) {
     console.log("You banned that!")
-    db.User.findOneAndUpdate({ clientId: req.params.clientId }, { $push: { banShops: req.params.shopId } })
+    db.User.findOneAndUpdate({ clientId: req.body.clientId }, { $push: { banShops: req.body.shop } })
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
 
   removeUserBan: function (req, res) {
     console.log("You removed that favorite!")
-    db.User.findOneAndUpdate({ clientId: req.params.clientId }, { $pull: { banShops: req.params.shopId } })
+    db.User.findOneAndUpdate({ clientId: req.body.clientId }, { $pull: { banShops: req.body.shop } })
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   }

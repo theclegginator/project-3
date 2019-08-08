@@ -15,6 +15,7 @@ import RegistrationForm from './components/Auth/RegistrationForm';
 import config from './app.config';
 import LoginPage from './components/Auth/LoginPage';
 import ProfilePage from './components/Auth/ProfilePage';
+import User from './pages/User'
  
 
 
@@ -35,10 +36,11 @@ class App extends Component {
               <Route exact path="/recipe" component={Recipe} />
               <Route exact path="/drinks" component={DrinksList} />
               <Route exact path="/makedrink" component={MakeDrink} />
+              <Route exact path="/profile" component={User} />
               <Route path="/login" render={() => <LoginPage baseUrl={config.url} />} />
               <Route path="/implicit/callback" component={ImplicitCallback} />
-              <Route path="/register" component={RegistrationForm} />
-              <SecureRoute path="/profile" component={ProfilePage} />
+              {/* <Route path="/register" component={RegistrationForm} />
+              <SecureRoute path="/profile" component={User} /> */}
               {/* <Route exact path="/recipe/:id" component={Recipe} /> */}
             </Switch>
           </div>
