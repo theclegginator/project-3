@@ -92,7 +92,7 @@ class ShopList extends Component {
 
             return (
               <card className="list-group-item" key={result.id}>
-                <CardContent>
+                <CardContent className='cardcontent'>
                 <h1 className='shop-name'>{result.name}</h1>
                 <h2 className='shop-vicinity'>{result.vicinity}</h2>
                 <h3 className='shop-rating'>{result.rating} - {result.user_ratings_total} reviews</h3>
