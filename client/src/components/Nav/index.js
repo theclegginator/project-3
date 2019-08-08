@@ -98,16 +98,7 @@ class Nav extends Component {
 
 
 
-      // <nav className="navbar" role="navigation" aria-label="dropdown navigation">
-      //   <Link className="navbar-brand" to="/">
-      //   <h1>DOPE COFFEE NAME HERE!</h1>
-      //   </Link>
-      //   <div className="navbar-item has-dropdown is-active">
-
-      //       </div>
-
-      
-      // </nav>
+   
 
         );
       }

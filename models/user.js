@@ -5,7 +5,7 @@ const uniqueValidator = require("mongoose-unique-validator")
 const userSchema = new Schema({
   clientId: { type: String, required: true, unique: true },
   faveDrinks: { type: Array },
-  userDrinks: { type: Object },
+  userDrinks: { type: Array },
   faveShops: { type: Array },
   banShops: { type: Array }
 
