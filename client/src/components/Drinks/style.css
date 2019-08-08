@@ -21,16 +21,16 @@
 
 link{
   text-decoration: none;
-
 }
+
 a{
   text-decoration: none;
-
 }
+
 .linkRecipe{
   text-decoration: none;
-
 }
+
 .espressoList {
   height: 100%;
   text-decoration: none;
@@ -41,9 +41,6 @@ a{
   font-family: 'Shadows Into Light', cursive;
   font-weight: bold;
   text-decoration: none;
-  
-  /* -webkit-animation: slide-in-bottom cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both; */
-  /* animation: slide-in-bottom cubic-bezier(0.250, 0.460, 0.450, 0.940)1s both; */
 }
 
 .img-thumbnail {
@@ -53,9 +50,6 @@ a{
   height: 100%;
   border-radius: 2.2rem;
   border: 3px solid rgba(255, 255, 255, 0); 
-  
-  /* -webkit-animation: slide-in-bottom cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both; */
-  /* animation: slide-in-bottom cubic-bezier(0.250, 0.460, 0.450, 0.940)1s both; */
 }
 
 .img-thumbnail:hover {
@@ -64,33 +58,6 @@ a{
   transform: scale(1.1);
 }
 
-@-webkit-keyframes slide-in-bottom {
-  0% {
-    -webkit-transform: translateY(1000px);
-    transform: translateY(1000px);
-    opacity: 0;
-  }
-
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-in-bottom {
-  0% {
-    -webkit-transform: translateY(1000px);
-    transform: translateY(1000px);
-    opacity: 0;
-  }
-
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
 
 @media (max-width: 600px) {
   .drinksList {
