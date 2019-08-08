@@ -18,26 +18,17 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import "./style.css";
 
 const useStyles = makeStyles(theme => ({
-  // root: {
-  //   // JSS uses px as the default units for this CSS property.
- 
-  //   padding: theme.spacing(1),
-  //   [theme.breakpoints.down('sm')]: {
-  //     backgroundColor: theme.palette.secondary.main,
-  //   },
-  // },
-
   container: {
-    // width: 'min-content',
-background:' #ffffff8c',
-color:'white',
-padding:'50px',
-align:'center',
-display: 'inline-block'
+    background:' #ffffff8c',
+    color:'white',
+    padding:'50px',
+    align:'center',
+    display: 'inline-block'
   },
   textField: {
     marginLeft: theme.spacing(1),
@@ -46,47 +37,77 @@ display: 'inline-block'
   },
 }));
 
-export default function  MakeDrink() {
 
-const classes = useStyles();
+// const classes = useStyles();
+class MakeDrink extends Component {
 
+  constructor() {
+    // const classes = useStyles();
+    super();
+    this.state = {
+      name: "",
+      ingredient: [{ name: "", weight: ''}]
+    };
+  }
 
-  return (
-    <Container fluid>
+  handleNameChange = event => {
+    this.setState({ name: event.target.value });
+  };
+
+  handleingredientNameChange = id => event => {
+    const newingredient = this.state.ingredient.map((ingredient, sidx) => {
+      if (id !== sidx) return ingredient;
+      return { ...ingredient, name: event.target.value };
+    });
+
+    this.setState({ ingredient: newingredient });
+  };
+
+  handleSubmit = event => {
+    const { name, ingredients } = this.state;
+  };
+
+  handleaddingredient= () => {
+    this.setState({
+      ingredient: this.state.ingredient.concat([{ name: "", weight: '' }])
+    });
+  };
+
+  handleRemoveingredient = id => () => {
+    this.setState({
+      ingredient: this.state.ingredient.filter((e, sidx) => id !== sidx)
+    });
+  };
+
+  render() {
+    // const classes = useStyles();
+
+    return (
+      <Container fluid>
       <div className="background2">
         <Navigation />
           <div>
             <h1 className='createdrinktitle'>Create Custom Drink</h1>
-            <form className={classes.container} noValidate autoComplete="off"
-              // onSubmit={this.handleFormSubmit}
-              // onChange={this.handleFieldChange}  
-            >
-          <div>
-            <TextField
+<div className='makedrinkform'>
+      <form className='createdrinkfm' noValidate autoComplete="off" onSubmit={this.handleSubmit}>
+
+        <TextField
             required
             id="standard-required"
             label="Drink Name"
             className='drinkName'
             margin="dense"
-            // value = {this.state.name}
+            value = {this.state.name}
+            onChange={this.handleNameChange}
             />
-      </div>
-      <div>
-        {/* <h4> Ingredients </h4> */}
-        <div className='btns'>
-          <Button variant="contained" size="small" color="primary" className='add' >
-            Add Ingredient
-          </Button>
-          {/* <Fab size="small" color="secondary" aria-label="add" className='icon'>
-          <AddIcon />
-          </Fab> */}
-        </div>
-        <FormControl className='ingredientlist'>
+        {this.state.ingredient.map((ingredient, id) => (
+          <div className="ingredientlist">
+           <FormControl className='ingredientlist'>
           <InputLabel htmlFor="ingredient-native-simple">Ingredient</InputLabel>
             <Select
               native
-              // value={state.ingredient}
-              // onChange={handleChange('ingredient')}
+              value={ingredient.name}
+              onChange={this.handleingredientNameChange(id)}              
               inputProps={{
               name: 'ingredient',
               id: 'ingredient-native-simple',
@@ -113,17 +134,21 @@ const classes = useStyles();
           id="adornment-weight"
           className='weight'
           label="Weight"
-          // value={values.weight}
-          // onChange={handleChange('weight')}
+          value={ingredient.weight}
+          onChange={this.handleingredientNameChange(id)}
           // helperText="Weight"
-         
+
           InputProps={{
           endAdornment: <InputAdornment position="end">Oz</InputAdornment>,
           }}
         />
-      </div>
-      <div>
-        <TextField
+         {/* <DeleteTwoToneIcon className='icn' size='large' onClick={this.handleRemoveingredient(id)}/> */}
+          </div>
+        ))}
+        <Button variant="contained" size="small" color="primary" className='add' onClick={this.handleaddingredient}>
+            Add Ingredient
+          </Button>
+          <TextField
           id="standard-full-width-multiline-flexible"
           label="Description"
           multiline
@@ -134,19 +159,24 @@ const classes = useStyles();
           fullWidth
          
           margin="normal"
-        />
-      </div>
-      <div className='adddrink'>
+          />
+     
+     <div className='adddrink'>
         <Button variant="contained" size="large" color="primary" className='submitbtn'>
           Add Drink
         </Button>
         </div>
       </form>
       </div>
+      </div>
     </div>
     </Container>
+
     );
   }
+}
+
+export default MakeDrink;
 
 
 

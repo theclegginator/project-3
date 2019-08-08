@@ -131,16 +131,22 @@ margin-left: 40rem;
     align-content: center;
     font-family: 'Shadows Into Light', cursive;
     font-size: 10px;
-    display: 'flex';
+    display: 'inline-block';
     flex-direction: 'column';
     align-items: 'center';
-    background-color: #ffffffc2;
+    background-color: #ffffff8c;
 
-    padding: 40px 150px;
+    padding: 50px;
     /* opacity: 0.9; */
     margin: 50px 190px;
 }
-
+.createdrinkform{
+    background-color:'#ffffff8c';
+    color:'white';
+    padding:'50px';
+    align-content:'center';
+    display: 'inline-block';
+}
 .drinkdescription{
     padding-right: 20px;
 }
