@@ -17,23 +17,49 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import "./style.css";
 
-class MakeDrink extends Component {
-  state = {
-    
-  };
+const useStyles = makeStyles(theme => ({
+  // root: {
+  //   // JSS uses px as the default units for this CSS property.
+ 
+  //   padding: theme.spacing(1),
+  //   [theme.breakpoints.down('sm')]: {
+  //     backgroundColor: theme.palette.secondary.main,
+  //   },
+  // },
 
-render() {
+  container: {
+    // width: 'min-content',
+background:' #ffffff8c',
+color:'white',
+padding:'50px',
+align:'center',
+display: 'inline-block'
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 100,
+  },
+}));
+
+export default function  MakeDrink() {
+
+const classes = useStyles();
+
+
   return (
     <Container fluid>
-      <div className="background1">
+      <div className="background2">
         <Navigation />
           <div>
             <h1 className='createdrinktitle'>Create Custom Drink</h1>
-            <form className='makedrinkform' noValidate autoComplete="off"
-              onSubmit={this.handleFormSubmit}
-              onChange={this.handleFieldChange}  
+            <form className={classes.container} noValidate autoComplete="off"
+              // onSubmit={this.handleFormSubmit}
+              // onChange={this.handleFieldChange}  
             >
           <div>
             <TextField
@@ -42,13 +68,13 @@ render() {
             label="Drink Name"
             className='drinkName'
             margin="dense"
-            value = {this.state.name}
+            // value = {this.state.name}
             />
       </div>
       <div>
         {/* <h4> Ingredients </h4> */}
         <div className='btns'>
-          <Button variant="contained" size="small" color="primary" className='add' onClick={this.addIngredient}>
+          <Button variant="contained" size="small" color="primary" className='add' >
             Add Ingredient
           </Button>
           {/* <Fab size="small" color="secondary" aria-label="add" className='icon'>
@@ -83,24 +109,18 @@ render() {
               <option value='Ice Cream'>Ice Cream</option>
             </Select>
         </FormControl>
-        <FormControl className='ounces'>
-          <InputLabel htmlFor="ounces-native-simple">Ounces</InputLabel>
-            <Select
-              native
-              // value={state.ounces}
-              // onChange={handleChange('ounces')}
-              inputProps={{
-              name: 'ounces',
-              id: 'ounces-native-simple',
-              }}
-              >
-              <option value="" />
-              <option value={5}>Five</option>
-              <option value={10}>Ten</option>
-              <option value={20}>Twenty</option>
-              <option value={30}>Thirty</option>
-            </Select>
-        </FormControl>
+        <TextField
+          id="adornment-weight"
+          className='weight'
+          label="Weight"
+          // value={values.weight}
+          // onChange={handleChange('weight')}
+          // helperText="Weight"
+         
+          InputProps={{
+          endAdornment: <InputAdornment position="end">Oz</InputAdornment>,
+          }}
+        />
       </div>
       <div>
         <TextField
@@ -112,22 +132,24 @@ render() {
           // onChange={handleChange('multiline')}
           className='drinkdescription'
           fullWidth
-          style={{ margin: 20 }}
+         
           margin="normal"
         />
       </div>
-        <Button variant="contained" size="large" color="primary" className='submit'>
+      <div className='adddrink'>
+        <Button variant="contained" size="large" color="primary" className='submitbtn'>
           Add Drink
         </Button>
+        </div>
       </form>
       </div>
     </div>
     </Container>
     );
   }
-}
 
-export default MakeDrink;
+
+
 
 // (DONE) 1. Dynamically load an 'create drink' icon at the bottom by checking if they are logged in or not.
 // (DONE) 2. Make it a Link to via react router to send the user to MakeDrink.js

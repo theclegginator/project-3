@@ -7,12 +7,12 @@ export class IngredientCoffee extends Component {
         let style = {};
         // if the ingredient is the first in the cup, it should have rounded edges.
         if (this.props.firstIngredient) {
-            console.log("YES")
             style = {
                 height: this.props.height,
                 width: this.props.width,
                 lineHeight: this.props.height,
-                borderRadius: [0 , 0 , 3 + 'rem', 3 + 'rem'],
+                borderBottomLeftRadius: 3 + 'rem',
+                borderBottomRightRadius: 3 + 'rem'
             }
         }
         else {

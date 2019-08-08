@@ -111,16 +111,22 @@ class Recipe extends Component {
       ingredientList: ingredientKeys,
       animationDelays: animationDelays,
       description: images[id-1].description
+    }, () => {
+      // This switch case sorts through the possible ingredients and assigns a component name to it
+      for (let i = 0; i < this.state.ingredientList.length; i++) {
+        if (i === 0) {
+          firstIngredient.unshift(true);
+        } else {
+          firstIngredient.unshift(false);
+        }
+      }
+      this.setState({
+        firstIngredient: firstIngredient
+      })
     });
 
-    // This switch case sorts through the possible ingredients and assigns a component name to it
-    for (let i = 0; i < keys.length; i++) {
-      if (i === 0) {
-        firstIngredient.push(true);
-      } else {
-        firstIngredient.push(false);
-      }
-    }
+   
+
 
     // GET THE OUNCE MEASUREMENTS OF THE DRINKS
     for (let q in ingredients) {
@@ -216,6 +222,7 @@ class Recipe extends Component {
   };  
 
   render() {
+    console.log(this.state)
     return (
 
         <Container fluid>
@@ -270,7 +277,7 @@ class Recipe extends Component {
                       }</h2>
                     ))}
                   </div>
-                  <br></br>
+                  {/* <br></br> */}
                   {/* BEAN WEIGHT MAPPING */}
                   <div className='beanweight'>
                     {this.state.ingredientList.reverse().map((dummy, i) => (
@@ -280,7 +287,7 @@ class Recipe extends Component {
                       }</h2>
                     ))}
                   </div>
-                  <br></br>
+                  {/* <br></br> */}
                   <div className='description'>
                       <h2>{this.state.description !== undefined ? 
                         `${this.state.description}` : null

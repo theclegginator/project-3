@@ -19,7 +19,7 @@ module.exports = {
     const apiKEY = process.env.REACT_APP_SHOP_API_KEY;
     console.log ("****REQ*****:", req.query.location)
     axios
-      .get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + req.query.location + "&radius=2500&types=cafe&keyword=coffee&key=" + apiKEY)
+      .get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + req.query.location + "&radius=12000&types=cafe&keyword=coffee&key=" + apiKEY)
 
       .then(results => {
         res.json(results.data)

@@ -25,8 +25,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  getAllUserDrinks: function (req, res) {
-    db.User.find({ clientId: req.params.clientId }, { $pull: { userDrinks } })
+
+  getAllUserDrinks: function(req, res) {
+    db.User.find({ clientId: req.params.clientId }) //, {$pull: {userDrinks}}
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },

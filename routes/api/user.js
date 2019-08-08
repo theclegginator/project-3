@@ -43,4 +43,5 @@ router
 router
   .route("/:clientId")
   .get(userController.findUser)
+
 module.exports = router;
