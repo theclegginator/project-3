@@ -15,21 +15,22 @@ class ShopList extends Component {
     const oktaToken = localStorage.getItem("okta-token-storage")
     // console.log("oktaToken:", oktaToken)
 
-    if (JSON.parse(oktaToken).idToken !== undefined) {
-      const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.claims.sub)
-      console.log("OktaId:", oktaId);
-      this.setState({
-        clientId: oktaId,
-        isLoggedIn: true
-      }, () => API.getUserFaves(this.state.clientId)
-      .then(res => {
+    if (oktaToken) {
+      if (JSON.parse(oktaToken).idToken !== undefined) {
+        const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.claims.sub)
+        console.log("OktaId:", oktaId);
         this.setState({
-          faves: res
-        })
-        console.log("FAVES:", this.state.faves)
-      })
-   )
-  }
+          clientId: oktaId,
+          isLoggedIn: true
+        }, () => API.getUserFaves(this.state.clientId)
+          .then(res => {
+            this.setState({
+              faves: res
+            })
+            console.log("FAVES:", this.state.faves)
+          })
+        )
+      }
       // API.findUser(this.state.clientId)
       //   .then(res => {
       //     console.log("USER FIND:",res.data)
@@ -44,33 +45,33 @@ class ShopList extends Component {
 
 
 
+    }
+
   }
 
-
-
-  handleFave = (shopId) => {
+  handleFave = (shop) => {
     const { results } = this.props
-    // console.log("ShopId", shopId)
+    console.log("ShopId", shop.id)
 
-    const shopIndex = results.findIndex(result => result.id === shopId)
+    const shopIndex = results.findIndex(result => result.id === shop.id)
     console.log("Index", shopIndex)
+    console.log("Fave Result",shop)
     results[shopIndex].isFave = !results[shopIndex].isFave
-    { (results[shopIndex].isFave) ? API.addUserFave(this.state.clientId, shopId) : API.removeUserFave(this.state.clientId, shopId) }
-    console.log("Shoppy:", shopId)
+    { (results[shopIndex].isFave) ? API.addUserFave({clientId:this.state.clientId, shop:shop}) : API.removeUserFave({clientId:this.state.clientId, shop:shop}) }
+  //   console.log("Shoppy:", shopId)
     this.setState({ results })
   }
 
-  handleBan = (shopId) => {
+  handleBan = (shop) => {
     const { results } = this.props
-    console.log("ShopId", shopId)
-
-    const shopIndex = results.findIndex(result => result.id === shopId)
-    console.log("Index", shopIndex)
-    results[shopIndex].isBan = !results[shopIndex].isBan
-    { (results[shopIndex].isBan) ? API.addUserBan(this.state.clientId, shopId) : API.removeUserBan(this.state.clientId, shopId) }
+    console.log("Ban Result",shop)
+    
+    const shopIndex = results.findIndex(result => result.id === shop.id)
+    console.log("Ban Index", shopIndex)
+    results[shopIndex].isBan = true
+    { (results[shopIndex].isBan) ? API.addUserBan({clientId:this.state.clientId, shop:shop}) : API.removeUserBan({clientId:this.state.clientId, shop:shop}) }
     this.setState({ results })
-    API.addUserBan(this.state.clientId, shopId)
-    console.log("Bandit:", shopId)
+    console.log("Bandit:", shop.Id)
 
   }
 
@@ -93,9 +94,9 @@ class ShopList extends Component {
 
 
                 {this.state.isLoggedIn ?
-                  <Star className={result.isFave ? "fave" : "starry"} onClick={() => this.handleFave(result.id)} /> : null}
+                  <Star className={result.isFave ? "fave" : "starry"} onClick={() => this.handleFave(result)} /> : null}
                 {this.state.isLoggedIn ?
-                  <Delete onClick={() => this.handleBan(result.id)} /> : null}
+                  <Delete onClick={() => this.handleBan(result)} /> : null}
                 <hr />
 
               </div>)

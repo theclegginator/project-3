@@ -38,20 +38,20 @@ export default {
     return axios.post("/api/user/create/", body);
   },
   // Updates the saved user with the given id
-  addUserFave: function (clientId, shopId) {
-    return axios.put("/api/user/fave/" + clientId + "/" + shopId);
+  addUserFave: function (body) {
+    return axios.put("/api/user/fave/", body);
   },
 
   // Updates the saved user with the given id
-  removeUserFave: function (clientId, shopId) {
-    return axios.put("/api/user/unfave/" + clientId + "/" + shopId);
+  removeUserFave: function (body) {
+    return axios.put("/api/user/unfave/", body);
   },
 
-  addUserBan: function (clientId, shopId) {
-    return axios.put("/api/user/ban/" + clientId + "/" + shopId);
+  addUserBan: function (body) {
+    return axios.put("/api/user/ban/", body);
   },
 
-  removeUserBan: function (clientId, shopId) {
-    return axios.put("/api/user/unban/" + clientId + "/" + shopId);
+  removeUserBan: function (body) {
+    return axios.put("/api/user/unban/", body);
   },
 }

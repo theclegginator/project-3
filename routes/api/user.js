@@ -16,11 +16,11 @@ router.route("/create")
 //   .delete(userController.remove);
 
 router
-  .route("/fave/:clientId/:shopId")
+  .route("/fave/")
   .put(userController.addUserFave)
 
 router
-  .route("/unfave/:clientId/:shopId")
+  .route("/unfave/")
   .put(userController.removeUserFave)
 
 router
@@ -28,12 +28,12 @@ router
   .get(userController.getUserFaves)
 
 router
-  .route("/ban/:clientId/:shopId")
+  .route("/ban/")
   .put(userController.addUserBan)
 
 
 router
-  .route("/unban/:clientId/:shopId")
+  .route("/unban/")
   .put(userController.removeUserBan)
 
 router

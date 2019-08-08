@@ -27,6 +27,16 @@
         min-height: 100vh;
 }
 
+.background4{
+  background-image: url("../images/blackboard.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: fit-content;
+  min-height: 25rem;
+}
+
 .backgroundhome {
     background-image: url(../images/orangecup.jpg);
     background-size: cover;
@@ -50,6 +60,9 @@ margin-left: 40rem;
 	        animation: tracking-in-expand 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
 }
 
+.shoppy{
+  font-size: 2.5rem
+}
 /**
  * ----------------------------------------
  * animation tracking-in-expand
