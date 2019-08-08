@@ -21,51 +21,66 @@ import { makeStyles } from '@material-ui/core/styles';
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import "./style.css";
-​
-​
+
+const useStyles = makeStyles(theme => ({
+  container: {
+    background:' #ffffff8c',
+    color:'white',
+    padding:'50px',
+    align:'center',
+    display: 'inline-block'
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 100,
+  },
+}));
+
+
+// const classes = useStyles();
 class MakeDrink extends Component {
-​
+
   constructor() {
-​
+    // const classes = useStyles();
     super();
     this.state = {
       name: "",
       ingredient: [{ name: "", weight: ''}]
     };
   }
-​
+
   handleNameChange = event => {
     this.setState({ name: event.target.value });
   };
-​
+
   handleingredientNameChange = id => event => {
     const newingredient = this.state.ingredient.map((ingredient, sidx) => {
       if (id !== sidx) return ingredient;
       return { ...ingredient, name: event.target.value };
     });
-​
+
     this.setState({ ingredient: newingredient });
   };
-​
+
   handleSubmit = event => {
     const { name, ingredients } = this.state;
   };
-​
+
   handleaddingredient= () => {
     this.setState({
       ingredient: this.state.ingredient.concat([{ name: "", weight: '' }])
     });
   };
-​
   handleRemoveingredient = id => () => {
     this.setState({
       ingredient: this.state.ingredient.filter((e, sidx) => id !== sidx)
     });
   };
-​
+
   render() {
     // const classes = useStyles();
-​
+
     return (
       <Container fluid>
       <div className="background2">
@@ -74,7 +89,6 @@ class MakeDrink extends Component {
             <h1 className='createdrinktitle'>Create Custom Drink</h1>
 <div className='makedrinkform'>
       <form className='createdrinkfm' noValidate autoComplete="off" onSubmit={this.handleSubmit}>
-​
         <TextField
             required
             id="standard-required"
@@ -121,7 +135,6 @@ class MakeDrink extends Component {
           value={ingredient.weight}
           onChange={this.handleingredientNameChange(id)}
           // helperText="Weight"
-​
           InputProps={{
           endAdornment: <InputAdornment position="end">Oz</InputAdornment>,
           }}
@@ -155,9 +168,24 @@ class MakeDrink extends Component {
       </div>
     </div>
     </Container>
-​
+
     );
   }
 }
-​
+
 export default MakeDrink;
+
+
+
+
+// (DONE) 1. Dynamically load an 'create drink' icon at the bottom by checking if they are logged in or not.
+// (DONE) 2. Make it a Link to via react router to send the user to MakeDrink.js
+// (VYJOO WORKING ON) 3. MakeDrink.js will have a bunch of fields to fill out: Name of Drink, Ingredients, ounces per ingredient, and description
+// (VYJOO WORKING ON) 3.5 Additionally, a drink can have a different number of ingredients. So the form should start with one field, then allow them to add up to 5 ingredients.
+// 4. Then there should be a form submit button. When they click this, it should run an API post route to post the drink details in a JSON object to the database for that client ID.
+// =====
+// 5. Back on the drink list homepage, we should run an API call for get all drinks that the user has made only if they are logged in.
+// 6. This API route will then return an array of JSON objects render a DrinksListIcon for each. Use mapping and map some prop like id to the drink icon component.
+// ===== 
+// 7. When the user clicks a drink icon component, it should use the same Link To form of other drinks, but instead of passing a static ID from our JSON array, it will pass the Mongo ID.
+// 8. It should then run through all the same functions and build the drink.
