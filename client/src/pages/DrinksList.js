@@ -21,7 +21,7 @@ class DrinksList extends Component {
 
   componentDidMount() {
     const oktaToken = localStorage.getItem("okta-token-storage")
-    if (JSON.parse(oktaToken).idToken !== undefined) {
+    if (oktaToken !== undefined && JSON.parse(oktaToken).idToken !== undefined) {
       const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.claims.sub)
       this.setState({
         clientId: oktaId,
