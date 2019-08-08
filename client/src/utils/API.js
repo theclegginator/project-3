@@ -24,13 +24,18 @@ export default {
     return axios.get("/api/drinks/all/" + clientId);
   },
 
+  findUser: function (clientId) {
+    return axios.get("/api/user/" + clientId);
+
+  },
+  
   getUserFaves: function (clientId) {
     return axios.get("/api/user/faves/" + clientId);
   },
 
   // Gets all saved users
-  createUser: function (clientId) {
-    return axios.post("/api/user/" + clientId);
+  createUser: function (body) {
+    return axios.post("/api/user/create/", body);
   },
   // Updates the saved user with the given id
   addUserFave: function (clientId, shopId) {
@@ -46,7 +51,7 @@ export default {
     return axios.put("/api/user/ban/" + clientId + "/" + shopId);
   },
 
-  removeUserFave: function (clientId, shopId) {
+  removeUserBan: function (clientId, shopId) {
     return axios.put("/api/user/unban/" + clientId + "/" + shopId);
   },
 }

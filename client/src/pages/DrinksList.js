@@ -15,22 +15,24 @@ class DrinksList extends Component {
     images,
     createDrink,
     isLoggedIn: false,
-    clientId: undefined
+    clientId: undefined,
+    userDrinks: []
   };
 
   componentDidMount() {
     const oktaToken = localStorage.getItem("okta-token-storage")
     if (JSON.parse(oktaToken).idToken !== undefined) {
-      const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.clientId)
+      const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.claims.sub)
       this.setState({
         clientId: oktaId,
         isLoggedIn: true
       }, () => 
         API.getAllUserDrinks(this.state.clientId)
           .then(res => {
-            this.setState({
-              userDrinks: res
-            })
+            console.log("results:", res.data)
+            // this.setState({
+            //   userDrinks: res.data.userDrinks
+            // })
           })
         )
       }

@@ -22,19 +22,41 @@ class ShopListContainer extends Component {
     console.log("oktaToken:", oktaToken)
 
     if (JSON.parse(oktaToken).idToken !== undefined) {
-      const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.clientId)
+      const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.claims.sub)
       console.log("OktaId:", oktaId);
       this.setState({
         clientId: oktaId,
         isLoggedIn: true
-      }, () => API.getUserFaves(this.state.clientId)
+      }, () => API.findUser(this.state.clientId)
         .then(res => {
-          this.setState({
-            faves: res
-          })
-          console.log("FAVORS:", this.state.faves)
-        })
-      )
+          const userCheck = res.data
+          console.log("userCheck:",userCheck.length)
+          if  (userCheck.length === 0) {
+             API.createUser({
+               clientId: this.state.clientId,
+               faveDrinks: [],
+               userDrinks: {},
+               faveShops: [],
+               banShops: []
+             })
+             .then(res => {
+               console.log("This guy is a NEWB!")
+             })
+          }
+          else {
+             API.getUserFaves(this.state.clientId) 
+             .then(res => {
+              this.setState({
+                faves: res.data
+              })
+             })
+            }
+
+        }
+        )
+      )    // 
+      console.log("FAVORS:", this.state.faves)
+      
     }
 
 
@@ -48,24 +70,31 @@ class ShopListContainer extends Component {
         const shops = res.data.results;
         shops.forEach(shop => {
 
-          if (this.state.faves.data[0].faveShops.indexOf(shop.id) !== -1) {
-            shop.isFave = true
+          if (this.state.faves.data) {
+            if (this.state.faves.data[0].faveShops.indexOf(shop.id) !== -1) {
+              shop.isFave = true
+            }
           } else {
             shop.isFave = false
           }
 
-          if (this.state.faves.data[0].banShops.indexOf(shop.id) !== -1) {
-            shop.isBan = true
+
+          if (this.state.faves.data) {
+            if (this.state.faves.data[0].banShops.indexOf(shop.id) !== -1) {
+              shop.isBan = true
+            }
           } else {
             shop.isBan = false
           }
-
-          this.setState({ results: shops });
-
         })
-
-        console.log("ResultsBACKUP", this.state.results);
+        this.setState({ results: shops })
+        
       })
+
+
+
+
+    console.log("ResultsBACKUP", this.state.results);
   }
 
   handleInputChange = event => {
@@ -96,7 +125,7 @@ class ShopListContainer extends Component {
 
   render() {
     return (
-      <div className = 'searchform'>
+      <div className='searchform'>
         <SearchForm
           search={this.state.location}
           handleFormSubmit={this.handleFormSubmit}

@@ -14,8 +14,19 @@
     background-position: center;
     background-repeat: no-repeat;
     height: fit-content;
-
+    /* min-height: 100vh; */
 }
+
+.background3{
+        background-image: url("../images/coffee-shop-blur1.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: fit-content;
+        min-height: 100vh;
+}
+
 .backgroundhome {
     background-image: url(../images/orangecup.jpg);
     background-size: cover;

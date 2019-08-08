@@ -10,7 +10,8 @@ class Shops extends Component {
     render() {
         return (
             <Container fluid >
-                <div className='background1'>
+
+                <div className='background3'>
                     <Navigation />
                     <div>
                         <ShopListContainer />

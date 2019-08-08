@@ -12,6 +12,9 @@ app.use(express.urlencoded({
 app.use(express.json());
 // Serve up static assets
 app.use(express.static("public"));
+// app.get('/react*', (req, res) => {
+//   res.sendFile(appRootPath + '/public/index.html');
+// });
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
@@ -21,7 +24,7 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://192.168.99.100/Barisso', {
+  process.env.MONGODB_URI || 'mongodb://localhost/Barisso', {
     useCreateIndex: true,
     useNewUrlParser: true
   }

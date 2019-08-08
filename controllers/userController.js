@@ -2,67 +2,70 @@ const db = require("../models");
 
 // Defining methods for the userController
 module.exports = {
-  findAll: function(req, res) {
+  findAll: function (req, res) {
     db.User.find(req.query)
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
-  findById: function(req, res) {
+  findById: function (req, res) {
     db.User.findById(req.params.id)
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
-  createUser: function(req, res) {
+  createUser: function (req, res) {
     console.log("CREATE IT!")
-    db.User.insert({clientId: req.body, "faveDrinks":[], "userDrinks": {}, "faveShops":[], "banShops":[] })
+    db.User.create(req.body)
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
 
-  getUserFaves: function(req, res) {
+  getUserFaves: function (req, res) {
     db.User.find({ clientId: req.params.clientId })
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
 
+
   getAllUserDrinks: function(req, res) {
-    db.User.find({ clientId: req.params.clientId }, {$pull: {userDrinks}})
+    db.User.find({ clientId: req.params.clientId }) //, {$pull: {userDrinks}}
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
 
-  addUserFave: function(req, res) {
+  findUser: function (req, res) {
+    console.log("Looking for that user!")
+    db.User.find({ clientId: req.params.clientId })
+      .then(dbUser => res.json(dbUser))
+      .catch(err => res.status(422).json(err));
+  },
+
+  addUserFave: function (req, res) {
     console.log("You added that favorite!")
-    db.User.findOneAndUpdate({ clientId: req.params.clientId}, {$push: {faveShops: req.params.shopId}})
+    db.User.findOneAndUpdate({ clientId: req.params.clientId }, { $push: { faveShops: req.params.shopId } })
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
 
-  removeUserFave: function(req, res) {
+  removeUserFave: function (req, res) {
     console.log("You removed that favorite!")
-    db.User.findOneAndUpdate({ clientId: req.params.clientId}, {$pull: {faveShops: req.params.shopId}})
+    db.User.findOneAndUpdate({ clientId: req.params.clientId }, { $pull: { faveShops: req.params.shopId } })
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
 
-  addUserBan: function(req, res) {
+
+  addUserBan: function (req, res) {
     console.log("You banned that!")
-    db.User.findOneAndUpdate({ clientId: req.params.clientId}, {$push: {banShops: req.params.shopId}})
+    db.User.findOneAndUpdate({ clientId: req.params.clientId }, { $push: { banShops: req.params.shopId } })
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
 
-  removeUserBan: function(req, res) {
+  removeUserBan: function (req, res) {
     console.log("You removed that favorite!")
-    db.User.findOneAndUpdate({ clientId: req.params.clientId}, {$pull: {banShops: req.params.shopId}})
-      .then(dbUser => res.json(dbUser))
-      .catch(err => res.status(422).json(err));
-  },
-
-  remove: function(req, res) {
-    db.User.findById(req.params.clientId)
-      .then(dbUser => dbUser.remove())
+    db.User.findOneAndUpdate({ clientId: req.params.clientId }, { $pull: { banShops: req.params.shopId } })
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   }
+
 };
