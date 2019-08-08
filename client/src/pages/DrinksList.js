@@ -22,7 +22,6 @@ class DrinksList extends Component {
   componentDidMount() {
     const oktaToken = localStorage.getItem("okta-token-storage");
     if (oktaToken) {
-      console.log("great")
       if (JSON.parse(oktaToken).idToken !== undefined) {
         const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.claims.sub)
         this.setState({
@@ -31,10 +30,10 @@ class DrinksList extends Component {
         }, () => 
           API.getAllUserDrinks(this.state.clientId)
             .then(res => {
-              console.log("results:", res.data)
-              // this.setState({
-              //   userDrinks: res.data.userDrinks
-              // })
+              console.log("results:", res.data[0].userDrinks)
+              this.setState({
+                userDrinks: res.data[0].userDrinks
+              })
             })
           )
         }
@@ -92,20 +91,19 @@ class DrinksList extends Component {
           {/* Also load a section below with user created drinks */}
           {this.state.isLoggedIn && this.state.userDrinks !== undefined ?
           <div>
-            <header className="drinksheader">User Creations</header>
               <DrinkIconPics
-                pictures={this.state.userDrinks.map(userDrink => (
+                pictures={this.state.userDrinks.map((userDrink, q) => (
                   <Link
                     to={{
                       pathname: "/recipe",
-                      data: userDrink.id 
+                      data: {recipe: this.state.userDrinks, id: q}
                     }}
                   >
                     <Drinks
-                      id={userDrink.id}
-                      key={userDrink.id}
+                      id={q}
+                      key={userDrink.name}
                       name={userDrink.name}
-                      image={userDrink.image}
+                      image={"user-drink.png"}
                     />
                   </Link>
                 ))}
