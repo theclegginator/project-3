@@ -22,13 +22,6 @@ module.exports = {
       .get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + req.query.location + "&radius=12000&types=cafe&keyword=coffee&key=" + apiKEY)
 
       .then(results => {
-        console.log("SHOW ME!");
-        // console.log(results)
-        // console.log(results.data)
-        // res.json({
-        //   msg: 'api',
-        //   results: results
-        // })
         res.json(results.data)
       })
     // .then(coffee => res.json(coffees))

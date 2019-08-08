@@ -4,7 +4,9 @@ const userController = require("../../controllers/userController");
 // Matches with "/api/user"
 router.route("/")
   .get(userController.findAll)
-  .post(userController.createUser);
+
+router.route("/create")
+  .post(userController.createUser)
 
 // Matches with "/api/user/:id"
 // router
@@ -33,5 +35,13 @@ router
 router
   .route("/unban/:clientId/:shopId")
   .put(userController.removeUserBan)
+
+router
+  .route("/api/drinks/all/:clientId")
+  .get(userController.getAllUserDrinks)
+
+router
+  .route("/:clientId")
+  .get(userController.findUser)
 
 module.exports = router;

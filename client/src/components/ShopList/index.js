@@ -16,21 +16,35 @@ class ShopList extends Component {
     const oktaToken = localStorage.getItem("okta-token-storage")
     console.log("oktaToken:", oktaToken)
 
+
+
     if (JSON.parse(oktaToken).idToken !== undefined) {
-      const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.clientId)
+      const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.claims.sub)
       console.log("OktaId:", oktaId);
       this.setState({
         clientId: oktaId,
         isLoggedIn: true
       }, () => API.getUserFaves(this.state.clientId)
-        .then(res => {
-          this.setState({
-            faves: res
-          })
-          console.log("FAVES:", this.state.faves)
+      .then(res => {
+        this.setState({
+          faves: res
         })
-      )
-    }
+        console.log("FAVES:", this.state.faves)
+      })
+   )
+  }
+      // API.findUser(this.state.clientId)
+      //   .then(res => {
+      //     console.log("USER FIND:",res.data)
+      //     this.setState({
+      //       faves: res.data
+      //     })
+      //     console.log("FAVES:", this.state.faves)
+      //   }
+
+      //   )
+
+
 
 
   }
@@ -57,7 +71,6 @@ class ShopList extends Component {
     console.log("Index", shopIndex)
     results[shopIndex].isBan = !results[shopIndex].isBan
     { (results[shopIndex].isBan) ? API.addUserBan(this.state.clientId, shopId) : API.removeUserBan(this.state.clientId, shopId) }
-    console.log("Shoppy:", shopId)
     this.setState({ results })
     API.addUserBan(this.state.clientId, shopId)
     console.log("Bandit:", shopId)
@@ -74,7 +87,7 @@ class ShopList extends Component {
 
           if (!result.isBan) {
 
-            return(
+            return (
               <div className="list-group-item" key={result.id}>
                 <h1>{result.name}</h1>
                 <h2>{result.vicinity}</h2>
