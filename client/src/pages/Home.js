@@ -6,28 +6,26 @@ import API from "../utils/API"
 
 class Home extends Component {
 
-    componentDidMount() {
-        const oktaToken = localStorage.getItem("okta-token-storage")
-        console.log("oktaToken:", oktaToken)
+    // componentDidMount() {
+    //     const oktaToken = localStorage.getItem("okta-token-storage")
+    //     console.log("oktaToken:", oktaToken)
     
-        if (JSON.parse(oktaToken).idToken !== undefined) {
-          const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.clientId)
-          console.log("OktaId:", oktaId);
-          this.setState({
-            clientId: oktaId,
-            isLoggedIn: true
-          }, () => API.getUserFaves(this.state.clientId)
-            .then(res => {
-              this.setState({
-                faves: res
-              })
-              console.log("USER INFO:", this.state.faves)
-            })
-          )
-        }
-    
-    
-      }
+    //     if (JSON.parse(oktaToken).idToken !== undefined) {
+    //       const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.clientId)
+    //       console.log("OktaId:", oktaId);
+    //       this.setState({
+    //         clientId: oktaId,
+    //         isLoggedIn: true
+    //       }, () => API.getUserFaves(this.state.clientId)
+    //         .then(res => {
+    //           this.setState({
+    //             faves: res
+    //           })
+    //           console.log("USER INFO:", this.state.faves)
+    //         })
+    //       )
+    //     }
+    //   }
     render() {
         return (
             <Container fluid>
