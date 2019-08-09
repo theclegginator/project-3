@@ -99,10 +99,10 @@ class Recipe extends Component {
 
     // check the current screen size and div size. If they mismatch, rebuild the mug to ensure the styling is correct
     if (this.state.screenFormat === 'large' && this.state.divWidths !== '20rem') {
-      this.selectedCoffeeRecipe(sessionStorage.getItem('drinkId'));
+      this.selectedCoffeeRecipe(parseInt(sessionStorage.getItem('drinkId')));
     }
     if (this.state.screenFormat === 'small' && this.state.divWidths === '20rem') {
-      this.selectedCoffeeRecipe(sessionStorage.getItem('drinkId'));
+      this.selectedCoffeeRecipe(parseInt(sessionStorage.getItem('drinkId')));
     }
   }
 
