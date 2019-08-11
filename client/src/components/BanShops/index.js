@@ -75,7 +75,7 @@ class BanShops extends Component {
         
         {(!this.state.banShops[0]) ? <h4>You currently don't have any banned shops! <br /> We hope all the coffee is good!</h4> : this.state.banShops.map((result) => {
 
-          if (result.isBan = true) {
+          if (result.isBan) {
 
             return (
               <div className="ban-item" key={result.id}>
@@ -89,8 +89,7 @@ class BanShops extends Component {
             )
           } else {
             return (
-              null
-            )
+              null)
           }
         })}
       </div>
