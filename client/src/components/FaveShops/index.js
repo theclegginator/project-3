@@ -59,7 +59,7 @@ class FaveShops extends Component {
       <div className={"fave-group background4"}>
         {(!this.state.faveShops[0]) ? <h4>You currently don't have any favorite shops!<br /> Show some BARISSO love!</h4> : this.state.faveShops.map((result) => {
 
-          if (result.isFave = true) {
+          if (result.isFave) {
 
         return (
             <div className="fave-item" key={result.id}>
