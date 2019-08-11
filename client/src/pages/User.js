@@ -61,10 +61,10 @@ class User extends React.Component {
     return (
       <Container fluid >
 
-        <div className='background3 user-profile'>
+        <div className='background3 user-profile justify-contents-center'>
           <Navigation />
-          <div className="user-info">
-            <h1>Hi {this.state.user}!</h1>
+          <div className="fave-shops">
+            <h1 className="center">Hi {this.state.user}!</h1>
           </div>
     
           <div>
@@ -73,7 +73,7 @@ class User extends React.Component {
           <div>
             <FaveShops />
           </div>
-          <div className="user-info">
+          <div className="ban-shops">
        
             <h1>Here are Your Banned Coffee Shops</h1>
             <div>

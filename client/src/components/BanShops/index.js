@@ -29,7 +29,7 @@ class BanShops extends Component {
               faveShops: res.data[0].faveShops,
               banShops: res.data[0].banShops
             })
-            console.log("FAVES:", this.state.banShops)
+            console.log("BANS:", this.state.banShops)
           })
         )
       }
@@ -51,42 +51,50 @@ class BanShops extends Component {
 
   }
 
-handleBan = (shop) => {
-  console.log("shopper:",shop)
-  const bannedShops = this.state.banShops
+  handleBan = (shop) => {
+    console.log("shopper:", shop)
+    const bannedShops = this.state.banShops
 
-  const shopIndex = bannedShops.findIndex(result => result.id === shop.id)
-  console.log("Ban Index", shopIndex)
+    const shopIndex = bannedShops.findIndex(result => result.id === shop.id)
+    console.log("Ban Index", shopIndex)
 
-  bannedShops[shopIndex].isBan = false
+    bannedShops[shopIndex].isBan = false
+    console.log("BS:", bannedShops[shopIndex])
+    API.removeUserBan({ clientId: this.state.clientId, shop: shop })
 
-  API.removeUserBan({ clientId: this.state.clientId, shop: shop })
+    this.setState({ banShops: bannedShops })
+    console.log("Bandit:", this.state.banShops[shopIndex])
 
-  this.setState({ banShops: bannedShops })
-  console.log("Bandit:", shop.Id)
-
-}
+  }
 
 
 
-render() {
-  return (
-    <div className="list-group background4">
-      { (!this.state.banShops) ? <h1>You don't currently have any banned shops</h1> : this.state.banShops.map((result) => {
+  render() {
+    return (
+      <div className="list-group background4">
+        
+        {(!this.state.banShops[0]) ? <h4>You currently don't have any banned shops! <br /> We hope all the coffee is good!</h4> : this.state.banShops.map((result) => {
 
-        return (
-          <div className="list-group-item" key={result.id}>
-            <h2>{result.name}</h2>
-            <h3>{result.vicinity}</h3>
+          if (result.isBan = true) {
 
-            {/* <Delete onClick={() => this.handleBan(result)} /> */}
-         
+            return (
+              <div className="list-group-item" key={result.id}>
+                <h2>{result.name}</h2>
+                <h3>{result.vicinity}</h3>
 
-          </div>
-        )
-      })}
-    </div>
-  )
-}
+                <Delete onClick={() => this.handleBan(result)} />
+
+
+              </div>
+            )
+          } else {
+            return (
+              null
+            )
+          }
+        })}
+      </div>
+    )
+  }
 }
 export default BanShops;

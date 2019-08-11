@@ -38,35 +38,46 @@ class FaveShops extends Component {
 
   }
   handleFave = (shop) => {
-    const { results } = this.props
-    console.log("ShopId", shop.id)
-    console.log("ResultId", results[0])
-    const shopIndex = results.findIndex(result => result.id === shop.id)
-    console.log("Index", shopIndex)
-    console.log("Fave Result", shop)
-    results[shopIndex].isFave = false
+    console.log("shopper:", shop)
+    const favedShops = this.state.faveShops
+
+    const shopIndex = favedShops.findIndex(result => result.id === shop.id)
+    console.log("Fave Index", shopIndex)
+
+    favedShops[shopIndex].isFave = !favedShops[shopIndex].isFave
+    console.log("isFave?:", favedShops[shopIndex].isFave)
+    console.log("FS:", favedShops[shopIndex])
     API.removeUserFave({ clientId: this.state.clientId, shop: shop })
-    //   console.log("Shoppy:", shopId)
-    this.setState({ results })
+
+    this.setState({ faveShops: favedShops })
+    console.log("Faved:", this.state.faveShops[shopIndex])
   }
 
 
   render() {
     return (
-      <div className="list-group background4">
-        { (!this.state.faveShops) ? <h1>You don't currently have any favorite shops</h1> : this.state.faveShops.map((result) => {
+      <div className={"list-group background4"}>
+        {(!this.state.faveShops[0]) ? <h4>You currently don't have any favorite shops!<br /> Show some BARISSO love!</h4> : this.state.faveShops.map((result) => {
 
-          return (
+          if (result.isFave = true) {
+
+        return (
             <div className="list-group-item" key={result.id}>
-              <h2>{result.name}</h2>
-              <h3>{result.vicinity}</h3>
+          <h2>{result.name}</h2>
+          <h3>{result.vicinity}</h3>
+          <Star className={result.isFave ? "fave" : "starry"} onClick={() => this.handleFave(result)} />
 
-              {/* <Delete onClick={() => this.handleFave(result)} />
-            */}
 
-            </div>
-          )
-        })}
+
+
+        </div>
+        )
+        } else {
+          return (
+            null)
+          
+        }
+      })}
       </div>
     )
   }

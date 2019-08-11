@@ -27,16 +27,19 @@ li {
 .list-group {
     color: white;
     font-family: 'Shadows Into Light', cursive;
-    font-size: 20px;
+    /* font-size: 20px; */
 }
 
 .list-group-item {
     color: white;
     font-family: 'Shadows Into Light', cursive;
-    font-size: 20px;
+    /* font-size: 20px; */
 
 }
 
+h2, h3, h4 {
+    margin: 0rem !important
+}
 .background4{
     background-image: url("../../images/blackboard.jpg");
     background-size: cover;
