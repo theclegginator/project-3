@@ -59,7 +59,7 @@ class BanShops extends Component {
     console.log("Ban Index", shopIndex)
 
     bannedShops[shopIndex].isBan = false
-    console.log("BS:", bannedShops[shopIndex])
+    console.log("BS:", bannedShops[shopIndex].isBan)
     API.removeUserBan({ clientId: this.state.clientId, shop: shop })
 
     this.setState({ banShops: bannedShops })
@@ -71,14 +71,14 @@ class BanShops extends Component {
 
   render() {
     return (
-      <div className="list-group background4">
+      <div className={"ban-group background4"}>
         
         {(!this.state.banShops[0]) ? <h4>You currently don't have any banned shops! <br /> We hope all the coffee is good!</h4> : this.state.banShops.map((result) => {
 
           if (result.isBan = true) {
 
             return (
-              <div className="list-group-item" key={result.id}>
+              <div className="ban-item" key={result.id}>
                 <h2>{result.name}</h2>
                 <h3>{result.vicinity}</h3>
 
