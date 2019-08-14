@@ -9,10 +9,10 @@ export default {
     return axios.get("/api/google/", { params: { location } });
   },
 
-
-  getShop: function (placeid) {
-    return axios.get("/api/google/", { params: { placeid } });
+  findGeolocation: function (location) {
+    return axios.get("/api/google/address/", { params: { location } });
   },
+
 
   getDrink: function (id) {
     return axios.get("/api/drinks/" + id);

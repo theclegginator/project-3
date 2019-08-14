@@ -30,7 +30,7 @@ function SearchForm(props) {
           name="location"
           type="text"
           className="form-control loco-search"
-          placeholder="Press Search to Use Your Current Location or Enter a Location"
+          placeholder={ props.checked ? props.geolocation : "Press Search to Use Your Current Location or Enter a Location" }
           id="search"
         />
         <Button onClick={props.handleFormSubmit} variant="contained" size="small" color="primary"  className="finder">

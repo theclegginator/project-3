@@ -6,4 +6,8 @@ router
   .route("/")
   .get(googleController.findShops);
 
+  router
+  .route("/address")
+  .get(googleController.findGeolocation);
+
 module.exports = router;

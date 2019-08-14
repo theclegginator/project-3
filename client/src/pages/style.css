@@ -60,6 +60,13 @@ margin-left: 40rem;
 	        animation: tracking-in-expand 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
 }
 
+.user-info {
+    justify-content: center;
+}
+
+.center {
+    text-align: center;
+}
 .shoppy{
   font-size: 2.5rem
 }
