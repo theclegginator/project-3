@@ -16,6 +16,12 @@ li {
     color: white
 }
 
+.starry:hover, .starry:active, .fave:hover, .fave:active, .dump:hover, .dump:active{
+  cursor: pointer;
+}
+
+
+
 .ban {
     color: black;
     font-size: large;

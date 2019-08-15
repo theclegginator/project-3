@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./style.css";
-import { Star, Delete } from '@material-ui/icons'
+import { Bookmark, Star, Delete } from '@material-ui/icons'
 import API from "../../utils/API"
 
 class FaveShops extends Component {
@@ -65,7 +65,7 @@ class FaveShops extends Component {
             <div className="fave-item" key={result.id}>
           <h2>{result.name}</h2>
           <h3>{result.vicinity}</h3>
-          <Star className={result.isFave ? "fave" : "starry"} onClick={() => this.handleFave(result)} />
+          <Bookmark className={result.isFave ? "fave" : "starry"} onClick={() => this.handleFave(result)} />
 
 
 
