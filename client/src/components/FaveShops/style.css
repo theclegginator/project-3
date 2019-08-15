@@ -37,6 +37,10 @@ li {
 
 }
 
+.starry:hover, .starry:active, .fave:hover, .fave:active, .dump:hover, .dump:active{
+    cursor: pointer;
+  }
+
 h2, h3, h4 {
     margin: 0rem !important
 }

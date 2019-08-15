@@ -82,7 +82,7 @@ class BanShops extends Component {
                 <h2>{result.name}</h2>
                 <h3>{result.vicinity}</h3>
 
-                <Delete onClick={() => this.handleBan(result)} />
+                <Delete className="dump" onClick={() => this.handleBan(result)} />
 
 
               </div>

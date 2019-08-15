@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./style.css";
-import { Star, Delete } from '@material-ui/icons'
+import { Bookmark, Star, Delete } from '@material-ui/icons'
 import API from "../../utils/API"
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -96,15 +96,15 @@ class ShopList extends Component {
                 <CardContent className='cardcontent'>
                 <h1 className='shop-name'>{result.name}</h1>
                 <h2 className='shop-vicinity'>{result.vicinity}</h2>
-                <h3 className='shop-rating'>{result.rating} - {result.user_ratings_total} reviews</h3>
+                <h3 className='shop-rating'>{result.rating}&#9733; - {result.user_ratings_total} Google reviews</h3>
                 <h3 className='shop-hours'>{result.opening_hours.open_now}</h3>
 
 
                 {this.state.isLoggedIn ?
-                  <Star className={result.isFave ? "fave" : "starry"} onClick={() => this.handleFave(result)} /> : null}
+                  <Bookmark className={result.isFave ? "fave" : "starry"} onClick={() => this.handleFave(result)} /> : null}
                 {this.state.isLoggedIn ?
 
-                  <Delete onClick={() => this.handleBan(result)} /> : null}
+                  <Delete className="dump" onClick={() => this.handleBan(result)} /> : null}
                 <hr />
                 </CardContent>
               </card>)

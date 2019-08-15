@@ -37,6 +37,10 @@ li {
 
 }
 
+.starry:hover, .starry:active, .fave:hover, .fave:active, .dump:hover, .dump:active{
+    cursor: pointer;
+}
+
 .background4{
     background-image: url("../../images/blackboard.jpg");
     background-size: cover;
