@@ -1,4 +1,6 @@
 # Barisso
+https://barisso-app.herokuapp.com
+
 ## Summary
 Barisso is a Full Stack React application for coffee lovers. Barisso is designed as a simple-to-use application to learn more about how different coffee drinks are made and even to search for coffee shops near you using geolocation to get your java fix. Mobile-responsiveness was kept in mind, as the user should be able to look for coffee on the go or look at their phone while in the kitchen preparing a drink.
 
