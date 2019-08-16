@@ -9,17 +9,17 @@ Barisso is a Full Stack React application for coffee lovers. Barisso is designed
 * Upon visiting the "Drinks" page, the user can view the selection and view a recipe.
 * A mug building engine has been built from scratch to dynamically animate any recipe into a smooth and fun-to-watch animation. More detail in the following section.
   
-![Screenshot](drink-page.gif)
+![Screenshot](README-resources/drink-page.gif)
 
 ### Drink Building Engine
 * A drink building engine has been designed from scratch to show a smooth animation for whatever ingredients and amounts are passed in.
 * An example of the engine is shown in the GIF below.
 
-![Screenshot](drink-engine-mug.gif)
+![Screenshot](README-resources/drink-engine.gif)
 
 * The recipe for each drink is formatted into a JSON file. This file contains data about measurements for each ingredient. The drink building engine will then calculate based on the total volume of the drink how much space on the screen should be dedicated to each ingredient.
 
-![Screenshot](json-example.png)
+![Screenshot](README-resources/JSON-example.png)
 
 * Each ingredient within the mug is represented by an individual React component. The proper component is determined by the engine and passed into the JSX.
 * A dynamic animation delay setting is passed onto each ingredient so that each ingredient fills up one after the other. 
