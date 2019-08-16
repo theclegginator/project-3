@@ -4,17 +4,14 @@ import ShopList from "../ShopList";
 import API from "../../utils/API";
 import "./style.css";
 import { geolocated } from 'react-geolocated';
-import Geocode from "react-geocode";
-import dotenv from 'dotenv'
-
+import Button from '@material-ui/core/Button';
+import { ContactSupportOutlined } from "@material-ui/icons";
 
 
 class ShopListContainer extends Component {
   state = {
     location: "",
     geolocation: "",
-    latitude: "",
-    longitude: "",
     results: [],
     checked: false,
     shopId: "",
@@ -24,7 +21,7 @@ class ShopListContainer extends Component {
     key: ""
   };
 
-  
+
   componentDidMount() {
     const oktaToken = localStorage.getItem("okta-token-storage")
     if (oktaToken) {
@@ -68,7 +65,6 @@ class ShopListContainer extends Component {
           )
         )
 
-
       }
     }
 
@@ -79,7 +75,7 @@ class ShopListContainer extends Component {
     API.findShops(location)
       .then(res => {
         console.log("Results", res);
-        const shops = res.data.results;
+        const shops = res.data.results
         shops.forEach(shop => {
 
           shop.isFave = false;
@@ -108,10 +104,31 @@ class ShopListContainer extends Component {
     console.log("ResultsBACKUP", this.state.results);
   }
 
-  findCoordinates = location => {
+  handleTakeMeNow = event => {
+    event.preventDefault();
+    console.log("Take Me Now Cords:", this.props.coords)
+    this.setState({
+      geolocation: `${this.props.coords.latitude},${this.props.coords.longitude}`
+    }, () => API.findShops(this.state.geolocation)
+      .then(res => {
+        console.log("Results", res);
+        const shop = res.data.results[0];
+        const shopLoco = `${shop.name},${shop.vicinity}`
+        console.log("Shop Location:", shopLoco)
+        console.log("Geolocation:",this.state.geolocation)
 
+        if ((navigator.platform.indexOf("iPhone") != -1) || (navigator.platform.indexOf("iPad") != -1) || (navigator.platform.indexOf("iPod") != -1)) {
+          window.open(`maps://maps.google.com/maps/dir/?daddr=${shopLoco}&saddr=${this.state.geolocation}&amp;ll=`);
 
+          // else use Google
+        } else {
+          window.open(`https://maps.google.com/maps/dir/?daddr=${shopLoco}&saddr=${this.state.geolocation}&amp;ll=&amp;ll=`);
+
+        }
+      })
+    )
   }
+
 
 
   handleInputChange = event => {
@@ -120,23 +137,23 @@ class ShopListContainer extends Component {
     this.setState({
       [name]: value
     });
-  };
+  }
 
   // When the form is submitted, search the Google API for the location specified
   handleFormSubmit = event => {
     event.preventDefault();
-  
-    console.log("this.state.checked:",this.state.checked)
+
+    console.log("this.state.checked:", this.state.checked)
     if (this.state.checked) {
       console.log("We sendin up that Geolocation to Google")
       this.searchGoogle(this.state.geolocation)
     } else {
       console.log("We fixing to convert that address to coordinates:", this.state.location)
-    
 
-     
+
+
       API.findGeolocation(this.state.location)
-      .then(res => {
+        .then(res => {
           const { lat, lng } = res.data.results[0].geometry.location;
           console.log(lat, lng);
           this.setState({
@@ -145,11 +162,11 @@ class ShopListContainer extends Component {
           console.log("this.state.location:", this.state.location)
           this.searchGoogle(this.state.location);
         },
-        error => {
-          console.error(error);
-        }
-      )
- 
+          error => {
+            console.error(error);
+          }
+        )
+
     }
 
 
@@ -157,17 +174,22 @@ class ShopListContainer extends Component {
   };
 
   handleCheck = event => {
-    const { latitude, longitude } = this.props.coords
-    event.preventDefault();
+    // event.preventDefault();
+
+    console.log("Cords:", this.props.coords)
     this.setState({
-      checked: event.target.checked,
-      latitude: latitude,
-      longitude: longitude,
-      geolocation: `${latitude},${longitude}`
+      geolocation: `${this.props.coords.latitude},${this.props.coords.longitude}`
     })
 
-    console.log("Geolocation:", this.state.geolocation)
+    this.setState({
+      checked: event.target.checked,
+
+    })
+
+
     console.log("Checked?", event.target.checked)
+    console.log("Geolocation:", this.state.geolocation)
+
     // this.searchGoogle(`${latitude},${longitude}`)
   }
 
@@ -176,12 +198,17 @@ class ShopListContainer extends Component {
   render() {
     return (
       <div className='searchform'>
+        <div>
+          <Button onClick={this.handleTakeMeNow} variant="contained" size="large" color="secondary" className="finder"> Take me to the nearest coffee shop using my Geolocation!
+          </Button>
+        </div>
         <SearchForm
-          search={this.state.checked ? this.state.geolocation : this.state.location}
+          search={!this.state.checked ? this.state.location : this.state.geolocation}
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
           handleCheck={this.handleCheck}
           checked={this.state.checked}
+          placeholder={this.state.geolocation}
         />
         {this.state.results.length > 0 ?
           <ShopList
