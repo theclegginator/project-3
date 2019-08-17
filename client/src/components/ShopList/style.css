@@ -16,11 +16,13 @@ li {
     color: white
 }
 
-.starry:hover, .starry:active, .fave:hover, .fave:active, .dump:hover, .dump:active{
+.starry:hover, .starry:active, .fave:hover, .fave:active, .dump:hover, .dump:active, .shop-vicinity:hover, .shop-vicinity:active{
   cursor: pointer;
 }
 
-
+.shop-vicinity:hover, .shop-vicinity:active {
+  color: rgb(241,85,32);
+}
 
 .ban {
     color: black;
@@ -44,18 +46,23 @@ li {
     -webkit-animation: shadow-drop-2-top 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: shadow-drop-2-top 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
-.cardcontent{
+
+.MuiCardContent-root {
+  padding: 0 !important;
+}
+/* .cardcontent{
   border-style: solid;
   border-color: #2c324e00;
   border-width: 9px;
   box-shadow: -2px 44px 38px 16px rgba(117, 104, 104, 0.68);
   -webkit-animation: shadow-drop-2-top 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  animation: shadow-drop-2-top 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: shadow-drop-2-top 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; */
 
-}
+/* } */
 .shop-name{
     position: relative;
     font-weight: bold;
+    margin: 0 !important;
 }
 .shop-rating{
     display: flex;
