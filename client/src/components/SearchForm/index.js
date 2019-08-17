@@ -10,7 +10,7 @@ function SearchForm(props) {
     <form>
       <div className="form-group">
         <div>
-          <h1 className='shopstitle'>Find Local Coffee Shops and Get Your Fix!</h1>
+          <h1 className='shopstitle'>Find and Explore Local Coffee Shops!</h1>
         </div>
         <div>
           <Checkbox
