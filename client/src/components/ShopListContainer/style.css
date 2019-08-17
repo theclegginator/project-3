@@ -14,7 +14,7 @@ body {
 .MuiButton-sizeLarge {
     padding: .4rem 1rem !important;
     font-size: 1rem !important;
-    margin: .25rem !important
+    /* margin: .25rem !important */
 }
 
 .MuiButton-containedSecondary{

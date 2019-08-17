@@ -73,7 +73,8 @@ null;
           <LockOutlinedIcon  spacing={2}  className='avatar' />
         </Avatar> */}
         <Typography className='title' component="h1" variant="h5">
-          Sign In
+         <h3 className="Barisso">BARISSO</h3>
+         Sign In
         </Typography>
         <form  onSubmit={this.handleSubmit}>
         {errorMessage}

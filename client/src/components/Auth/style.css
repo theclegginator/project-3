@@ -15,8 +15,15 @@
 }
 
 .title {
-    padding: 10%;
+    /* padding: 10%; */
     color: rgba(80, 58, 48, 0.973);
+    font-size: 1rem !important
+}
+
+.Barisso {
+    font-family: 'Shadows Into Light', cursive;
+    color: rgb(241,85,32);
+    font-size: 2rem !important;
 }
 
 .logincontainer{
