@@ -78,7 +78,7 @@ class ShopListContainer extends Component {
         const shops = res.data.results
         shops.forEach(shop => {
           console.log("This.State.Faves[0]:", this.state.faves[0])
-          console.log("ShopID",shop.id + " / " + this.state.faves[0].faveShops.indexOf(shop.id))
+          // console.log("ShopID",shop.id + " / " + this.state.faves[0].faveShops.indexOf(shop.id))
           shop.isFave = false;
           if (this.state.faves[0]) {
               if (this.state.faves[0].faveShops.indexOf(shop.id) !== -1) {
@@ -98,9 +98,6 @@ class ShopListContainer extends Component {
         this.setState({ results: shops })
 
       })
-
-
-
 
     console.log("ResultsBACKUP", this.state.results);
   }
@@ -129,7 +126,6 @@ class ShopListContainer extends Component {
       })
     )
   }
-
 
 
   handleInputChange = event => {
