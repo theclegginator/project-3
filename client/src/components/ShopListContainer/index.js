@@ -77,8 +77,8 @@ class ShopListContainer extends Component {
         console.log("Results", res);
         const shops = res.data.results
         shops.forEach(shop => {
-          console.log("This.State.Faves[0].faveShops:", this.state.faves[0].faveShops.findIndex(i => i.id === shop.id));
-          console.log("This.State.Faves[0].banShops:", this.state.faves[0].banShops.findIndex(i => i.id === shop.id));
+          // console.log("This.State.Faves[0].faveShops:", this.state.faves[0].faveShops.findIndex(i => i.id === shop.id));
+          // console.log("This.State.Faves[0].banShops:", this.state.faves[0].banShops.findIndex(i => i.id === shop.id));
           // console.log("ShopID",shop.id + " / " + this.state.faves[0].faveShops)
           shop.isFave = false;
           if (this.state.faves[0]) {
