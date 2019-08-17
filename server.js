@@ -15,10 +15,6 @@ app.use(express.static("public"));
 // app.get('/react*', (req, res) => {
 //   res.sendFile(appRootPath + '/public/index.html');
 // });
-app.get('/*', function (request, response){
-  response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
-})
-
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
@@ -31,8 +27,9 @@ app.use(routes);
 
 // handle every other route with index.html, which will contain
 // a script tag to your application's JavaScript file(s).
-
-
+// app.get('*', function (request, response){
+//   response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+// })
 // app.get('/*', function(req, res) {
 //   console.log(res)
 //   res.sendFile(path.join(__dirname, '/index.html'), function(err) {
