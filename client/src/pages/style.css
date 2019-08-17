@@ -56,6 +56,7 @@ margin-left: 40rem;
     font-family: 'Shadows Into Light', cursive;
     font-size: 80px;
     font-weight: bold; 
+    margin-bottom: 0rem;
     -webkit-animation: tracking-in-expand 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
 	        animation: tracking-in-expand 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
 }
@@ -240,8 +241,12 @@ margin-left: 40rem;
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
         .barisso {
-            margin-left: 10rem;
+            margin-left: 17rem;
             font-size: 80px;
+        }
+        .drinksheader{
+            font-size: 65px;
+            margin: 0 !important; 
         }
         .description{
             margin-left: 10%;
@@ -250,14 +255,16 @@ margin-left: 40rem;
     }
 
 /* Landscape phones and down */
-@media (max-width: 480px) {
+@media (max-width: 520px) {
         .barisso {
-            margin-left: 0rem;
-            font-size: 80px;
+            margin-left: 10rem;
+            margin-top: 2rem;
+            font-size: 60px;
         }
         .drinksheader{
-            font-size: 40px;
-            font-weight: bold; 
+            font-size: 50px;
+            font-weight: bold;
+            margin: 0 !important; 
         }
         .selectedRecipeTitle{
             font-family: 'Shadows Into Light', cursive;
@@ -267,8 +274,8 @@ margin-left: 40rem;
     }
     @media (max-width: 360px) {
         .barisso {
-            margin-left: 9rem;
-            font-size: 63px;
+            margin-left: 8rem;
+            font-size: 50px;
         }
         .drinksheader{
             font-size: 40px;

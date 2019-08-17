@@ -33,6 +33,25 @@ label {
 	        animation: tracking-in-expand 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
 }
 
+@media (max-width: 720px) {
+        .shopstitle {
+          font-size: 35px;
+        }
+    }
+
+@media (max-width: 480px) {
+        .shopstitle {
+          font-size: 25px;
+        }
+    }
+
+@media (max-width: 350px) {
+        .shopstitle {
+          font-size: 20px;
+          padding-bottom: 1rem;
+        }
+    }
+
 /**
  * ----------------------------------------
  * animation tracking-in-expand
