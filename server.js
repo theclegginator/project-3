@@ -15,21 +15,27 @@ app.use(express.static("public"));
 // app.get('/react*', (req, res) => {
 //   res.sendFile(appRootPath + '/public/index.html');
 // });
+app.get('*', function (request, response){
+  response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+})
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
+  app.get('*', function (request, response){
+  response.sendFile(path.resolve(__dirname, 'client/build', 'index.html'))
+})
 }
 
 // Add routes, both API and view
 app.use(routes);
 
 // serve static assets normally
-app.use(express.static(__dirname + '/public'))
+// app.use(express.static(__dirname + '/public'))
 
 // handle every other route with index.html, which will contain
 // a script tag to your application's JavaScript file(s).
-app.get('*', function (request, response){
-  response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
-})
+
+
 // app.get('/*', function(req, res) {
 //   console.log(res)
 //   res.sendFile(path.join(__dirname, '/index.html'), function(err) {
