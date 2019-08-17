@@ -32,7 +32,7 @@ app.use(express.static(__dirname + '/public'))
 // a script tag to your application's JavaScript file(s).
 app.get('*', function (request, response){
   // response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
-  res.sendFile(path.join(__dirname, 'client/public', '/index.html'))
+  response.sendFile(path.join(__dirname, 'client/public', '/index.html'))
 })
 // app.get('/*', function(req, res) {
 //   console.log(res)
