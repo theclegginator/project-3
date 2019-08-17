@@ -15,15 +15,12 @@ app.use(express.static("public"));
 // app.get('/react*', (req, res) => {
 //   res.sendFile(appRootPath + '/public/index.html');
 // });
-app.get('*', function (request, response){
+app.get('/*', function (request, response){
   response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
 })
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
-  app.get('*', function (request, response){
-  response.sendFile(path.resolve(__dirname, 'client/build', 'index.html'))
-})
 }
 
 // Add routes, both API and view
