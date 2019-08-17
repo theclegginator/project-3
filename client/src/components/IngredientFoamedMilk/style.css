@@ -16,3 +16,9 @@
 	-webkit-animation: ingredient 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: ingredient 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
+/* Landscape phones and down */
+@media (max-width: 768px) {
+    .foamed-milk{
+        font-size: 13px;
+    }
+}

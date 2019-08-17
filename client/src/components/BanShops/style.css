@@ -49,6 +49,14 @@ li {
     background-repeat: no-repeat;
     height: fit-content;
     min-height: 20rem;
-    margin: 0 20rem 5rem 20rem;
+    /* margin: 0 20rem 5rem 20rem; */
+    margin: 0 20% 0 20%;
+    /* max-width: 70rem; */
     padding: 1rem 0 1rem 0;
   }
+
+  @media (max-width: 480px) {
+        .background4 {
+            margin: 0 5% 0 5%;
+        }
+    }
