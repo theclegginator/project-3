@@ -10,3 +10,27 @@ body {
 .finder {
     background-color: gold
 }
+
+.MuiButton-containedSecondary{
+    background-color: rgb(241,85,32) !important;
+    font-family: 'Shadows Into Light', cursive !important;
+    font-weight: bolder;
+}
+
+.MuiButton-containedPrimary{
+    background-color: rgb(241,85,32) !important;
+    font-family: 'Shadows Into Light', cursive !important;
+    font-weight: bold;   
+}
+
+.MuiCheckbox-colorSecondary.Mui-checked {
+    color: rgb(241,85,32) !important;
+}
+
+.MuiCheckbox-root {
+    color: white !important;
+}
+
+.MuiIconButton-colorSecondary:hover {
+    background-color: rgba(241, 85, 0, 0.08) !important;
+}

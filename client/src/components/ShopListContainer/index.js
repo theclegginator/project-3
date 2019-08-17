@@ -77,10 +77,11 @@ class ShopListContainer extends Component {
         console.log("Results", res);
         const shops = res.data.results
         shops.forEach(shop => {
-
+          console.log("This.State.Faves[0]:", this.state.faves[0])
+          console.log("ShopID",shop.id + " / " + this.state.faves[0].faveShops.indexOf(shop.id))
           shop.isFave = false;
           if (this.state.faves[0]) {
-            if (this.state.faves[0].faveShops.indexOf(shop.id) !== -1) {
+              if (this.state.faves[0].faveShops.indexOf(shop.id) !== -1) {
               shop.isFave = true;
 
             }
@@ -142,7 +143,7 @@ class ShopListContainer extends Component {
   // When the form is submitted, search the Google API for the location specified
   handleFormSubmit = event => {
     event.preventDefault();
-
+    console.log("GeoCheck:", this.state.geolocation)
     console.log("this.state.checked:", this.state.checked)
     if (this.state.checked) {
       console.log("We sendin up that Geolocation to Google")
@@ -175,15 +176,11 @@ class ShopListContainer extends Component {
 
   handleCheck = event => {
     // event.preventDefault();
-
+ 
     console.log("Cords:", this.props.coords)
     this.setState({
-      geolocation: `${this.props.coords.latitude},${this.props.coords.longitude}`
-    })
-
-    this.setState({
+      geolocation: `${this.props.coords.latitude},${this.props.coords.longitude}`,
       checked: event.target.checked,
-
     })
 
 
