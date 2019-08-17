@@ -77,11 +77,12 @@ class ShopListContainer extends Component {
         console.log("Results", res);
         const shops = res.data.results
         shops.forEach(shop => {
-          console.log("This.State.Faves[0]:", this.state.faves[0])
-          // console.log("ShopID",shop.id + " / " + this.state.faves[0].faveShops.indexOf(shop.id))
+          console.log("This.State.Faves[0].faveShops:", this.state.faves[0].faveShops.findIndex(i => i.id === shop.id));
+          console.log("This.State.Faves[0].banShops:", this.state.faves[0].banShops.findIndex(i => i.id === shop.id));
+          // console.log("ShopID",shop.id + " / " + this.state.faves[0].faveShops)
           shop.isFave = false;
           if (this.state.faves[0]) {
-              if (this.state.faves[0].faveShops.indexOf(shop.id) !== -1) {
+              if (this.state.faves[0].faveShops.findIndex(i => i.id === shop.id) !== -1) {
               shop.isFave = true;
 
             }
@@ -89,7 +90,7 @@ class ShopListContainer extends Component {
 
           shop.isBan = false;
           if (this.state.faves[0]) {
-            if (this.state.faves[0].banShops.indexOf(shop.id) !== -1) {
+            if (this.state.faves[0].banShops.findIndex(i => i.id === shop.id) !== -1) {
               shop.isBan = true
             }
           }
