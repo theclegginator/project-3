@@ -190,6 +190,11 @@ margin-left: 40rem;
     margin-top: 30px;
 }
 
+.shopstitle {
+    margin: .25rem !important;
+    padding-top: .25rem !important;
+}
+
 @-webkit-keyframes text-focus-in {
     0% {
       -webkit-filter: blur(12px);
