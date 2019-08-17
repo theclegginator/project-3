@@ -26,10 +26,13 @@ app.use(routes);
 // serve static assets normally
 app.use(express.static(__dirname + '/public'))
 
+// console.log(path.join(__dirname, 'client/public', '/index.html'))
+
 // handle every other route with index.html, which will contain
 // a script tag to your application's JavaScript file(s).
 app.get('*', function (request, response){
-  response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+  // response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+  res.sendFile(path.join(__dirname, 'client/public', '/index.html'))
 })
 // app.get('/*', function(req, res) {
 //   console.log(res)
