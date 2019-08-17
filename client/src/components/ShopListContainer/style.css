@@ -8,19 +8,27 @@ body {
 }
 
 .finder {
-    background-color: gold
+    margin: .5rem;
+}
+
+.MuiButton-sizeLarge {
+    padding: .4rem 1rem !important;
+    font-size: 1rem !important;
+    margin: .25rem !important
 }
 
 .MuiButton-containedSecondary{
     background-color: rgb(241,85,32) !important;
     font-family: 'Shadows Into Light', cursive !important;
     font-weight: bolder;
+     
 }
 
 .MuiButton-containedPrimary{
     background-color: rgb(241,85,32) !important;
     font-family: 'Shadows Into Light', cursive !important;
-    font-weight: bold;   
+    font-weight: bold;
+
 }
 
 .MuiCheckbox-colorSecondary.Mui-checked {
