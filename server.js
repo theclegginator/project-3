@@ -22,6 +22,14 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, '/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+});
+
 // Connect to the Mongo DB
 mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://localhost/Barisso', {
