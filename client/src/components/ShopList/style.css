@@ -44,15 +44,15 @@ li {
     -webkit-animation: shadow-drop-2-top 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: shadow-drop-2-top 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
-.cardcontent{
+/* .cardcontent{
   border-style: solid;
   border-color: #2c324e00;
   border-width: 9px;
   box-shadow: -2px 44px 38px 16px rgba(117, 104, 104, 0.68);
   -webkit-animation: shadow-drop-2-top 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  animation: shadow-drop-2-top 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: shadow-drop-2-top 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; */
 
-}
+/* } */
 .shop-name{
     position: relative;
     font-weight: bold;
