@@ -24,27 +24,27 @@ export default withAuth(class Navigation extends React.Component {
     if (this.state.authenticated === null) return null;
     const authNav = this.state.authenticated ?
 
-    <ul>
-     <Link className="header-nav__item" to="/">Home</Link>
-          <Link className="header-nav__item" to="/Drinks/">Drinks</Link>
-          {/* <Link className="header-nav__item" to="/Login/">Login</Link> */}
-         <Link className="header-nav__item" to="/Shops/">Search</Link>
-         <Link  className="header-nav__item" href="javascript:void(0)" onClick={this.props.auth.logout}>Logout</Link>
+    <div className="auth-nav">
+        <Link className={"header-nav__item brand"} to="/">BARISSO</Link>
+        <Link className="header-nav__item" to="/Drinks/">Drinks</Link>
+
+        <Link className="header-nav__item" to="/Shops/">Shops</Link>
+        <Link className="header-nav__item" href="javascript:void(0)" onClick={this.props.auth.logout}>Logout</Link>
         <Link className="header-nav__item" to="/profile">Profile</Link>
-      </ul> :
-      <ul className="auth-nav">
-      
-        <Link className="header-nav__item" to="/">Home</Link>
-          <Link className="header-nav__item" to="/Drinks/">Drinks</Link>
-          {/* <Link className="header-nav__item" to="/Login/">Login</Link> */}
-         <Link className="header-nav__item" to="/Shops/">Search</Link>
-         <Link  className="header-nav__item" href="javascript:void(0)" onClick={this.props.auth.login} to="/Login/" >Login</Link>
+      </div> :
+   
+   <div className="auth-nav">
+        <Link className="header-nav__item brand" to="/">BARISSO</Link>
+        <Link className="header-nav__item" to="/Drinks/">Drinks</Link>
+        {/* <Link className="header-nav__item" to="/Login/">Login</Link> */}
+        <Link className="header-nav__item" to="/Shops/">Shops</Link>
+        <Link className="header-nav__item" href="javascript:void(0)" onClick={this.props.auth.login} to="/Login/" >Login</Link>
         {/* <ul><Link to="/register">Register</Link></ul> */}
-      </ul>;
+      </div>;
 
     return (
       <nav className='nav'>
-          {authNav}
+        {authNav}
       </nav>
     )
   }
