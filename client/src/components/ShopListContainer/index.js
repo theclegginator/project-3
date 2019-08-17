@@ -193,7 +193,7 @@ class ShopListContainer extends Component {
     return (
       <div className='searchform'>
         <div>
-          <Button onClick={this.handleTakeMeNow} variant="contained" size="large" color="secondary" className="finder"> Take me to the nearest coffee shop using my Geolocation!
+          <Button onClick={this.handleTakeMeNow} variant="contained" size="large" color="secondary" className="finder"> Take me NOW to the nearest coffee shop using my Geolocation!
           </Button>
         </div>
         <SearchForm
@@ -206,7 +206,9 @@ class ShopListContainer extends Component {
         />
         {this.state.results.length > 0 ?
           <ShopList
-            results={this.state.results}
+          results={this.state.results}
+          geolocation={this.state.geolocation}
+          location={this.state.location}
           /> : null}
 
       </div>

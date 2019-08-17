@@ -16,11 +16,13 @@ li {
     color: white
 }
 
-.starry:hover, .starry:active, .fave:hover, .fave:active, .dump:hover, .dump:active{
+.starry:hover, .starry:active, .fave:hover, .fave:active, .dump:hover, .dump:active, .shop-vicinity:hover, .shop-vicinity:active{
   cursor: pointer;
 }
 
-
+.shop-vicinity:hover, .shop-vicinity:active {
+  color: rgb(241,85,32);
+}
 
 .ban {
     color: black;
@@ -44,6 +46,10 @@ li {
     -webkit-animation: shadow-drop-2-top 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: shadow-drop-2-top 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
+
+.MuiCardContent-root {
+  padding: 0 !important;
+}
 /* .cardcontent{
   border-style: solid;
   border-color: #2c324e00;
@@ -56,6 +62,7 @@ li {
 .shop-name{
     position: relative;
     font-weight: bold;
+    margin: 0 !important;
 }
 .shop-rating{
     display: flex;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./style.css";
-import { Bookmark, Star, Delete } from '@material-ui/icons'
+import { Bookmark, Directions, Star, Delete } from '@material-ui/icons'
 import API from "../../utils/API"
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -81,6 +81,30 @@ class ShopList extends Component {
 
   }
 
+  goToShop = (geolocation, location, shop) => {
+
+    if (location) {
+      console.log("Loco:", location)
+      if ((navigator.platform.indexOf("iPhone") != -1) || (navigator.platform.indexOf("iPad") != -1) || (navigator.platform.indexOf("iPod") != -1)) {
+        window.open(`maps://maps.google.com/maps/dir/?daddr=${shop}&saddr=${location}&amp;ll=`);
+
+        // else use Google
+      } else {
+        window.open(`https://maps.google.com/maps/dir/?daddr=${shop}&saddr=${location}&amp;ll=&amp;ll=`);
+
+      }
+    } else {
+      if ((navigator.platform.indexOf("iPhone") != -1) || (navigator.platform.indexOf("iPad") != -1) || (navigator.platform.indexOf("iPod") != -1)) {
+        window.open(`maps://maps.google.com/maps/dir/?daddr=${shop}&saddr=${geolocation}&amp;ll=`);
+
+        // else use Google
+      } else {
+        window.open(`https://maps.google.com/maps/dir/?daddr=${shop}&saddr=${geolocation}&amp;ll=&amp;ll=`);
+
+      }
+    }
+
+  }
 
 
   render() {
@@ -95,7 +119,7 @@ class ShopList extends Component {
               <card className="list-group-item" key={result.id}>
                 <CardContent className='cardcontent'>
                 <h1 className='shop-name'>{result.name}</h1>
-                <h2 className='shop-vicinity'>{result.vicinity}</h2>
+                <h2 className='shop-vicinity' onClick={() => this.goToShop(this.props.geolocation,this.props.location,result.vicinity)}>{result.vicinity} <Directions /></h2>
                 <h3 className='shop-rating'>{result.rating}&#9733; - {result.user_ratings_total} Google reviews</h3>
                 <h3 className='shop-hours'>{result.opening_hours.open_now}</h3>
 
