@@ -64,18 +64,20 @@ class User extends React.Component {
         <div className='background3 user-profile justify-contents-center'>
           <Navigation />
           <div className="fave-shops">
-            <h1 className="center">Hi {this.state.user}!</h1>
+            <h1 className={"center user-name"}>Hi {this.state.user}!</h1>
           </div>
     
           <div>
             <h1 className="fave-shops">Here are Your Favorite Coffee Shops</h1>
+            <h3>Click the icon if the shop is no longer one of your favorites</h3>
           </div>
           <div>
             <FaveShops />
           </div>
           <div className="ban-shops">
        
-            <h1>Here are Your Banned Coffee Shops</h1>
+            <h1 className="ban-shops">Here are Your Banned Coffee Shops</h1>
+            <h3>Click the icon to give the shop another chance!</h3>
             <div>
               <BanShops />
             </div>

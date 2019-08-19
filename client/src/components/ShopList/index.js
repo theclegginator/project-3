@@ -121,7 +121,7 @@ class ShopList extends Component {
                 <h1 className='shop-name'>{result.name}</h1>
                 <h2 className='shop-vicinity' onClick={() => this.goToShop(this.props.geolocation,this.props.location,result.vicinity)}>{result.vicinity} <Directions /></h2>
                 <h3 className='shop-rating'>{result.rating}&#9733; - {result.user_ratings_total} Google reviews</h3>
-                <h3 className='shop-hours'>{result.opening_hours.open_now}</h3>
+                {/* <h3 className='shop-hours'>{result.opening_hours.open_now}</h3> */}
 
 
                 {this.state.isLoggedIn ?
