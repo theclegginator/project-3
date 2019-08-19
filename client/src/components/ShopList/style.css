@@ -20,8 +20,9 @@ li {
   cursor: pointer;
 }
 
-.shop-vicinity:hover, .shop-vicinity:active {
+.shop-vicinity:hover, .shop-vicinity:active, .starry:hover, .starry:active, .dump:hover, .dump:active {
   color: rgb(241,85,32);
+  transition: .3s
 }
 
 .ban {
