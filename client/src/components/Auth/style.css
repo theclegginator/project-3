@@ -17,7 +17,8 @@
 .title {
     /* padding: 10%; */
     color: rgba(80, 58, 48, 0.973);
-    font-size: 1rem !important
+    font-size: 1rem !important;
+    margin: .5rem !important;
 }
 
 .Barisso {
@@ -27,9 +28,17 @@
 }
 
 .logincontainer{
- margin-top: 70px;
+ margin-top: 5rem;
 }
 
 .error-message {
     color: rgb(241,85,32);
+}
+
+.submit {
+    margin: 1rem !important
+}
+
+.sign-up {
+    margin-top: 1rem !important
 }

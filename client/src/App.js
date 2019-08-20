@@ -39,8 +39,8 @@ class App extends Component {
               <Route exact path="/profile" component={User} />
               <Route path="/login" render={() => <LoginPage baseUrl={config.url} />} />
               <Route path="/implicit/callback" component={ImplicitCallback} />
-              {/* <Route path="/register" component={RegistrationForm} />
-              <SecureRoute path="/profile" component={User} /> */}
+              <Route path="/register" component={RegistrationForm} />
+              {/* <SecureRoute path="/profile" component={User} /> */} */}
               {/* <Route exact path="/recipe/:id" component={Recipe} /> */}
             </Switch>
           </div>

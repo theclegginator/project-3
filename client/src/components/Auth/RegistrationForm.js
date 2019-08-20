@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React from 'react';
 import OktaAuth from '@okta/okta-auth-js';
 import { withAuth } from '@okta/okta-react';
 import config from '../../app.config';
@@ -19,8 +19,8 @@ import Container from '@material-ui/core/Container';
 // import DeleteIcon from '@material-ui/icons/Delete';
 import Navigation from '../Shared/Navigation'
 import "./style.css";
-export default withAuth(class RegistrationForm extends React.Component{
-  constructor(props){
+export default withAuth(class RegistrationForm extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       firstName: '',
@@ -36,7 +36,7 @@ export default withAuth(class RegistrationForm extends React.Component{
     this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
     this.handleLastNameChange = this.handleLastNameChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);    
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
   }
   async checkAuthentication() {
     const sessionToken = await this.props.auth.getIdToken();
@@ -47,8 +47,8 @@ export default withAuth(class RegistrationForm extends React.Component{
   componentDidUpdate() {
     this.checkAuthentication();
   }
-  handleFirstNameChange(e){
-    this.setState({firstName:e.target.value});
+  handleFirstNameChange(e) {
+    this.setState({ firstName: e.target.value });
   }
   handleLastNameChange(e) {
     this.setState({ lastName: e.target.value });
@@ -59,10 +59,10 @@ export default withAuth(class RegistrationForm extends React.Component{
   handlePasswordChange(e) {
     this.setState({ password: e.target.value });
   }
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault();
-    fetch('/api/users', { 
-      method: 'POST', 
+    fetch('/api/users', {
+      method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -73,14 +73,14 @@ export default withAuth(class RegistrationForm extends React.Component{
         username: this.state.email,
         password: this.state.password
       })
-      .then(res => this.setState({
-        sessionToken: res.sessionToken
-      }));
+        .then(res => this.setState({
+          sessionToken: res.sessionToken
+        }));
     })
-    .catch(err => console.log);
+      .catch(err => console.log);
   }
 
-  render(){
+  render() {
     // const useStyles = makeStyles(theme => ({
     //   '@global': {
     //     body: {
@@ -105,87 +105,89 @@ export default withAuth(class RegistrationForm extends React.Component{
     //     margin: theme.spacing(3, 0, 2),
     //   },
     // }));
-  
+
     if (this.state.sessionToken) {
       this.props.auth.redirect({ sessionToken: this.state.sessionToken });
       return null;
     }
     // const classes = useStyles();
-    return(
+    return (
       // < Navigation />
       <div className='background1'>
-        < Navigation  className= 'nav'/>
-        <div> 
-      <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className='paper'>
-{/*   
+        < Navigation className='nav' />
+        <div>
+          <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <div className='logincontainer'>
+              <div className='paper'>
+                {/*   
         <Avatar container justify='center' className='avatar'>
           <LockOutlinedIcon  spacing={2}  className='avatar' />
         </Avatar> */}
-        <Typography className='title' component="h1" variant="h5">
-          Sign up
+                <Typography className='title' component="h1" variant="h5">
+                  <h3 className="Barisso">BARISSO</h3>
+                  Sign Up
         </Typography>
-        <form onSubmit={this.handleSubmit}className='form' noValidate>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-            <TextField
-                autoComplete="fname"
-                name="firstName"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="First Name"
-                autoFocus
-       value={this.state.firstName} 
-  onChange={this.handleFirstNameChange} />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
-              value={this.state.lastName} 
-  onChange={this.handleLastNameChange} />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-              value={this.state.email} 
-  onChange={this.handleEmailChange}/>
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              value={this.state.password} 
-  onChange={this.handlePasswordChange} />
-            </Grid>
-            {/* <Grid item xs={12}>
+                <form onSubmit={this.handleSubmit} className={'form sign-up'} noValidate>
+                  <Grid container spacing={2}>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        autoComplete="fname"
+                        name="firstName"
+                        variant="outlined"
+                        required
+                        fullWidth
+                        id="firstName"
+                        label="First Name"
+                        autoFocus
+                        value={this.state.firstName}
+                        onChange={this.handleFirstNameChange} />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        variant="outlined"
+                        required
+                        fullWidth
+                        id="lastName"
+                        label="Last Name"
+                        name="lastName"
+                        autoComplete="lname"
+                        value={this.state.lastName}
+                        onChange={this.handleLastNameChange} />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        variant="outlined"
+                        required
+                        fullWidth
+                        id="email"
+                        label="Email Address"
+                        name="email"
+                        autoComplete="email"
+                        value={this.state.email}
+                        onChange={this.handleEmailChange} />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        variant="outlined"
+                        required
+                        fullWidth
+                        name="password"
+                        label="Password"
+                        type="password"
+                        id="password"
+                        autoComplete="current-password"
+                        value={this.state.password}
+                        onChange={this.handlePasswordChange} />
+                    </Grid>
+                    {/* <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
                 label="I want to receive inspiration, marketing promotions and updates via email."
               />
             </Grid> */}
-          </Grid>
-          {/* <Fab 
+                  </Grid>
+                  {/* <Fab 
           variant="extended" 
           color="primary"
            aria-label="add" 
@@ -196,36 +198,36 @@ export default withAuth(class RegistrationForm extends React.Component{
            value='Register'>
            Extended
         </Fab> */}
-<br></br>
-          <Button
-            type="submit"
-            size='large'
-            variant="contained"
-            color="primary"
-            className='submit'
-            id= "submit"
-            value='Register'
             
-          >
-            Sign Up
+                  <Button
+                    type="submit"
+                    size='large'
+                    variant="contained"
+                    color="primary"
+                    className='submit'
+                    id="submit"
+                    value='Register'
+
+                  >
+                    Sign Up
           </Button>
-          <br></br>
-          <Grid container justify="center">
-            <Grid item>
-              <Link className="gotosignin" href="/login" variant="body2">
-                Already have an account? Sign in
+                  <br></br>
+                  <Grid container justify="center">
+                    <Grid item>
+                      <Link className="gotosignin" href="/login" variant="body2">
+                        Already have an account? Sign in
               </Link>
-              <br></br>
-            </Grid>
-          </Grid>
-        </form>
+                      <br></br>
+                    </Grid>
+                  </Grid>
+                </form>
+              </div>
+            </div>
+          </Container>
+        </div>
       </div>
-  
-    </Container>
-    </div>
-    </div>
-  );
-    }
+    );
+  }
 })
 
 
