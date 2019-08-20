@@ -29,3 +29,7 @@
 .logincontainer{
  margin-top: 70px;
 }
+
+.error-message {
+    color: rgb(241,85,32);
+}
