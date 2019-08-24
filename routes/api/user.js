@@ -5,7 +5,7 @@ const userController = require("../../controllers/userController");
 router.route("/")
   .get(userController.findAll)
 
-router.route("/create")
+router.route("/create/")
   .post(userController.createUser)
 
 // Matches with "/api/user/:id"

@@ -33,15 +33,19 @@ export default {
     return axios.get("/api/user/" + clientId);
 
   },
-  
+
   getUserFaves: function (clientId) {
     return axios.get("/api/user/faves/" + clientId);
   },
 
   // Gets all saved users
   createUser: function (body) {
-    return axios.post("/api/user/create/", body);
+    return axios.post("/api/okta/create/", body);
   },
+
+
+
+
   // Updates the saved user with the given id
   addUserFave: function (body) {
     return axios.put("/api/user/fave/", body);
