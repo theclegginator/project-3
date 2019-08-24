@@ -14,29 +14,54 @@ class FaveShops extends Component {
 
   componentDidMount() {
     const oktaToken = localStorage.getItem("okta-token-storage")
-    // console.log("oktaToken:", oktaToken)
-
     if (oktaToken) {
       if (JSON.parse(oktaToken).idToken !== undefined) {
-        const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.claims)
+        const oktaId = (JSON.parse(localStorage.getItem("okta-token-storage")).idToken.claims.sub)
         console.log("OktaId:", oktaId);
         this.setState({
-          clientId: oktaId.sub,
+          clientId: oktaId,
           isLoggedIn: true
-        }, () => API.getUserFaves(this.state.clientId)
+        }, () => API.findUser(this.state.clientId)
           .then(res => {
-            this.setState({
-              faveShops: res.data[0].faveShops,
-              banShops: res.data[0].banShops
-            })
-            console.log("FAVES:", this.state.faveShops)
-          })
-        )
-      }
+            const userCheck = res.data
+            console.log("userCheck:", userCheck.length)
+            if (userCheck.length === 0) {
+              API.createUser({
+                clientId: this.state.clientId,
+                userDrinks: [],
+                faveShops: [],
+                banShops: []
+              })
+                .then(res => {
+                  this.setState({
+                    userDocExits: true
+                  })
+                  console.log("This guy is a NEWB!")
 
+                })
+            }
+            else {
+              console.log("Hitting User Faves Route")
+              API.getUserFaves(this.state.clientId)
+                .then(res => {
+                  this.setState({
+                    faveShops: res.data[0].faveShops,
+                    banShops: res.data[0].banShops
+                  })
+                  console.log("USER OBJECT:", this.state.faves[0])
+                })
+            }
+
+          }
+          )
+        )
+
+      }
     }
 
   }
+
+
   handleFave = (shop) => {
     console.log("shopper:", shop)
     const favedShops = this.state.faveShops
@@ -61,23 +86,23 @@ class FaveShops extends Component {
 
           if (result.isFave) {
 
-        return (
-            <div className="fave-item" key={result.id}>
-          <h2>{result.name}</h2>
-          <h3>{result.vicinity}</h3>
-          <Bookmark className={result.isFave ? "fave" : "starry"} onClick={() => this.handleFave(result)} />
+            return (
+              <div className="fave-item" key={result.id}>
+                <h2>{result.name}</h2>
+                <h3>{result.vicinity}</h3>
+                <Bookmark className={result.isFave ? "fave" : "starry"} onClick={() => this.handleFave(result)} />
 
 
 
 
-        </div>
-        )
-        } else {
-          return (
-            null)
-          
-        }
-      })}
+              </div>
+            )
+          } else {
+            return (
+              null)
+
+          }
+        })}
       </div>
     )
   }

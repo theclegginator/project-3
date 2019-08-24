@@ -18,6 +18,7 @@ import Container from '@material-ui/core/Container';
 // import IconButton from '@material-ui/core/IconButton';
 // import DeleteIcon from '@material-ui/icons/Delete';
 import Navigation from '../Shared/Navigation'
+import API from "../../utils/API";
 import "./style.css";
 export default withAuth(class RegistrationForm extends React.Component {
   constructor(props) {
@@ -60,23 +61,20 @@ export default withAuth(class RegistrationForm extends React.Component {
     this.setState({ password: e.target.value });
   }
   handleSubmit(e) {
+    const body = this.state
+    console.log("BODY:",body);
+    console.log("LAST NAME:",body.lastName)
     e.preventDefault();
-    fetch('/api/users', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(this.state)
-    }).then(user => {
-      this.oktaAuth.signIn({
-        username: this.state.email,
-        password: this.state.password
+    API.createUser(body)
+      .then(user => {
+        this.oktaAuth.signIn({
+          username: this.state.email,
+          password: this.state.password
+        })
+          .then(res => this.setState({
+            sessionToken: res.sessionToken
+          }));
       })
-        .then(res => this.setState({
-          sessionToken: res.sessionToken
-        }));
-    })
       .catch(err => console.log);
   }
 
@@ -198,7 +196,7 @@ export default withAuth(class RegistrationForm extends React.Component {
            value='Register'>
            Extended
         </Fab> */}
-            
+
                   <Button
                     type="submit"
                     size='large'

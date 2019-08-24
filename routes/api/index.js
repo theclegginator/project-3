@@ -3,9 +3,11 @@ const router = require("express").Router();
 const userRoutes = require("./user");
 const googleRoutes = require("./google");
 const drinkRoutes = require("./drinks");
-
+const oktaRoutes = require("./okta")
 
 router.use("/user", userRoutes);
+
+router.use("/okta", oktaRoutes);
 
 // Google Routes
 router.use("/google", googleRoutes);

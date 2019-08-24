@@ -55,6 +55,11 @@ li {
     padding: 1rem 0 1rem 0;
   }
 
+
+  .ban-group{
+      margin-bottom: 1rem;
+  }
+  
   @media (max-width: 480px) {
         .background4 {
             margin: 0 5% 0 5%;
