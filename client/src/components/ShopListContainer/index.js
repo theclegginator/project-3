@@ -82,7 +82,7 @@ class ShopListContainer extends Component {
           // console.log("ShopID",shop.id + " / " + this.state.faves[0].faveShops)
           shop.isFave = false;
           if (this.state.faves[0]) {
-              if (this.state.faves[0].faveShops.findIndex(i => i.id === shop.id) !== -1) {
+            if (this.state.faves[0].faveShops.findIndex(i => i.id === shop.id) !== -1) {
               shop.isFave = true;
 
             }
@@ -111,17 +111,23 @@ class ShopListContainer extends Component {
     }, () => API.findShops(this.state.geolocation)
       .then(res => {
         console.log("Results", res);
-        const shop = res.data.results[0];
-        const shopLoco = `${shop.name},${shop.vicinity}`
-        console.log("Shop Location:", shopLoco)
-        console.log("Geolocation:",this.state.geolocation)
 
-        if ((navigator.platform.indexOf("iPhone") != -1) || (navigator.platform.indexOf("iPad") != -1) || (navigator.platform.indexOf("iPod") != -1)) {
-          window.open(`maps://maps.google.com/maps/dir/?daddr=${shopLoco}&saddr=${this.state.geolocation}&amp;ll=`);
+        const bannedShops = this.state.faves[0].banShops
+        const shopLoad = res.data.results
 
-          // else use Google
-        } else {
-          window.open(`https://maps.google.com/maps/dir/?daddr=${shopLoco}&saddr=${this.state.geolocation}&amp;ll=&amp;ll=`);
+        for (let i = 0; i < shopLoad.length; i++) {
+          if (bannedShops.findIndex(result => result.id === shopLoad[i].id) == -1) {
+            let shopLoco = `${shopLoad[i].name},${shopLoad[i].vicinity}`;
+            if ((navigator.platform.indexOf("iPhone") != -1) || (navigator.platform.indexOf("iPad") != -1) || (navigator.platform.indexOf("iPod") != -1)) {
+              window.open(`maps://maps.google.com/maps/dir/?daddr=${shopLoco}&saddr=${this.state.geolocation}&amp;ll=`);
+
+              // else use Google
+            } else {
+              window.open(`https://maps.google.com/maps/dir/?daddr=${shopLoco}&saddr=${this.state.geolocation}&amp;ll=&amp;ll=`);
+
+            }
+            { break; }
+          }
 
         }
       })
@@ -173,7 +179,7 @@ class ShopListContainer extends Component {
 
   handleCheck = event => {
     // event.preventDefault();
- 
+
     console.log("Cords:", this.props.coords)
     this.setState({
       geolocation: `${this.props.coords.latitude},${this.props.coords.longitude}`,
@@ -206,9 +212,9 @@ class ShopListContainer extends Component {
         />
         {this.state.results.length > 0 ?
           <ShopList
-          results={this.state.results}
-          geolocation={this.state.geolocation}
-          location={this.state.location}
+            results={this.state.results}
+            geolocation={this.state.geolocation}
+            location={this.state.location}
           /> : null}
 
       </div>
