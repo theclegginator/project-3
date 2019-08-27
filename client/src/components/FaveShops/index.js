@@ -48,7 +48,7 @@ class FaveShops extends Component {
                     faveShops: res.data[0].faveShops,
                     banShops: res.data[0].banShops
                   })
-                  console.log("USER OBJECT:", this.state.faves[0])
+                  // console.log("USER OBJECT:", this.state.faves[0])
                 })
             }
 

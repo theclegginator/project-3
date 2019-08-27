@@ -33,12 +33,11 @@ class BanShops extends Component {
                 banShops: []
               })
                 .then(res => {
-                  this.setState({
-                    userDocExits: true
-                  })
                   console.log("This guy is a NEWB!")
+                  })
+                  
 
-                })
+               
             }
             else {
               console.log("Hitting User Faves Route")
@@ -48,7 +47,7 @@ class BanShops extends Component {
                     faveShops: res.data[0].faveShops,
                     banShops: res.data[0].banShops
                   })
-                  console.log("USER OBJECT:", this.state.faves[0])
+                  // console.log("USER OBJECT:", this.state.faves[0])
                 })
             }
 

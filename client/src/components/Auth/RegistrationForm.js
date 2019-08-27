@@ -62,8 +62,8 @@ export default withAuth(class RegistrationForm extends React.Component {
   }
   handleSubmit(e) {
     const body = this.state
-    console.log("BODY:",body);
-    console.log("LAST NAME:",body.lastName)
+    // console.log("BODY:",body);
+    // console.log("LAST NAME:",body.lastName)
     e.preventDefault();
     API.createUser(body)
       .then(user => {
