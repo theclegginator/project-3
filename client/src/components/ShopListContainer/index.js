@@ -44,7 +44,7 @@ class ShopListContainer extends Component {
               })
                 .then(res => {
                   this.setState({
-                    userDocExits: true
+                    faves: {}
                   })
                   console.log("This guy is a NEWB!")
 
@@ -112,23 +112,37 @@ class ShopListContainer extends Component {
       .then(res => {
         console.log("Results", res);
 
-        const bannedShops = this.state.faves[0].banShops
         const shopLoad = res.data.results
 
-        for (let i = 0; i < shopLoad.length; i++) {
-          if (bannedShops.findIndex(result => result.id === shopLoad[i].id) == -1) {
-            let shopLoco = `${shopLoad[i].name},${shopLoad[i].vicinity}`;
-            if ((navigator.platform.indexOf("iPhone") != -1) || (navigator.platform.indexOf("iPad") != -1) || (navigator.platform.indexOf("iPod") != -1)) {
-              window.open(`maps://maps.google.com/maps/dir/?daddr=${shopLoco}&saddr=${this.state.geolocation}&amp;ll=`);
+        if (this.state.faves[0]) {
+          const bannedShops = this.state.faves[0].banShops
+        
+          for (let i = 0; i < shopLoad.length; i++) {
+            if (bannedShops.findIndex(result => result.id === shopLoad[i].id) == -1) {
+              let shopLoco = `${shopLoad[i].name},${shopLoad[i].vicinity}`;
+              if ((navigator.platform.indexOf("iPhone") != -1) || (navigator.platform.indexOf("iPad") != -1) || (navigator.platform.indexOf("iPod") != -1)) {
+                window.open(`maps://maps.google.com/maps/dir/?daddr=${shopLoco}&saddr=${this.state.geolocation}&amp;ll=`);
 
-              // else use Google
-            } else {
-              window.open(`https://maps.google.com/maps/dir/?daddr=${shopLoco}&saddr=${this.state.geolocation}&amp;ll=&amp;ll=`);
+                // else use Google
+              } else {
+                window.open(`https://maps.google.com/maps/dir/?daddr=${shopLoco}&saddr=${this.state.geolocation}&amp;ll=&amp;ll=`);
 
+              }
+              { break; }
             }
-            { break; }
-          }
 
+          }
+        } else {
+          let shopLoco = `${shopLoad[0].name},${shopLoad[0].vicinity}`;
+          if ((navigator.platform.indexOf("iPhone") != -1) || (navigator.platform.indexOf("iPad") != -1) || (navigator.platform.indexOf("iPod") != -1)) {
+            window.open(`maps://maps.google.com/maps/dir/?daddr=${shopLoco}&saddr=${this.state.geolocation}&amp;ll=`);
+
+            // else use Google
+          } else {
+            window.open(`https://maps.google.com/maps/dir/?daddr=${shopLoco}&saddr=${this.state.geolocation}&amp;ll=&amp;ll=`);
+
+          }
+         
         }
       })
     )
