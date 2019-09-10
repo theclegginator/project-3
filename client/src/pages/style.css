@@ -5,7 +5,7 @@
     background-position: center;
     background-repeat: no-repeat;
     height: -webkit-fill-available;
-
+    min-height: 100vh;
 }
 .background2{
     background-image: url("../images/coffee-shop-blur1.jpg");
@@ -34,16 +34,20 @@
   background-position: center;
   background-repeat: no-repeat;
   height: fit-content;
-  min-height: 25rem;
+  min-height: 100vh;
 }
 
 .backgroundhome {
     background-image: url(../images/orangecup.jpg);
-    background-size: cover;
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover; 
+    height: fit-content;
+    min-height: 100vh;
+
     font-family: 'Shadows Into Light', cursive;
-    height: -webkit-fill-available;
+    /* height: -webkit-fill-available; */
 }
 .barisso{
 color: white;
